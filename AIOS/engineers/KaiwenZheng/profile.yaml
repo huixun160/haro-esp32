@@ -1,0 +1,34 @@
+# Engineer Profile — KaiwenZheng
+
+name: KaiwenZheng
+role: Director of AI Research
+organization: NextBigSeek
+responsibility: AI models, workflow development, feature phone architecture design
+registered_at: "2026-03-09"
+
+projects:
+  - project: featurephone_secure
+    role: lead
+    joined_at: "2026-03-09"
+  - project: aios_workflow_meta
+    role: lead
+    joined_at: "2026-03-24"
+  - project: fpreconstruction
+    role: lead
+    joined_at: "2026-03-25"
+  - project: demo_merge
+    role: lead
+    joined_at: "2026-03-26"
+
+modules_owned:
+  - dap_runtime
+  - dap_security
+  - workflow_infra
+  - app_architecture
+
+contact:
+  gitlab: "@kaiwenzheng"
+
+preferences:
+  language: zh-CN
+  review_depth: detailed

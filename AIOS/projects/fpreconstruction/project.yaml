@@ -1,0 +1,31 @@
+# Project Definition — Feature Phone Reconstruction
+
+project: fpreconstruction
+display_name: "Feature Phone Reconstruction"
+description: "重构功能机架构来服务 APP — 基于 James 版整体架构文档，建立五层分离模型"
+created_at: "2026-03-25"
+lead: KaiwenZheng
+
+modules:
+  - abi_v1
+  - dap_runtime
+  - ui_service
+  - storage_service
+  - network_service
+  - package_service
+  - device_service
+  - audio_service
+  - telephony_service
+  - security_service
+  - ui_adapter
+  - storage_adapter
+  - network_adapter
+  - device_adapter
+  - audio_adapter
+  - telephony_adapter
+  - app_runtime
+
+platform: Unisoc Mocor
+build_target: kz_fp_tm28r
+
+tm_counter: 0   # next TM number for this project

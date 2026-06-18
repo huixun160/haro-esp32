@@ -1,0 +1,172 @@
+NO        	SN          	CORE        	Content                                                                         	Module                                                          	MSGID       	
+0         	1066544-1   	--          	MNPHONE_GetDSDAProductForm 0                                                    	MN_AL                                                           	
+1         	1068264-1   	--          	MNPHONE_GetDSDAProductForm 0                                                    	MN_AL                                                           	
+2         	1075225-1   	--          	[DAP] [DAP_FMM_Integration.c:276] [MSG] >>> DAP_FMM_ExecuteModule ENTER         	                                                                	
+3         	1075294-1   	--          	[DAP] [DAP_FMM_Integration.c:287] [MSG] ExecuteModule: path=[D:\DAP\hello_bigseek.bin], name_len=24	                                                                	
+4         	1075363-1   	--          	[DAP] [DAP_FMM_Integration.c:127] [MSG] >>> DAP_FMM_ExecuteBinFile ENTER        	                                                                	
+5         	1075432-1   	--          	[DAP] [DAP_FMM_Integration.c:138] [MSG] ExecuteBinFile: path=[D:\DAP\hello_bigseek.bin], len=24	                                                                	
+6         	1075501-1   	--          	[DAP] [DAP_FMM_Integration.c:161] [MSG] DAP_GetLoaderInited is initialized      	                                                                	
+7         	1075570-1   	--          	[DAP] [DAP_FMM_Integration.c:177] [MSG] Calling DAP_ExecuteAP...                	                                                                	
+8         	1075671-1   	--          	[DAP] [DAP_Loader_unisoc.c:260] [MSG] >>> DAP_ExecuteAP ENTER, path=[D:\DAP\hello_bigseek.bin], ptr=0x82FCA13C	                                                                	
+9         	1075808-1   	--          	[DAP] [DAP_OSAssociated_unisoc.c:156] [MSG] FileOpen: path=[D:\DAP\hello_bigseek.bin], len=24	                                                                	
+10        	1075923-1   	--          	[DAP] [DAP_OSAssociated_unisoc.c:168] [MSG] FileOpen OK: handle=0x00070000      	                                                                	
+11        	1075996-1   	--          	[DAP] [DAP_OSAssociated_unisoc.c:229] [MSG] FileGetSize OK: size=628 bytes      	                                                                	
+12        	1076067-1   	--          	[DAP] [DAP_Loader_unisoc.c:286] [MSG] File size: 628 bytes                      	                                                                	
+13        	1076147-1   	--          	[DAP] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=352, actual=352	                                                                	
+14        	1076216-1   	--          	[DAP] [DAP_Loader_unisoc.c:334] [MSG] Module SDK version: 1                     	                                                                	
+15        	1076296-1   	--          	[DAP] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=628, actual=628	                                                                	
+16        	1076365-1   	--          	[DAP] [DAP_Loader_unisoc.c:365] [MSG] Full file loaded: 628 bytes at 0x83F30A94 	                                                                	
+17        	1076436-1   	--          	[DAP] [DAP_Loader_unisoc.c:446] [MSG] version>=v1: -----------call GetBSSSpace  	                                                                	
+18        	1076505-1   	--          	[DAP] [DAP_Loader_unisoc.c:450] [MSG] GetBSSSpace:    offset=0x000001C4,     addr=0x83F30C58	                                                                	
+19        	1076574-1   	--          	[DAP] [DAP_Loader_unisoc.c:454] [MSG] GetBSSSpace returned BSS_size= 0 bytes    	                                                                	
+20        	1076657-1   	--          	[DAP] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=628, actual=628	                                                                	
+21        	1076727-1   	--          	[DAP] [DAP_Loader_unisoc.c:525] [MSG] BSS realloc OK: file=628 + bss=0 = 628, base=0x83F30A94, encrypted=0	                                                                	
+22        	1076802-1   	--          	[DAP] [DAP_Loader_unisoc.c:555] [ERR] === [Kernel Direct] Inside Loader ===     	                                                                	
+23        	1076872-1   	--          	[DAP] [DAP_Loader_unisoc.c:556] [ERR] Kernel Direct: LoadAddr=0x83F30A94        	                                                                	
+24        	1076943-1   	--          	[DAP] [DAP_Loader_unisoc.c:557] [ERR] Kernel Direct: OSAPI=0x88DC5D71           	                                                                	
+25        	1077083-1   	--          	MNPHONE_GetDSDAProductForm 0                                                    	MN_AL                                                           	
+26        	1077150-1   	--          	[DAP] [DAP_Loader_unisoc.c:558] [ERR] Kernel Direct: Register=0x88DC5D03        	                                                                	
+27        	1077283-1   	--          	[DAP] [DAP_Loader_unisoc.c:559] [ERR] Kernel Direct: DelAPI=0x88DC5E47          	                                                                	
+28        	1077352-1   	--          	[DAP] [DAP_Loader_unisoc.c:575] [MSG] Reloc: OSAPI=0x88DC5D71, Reg=0x88DC5D03, Del=0x88DC5E47, LoadAddr=0x83F30A94	                                                                	
+29        	1077469-1   	--          	[DAP] [DAP_Loader_unisoc.c:593] [MSG] Entry offset=0x00000184, base=0x83F30A94, absolute=0x83F30C18	                                                                	
+30        	1077570-1   	--          	[DAP] [DAP_Loader_unisoc.c:595] [MSG] Header: TagCheckSum=0x0000026D, VersionMark=0x55AA0001, LoadAddr=0x83F30A94	                                                                	
+31        	1077639-1   	--          	[DAP] [DAP_Loader_unisoc.c:598] [MSG] Header: MTKExeTag=[MTK_Exe], GetBSSSpace=0x000001C4, Free=0x00000000	                                                                	
+32        	1077747-1   	--          	[DAP] [DAP_Loader_unisoc.c:604] [MSG] >>> JUMPING to entry_func NOW <<<         	                                                                	
+33        	1077825-1   	--          	[DAP] [DAP_Loader_unisoc.c:610] [ERR] >>> BEFORE Exec: Loader running standard entry	                                                                	
+34        	1077894-1   	--          	[DAP] >>> InterfaceRegister_Find ENTER: [OS_DisplayPopup]                       	                                                                	
+35        	1077895-1   	--          	[DAP] <<< InterfaceRegister_Find OK: [OS_DisplayPopup] -> 0x8810E3FD            	                                                                	
+36        	1077896-1   	--          	[DAP] [dap_gui_unisoc.c:79] [MSG] DAP_GUI_ShowAlertText: [Hello AIOS v0]        	                                                                	
+37        	1077986-1   	--          	[DAP] >>> InterfaceRegister_Find ENTER: [DAP_TracePrint]                        	                                                                	
+38        	1077987-1   	--          	[DAP] <<< InterfaceRegister_Find OK: [DAP_TracePrint] -> 0x8810B57F             	                                                                	
+39        	1077988-1   	--          	[DAP] [hello] dap_api.h v0 OK                                                   	                                                                	
+40        	1077989-1   	--          	[DAP] [DAP_Loader_unisoc.c:614] [ERR] <<< AFTER Exec: DAP_ExecuteAP result=0    	                                                                	
+41        	1078058-1   	--          	[DAP] [DAP_Loader_unisoc.c:618] [MSG] tm22_return handle: alloc_base=0x83F30A94 Running_AP=0x83F30A94 is_bin2=0	                                                                	
+42        	1078127-1   	--          	[DAP] [dap_gui_unisoc.c:79] [MSG] DAP_GUI_ShowAlertText: [OK:Module executed]   	                                                                	
+43        	1078197-1   	--          	[DAP] [DAP_FMM_Integration.c:236] [MSG] Module executed OK, result=0            	                                                                	
+44        	1078266-1   	--          	[DAP] [DAP_Loader_unisoc.c:675] [MSG] <<< DAP_ReleaseAP OK (freed alloc_base=0x83F30A94)	                                                                	
+45        	1078335-1   	--          	[DAP] [DAP_FMM_Integration.c:251] [MSG] Module released                         	                                                                	
+46        	1078404-1   	--          	[DAP] [DAP_FMM_Integration.c:258] [MSG] <<< DAP_FMM_ExecuteBinFile complete     	                                                                	
+47        	1082102-1   	--          	[DAP] [DAP_FMM_Integration.c:276] [MSG] >>> DAP_FMM_ExecuteModule ENTER         	                                                                	
+48        	1082182-1   	--          	[DAP] [DAP_FMM_Integration.c:287] [MSG] ExecuteModule: path=[D:\DAP\hello_sdk_v0.bin2], name_len=24	                                                                	
+49        	1082271-1   	--          	[DAP] [DAP_FMM_Integration.c:127] [MSG] >>> DAP_FMM_ExecuteBinFile ENTER        	                                                                	
+50        	1082340-1   	--          	[DAP] [DAP_FMM_Integration.c:138] [MSG] ExecuteBinFile: path=[D:\DAP\hello_sdk_v0.bin2], len=24	                                                                	
+51        	1082478-1   	--          	[DAP] [DAP_FMM_Integration.c:161] [MSG] DAP_GetLoaderInited is initialized      	                                                                	
+52        	1082547-1   	--          	[DAP] [DAP_FMM_Integration.c:177] [MSG] Calling DAP_ExecuteAP...                	                                                                	
+53        	1082616-1   	--          	[DAP] [DAP_Loader_unisoc.c:260] [MSG] >>> DAP_ExecuteAP ENTER, path=[D:\DAP\hello_sdk_v0.bin2], ptr=0x82FCA13C	                                                                	
+54        	1082685-1   	--          	[DAP] [DAP_OSAssociated_unisoc.c:156] [MSG] FileOpen: path=[D:\DAP\hello_sdk_v0.bin2], len=24	                                                                	
+55        	1082799-1   	--          	[DAP] [DAP_OSAssociated_unisoc.c:168] [MSG] FileOpen OK: handle=0x00070000      	                                                                	
+56        	1082872-1   	--          	[DAP] [DAP_OSAssociated_unisoc.c:229] [MSG] FileGetSize OK: size=756 bytes      	                                                                	
+57        	1082941-1   	--          	[DAP] [DAP_Loader_unisoc.c:286] [MSG] File size: 756 bytes                      	                                                                	
+58        	1083021-1   	--          	[DAP] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=352, actual=352	                                                                	
+59        	1083102-1   	--          	[DAP] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=756, actual=756	                                                                	
+60        	1083171-1   	--          	[DAP] [DAP_Loader_unisoc.c:365] [MSG] Full file loaded: 756 bytes at 0x83F30A94 	                                                                	
+61        	1083245-1   	--          	[DAP] tm15_sig_verify: total=756 hdr=64 sig=64 pay=628                          	                                                                	
+62        	1083246-1   	--          	[DAP] tm15_sig_verify: payload_off=128 signed_region_len=756                    	                                                                	
+63        	1083247-1   	--          	[DAP] tm15_sig[0..7]=24 c7 fb 3a 22 2d a3 ed                                    	                                                                	
+64        	1083248-1   	--          	[DAP] tm15_pubkey[0..7]=eb e2 1c 44 2e 0c f7 ad                                 	                                                                	
+65        	1083249-1   	--          	[DAP] tm15_hdr[0..7]=42 49 4e 32 02 00 40 00                                    	                                                                	
+66        	1083250-1   	--          	[DAP] tm15_payload[0..7]=4d 54 4b 5f 45 78 65 00                                	                                                                	
+67        	1083251-1   	--          	[DAP] tm15_msg_hash[0..7]=20 ee 1c 91 49 a6 9f 87                               	                                                                	
+68        	1083393-1   	--          	[DAP] tm15_sig_verify: ed25519_verify ret=0 (0=OK)                              	                                                                	
+69        	1083395-1   	--          	[DAP] [BIND] verify: binding_mode=0                                             	                                                                	
+70        	1083396-1   	--          	[DAP] [BIND] verify: UNBOUND, skip check                                        	                                                                	
+71        	1083399-1   	--          	[DAP] [DAP_Loader_unisoc.c:413] [MSG] BIN2 verified OK, payload at 0x83F30B14, payload_size=628, encrypted=0	                                                                	
+72        	1083468-1   	--          	[DAP] [DAP_Loader_unisoc.c:415] [MSG] tm22_alloc_base=0x83F30A94 Running_AP=0x83F30B14 offset=128	                                                                	
+73        	1083537-1   	--          	[DAP] [DAP_Loader_unisoc.c:425] [MSG] BIN2 payload SDK version: 1               	                                                                	
+74        	1083656-1   	--          	[DAP] [DAP_Loader_unisoc.c:446] [MSG] version>=v1: -----------call GetBSSSpace  	                                                                	
+75        	1083725-1   	--          	[DAP] [DAP_Loader_unisoc.c:450] [MSG] GetBSSSpace:    offset=0x000001C4,     addr=0x83F30CD8	                                                                	
+76        	1083794-1   	--          	[DAP] [DAP_Loader_unisoc.c:454] [MSG] GetBSSSpace returned BSS_size= 0 bytes    	                                                                	
+77        	1083867-1   	--          	[DAP] [DAP_Loader_unisoc.c:509] [MSG] tm22_BSS_reread: BIN2 seek to payload_off=128, read_size=628	                                                                	
+78        	1083943-1   	--          	[DAP] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=628, actual=628	                                                                	
+79        	1084012-1   	--          	[DAP] [DAP_Loader_unisoc.c:525] [MSG] BSS realloc OK: file=628 + bss=0 = 628, base=0x83F30A94, encrypted=0	                                                                	
+80        	1084086-1   	--          	[DAP] [DAP_Loader_unisoc.c:555] [ERR] === [Kernel Direct] Inside Loader ===     	                                                                	
+81        	1084155-1   	--          	[DAP] [DAP_Loader_unisoc.c:556] [ERR] Kernel Direct: LoadAddr=0x83F30A94        	                                                                	
+82        	1084224-1   	--          	[DAP] [DAP_Loader_unisoc.c:557] [ERR] Kernel Direct: OSAPI=0x88DC5D71           	                                                                	
+83        	1084293-1   	--          	[DAP] [DAP_Loader_unisoc.c:558] [ERR] Kernel Direct: Register=0x88DC5D03        	                                                                	
+84        	1084362-1   	--          	[DAP] [DAP_Loader_unisoc.c:559] [ERR] Kernel Direct: DelAPI=0x88DC5E47          	                                                                	
+85        	1084431-1   	--          	[DAP] [DAP_Loader_unisoc.c:575] [MSG] Reloc: OSAPI=0x88DC5D71, Reg=0x88DC5D03, Del=0x88DC5E47, LoadAddr=0x83F30A94	                                                                	
+86        	1084500-1   	--          	[DAP] [DAP_Loader_unisoc.c:593] [MSG] Entry offset=0x00000184, base=0x83F30A94, absolute=0x83F30C18	                                                                	
+87        	1084569-1   	--          	[DAP] [DAP_Loader_unisoc.c:595] [MSG] Header: TagCheckSum=0x0000026D, VersionMark=0x55AA0001, LoadAddr=0x83F30A94	                                                                	
+88        	1084638-1   	--          	[DAP] [DAP_Loader_unisoc.c:598] [MSG] Header: MTKExeTag=[MTK_Exe], GetBSSSpace=0x000001C4, Free=0x00000000	                                                                	
+89        	1084707-1   	--          	[DAP] [DAP_Loader_unisoc.c:604] [MSG] >>> JUMPING to entry_func NOW <<<         	                                                                	
+90        	1084776-1   	--          	[DAP] [DAP_Loader_unisoc.c:610] [ERR] >>> BEFORE Exec: Loader running standard entry	                                                                	
+91        	1084845-1   	--          	[DAP] >>> InterfaceRegister_Find ENTER: [OS_DisplayPopup]                       	                                                                	
+92        	1084846-1   	--          	[DAP] <<< InterfaceRegister_Find OK: [OS_DisplayPopup] -> 0x8810E3FD            	                                                                	
+93        	1084847-1   	--          	[DAP] [dap_gui_unisoc.c:79] [MSG] DAP_GUI_ShowAlertText: [Hello AIOS v0]        	                                                                	
+94        	1084937-1   	--          	[DAP] >>> InterfaceRegister_Find ENTER: [DAP_TracePrint]                        	                                                                	
+95        	1084938-1   	--          	[DAP] <<< InterfaceRegister_Find OK: [DAP_TracePrint] -> 0x8810B57F             	                                                                	
+96        	1084939-1   	--          	[DAP] [hello] dap_api.h v0 OK                                                   	                                                                	
+97        	1084940-1   	--          	[DAP] [DAP_Loader_unisoc.c:614] [ERR] <<< AFTER Exec: DAP_ExecuteAP result=0    	                                                                	
+98        	1085009-1   	--          	[DAP] [DAP_Loader_unisoc.c:618] [MSG] tm22_return handle: alloc_base=0x83F30A94 Running_AP=0x83F30A94 is_bin2=1	                                                                	
+99        	1085078-1   	--          	[DAP] [dap_gui_unisoc.c:79] [MSG] DAP_GUI_ShowAlertText: [OK:Module executed]   	                                                                	
+100       	1085148-1   	--          	[DAP] [DAP_FMM_Integration.c:236] [MSG] Module executed OK, result=0            	                                                                	
+101       	1085217-1   	--          	[DAP] [DAP_Loader_unisoc.c:675] [MSG] <<< DAP_ReleaseAP OK (freed alloc_base=0x83F30A94)	                                                                	
+102       	1085286-1   	--          	[DAP] [DAP_FMM_Integration.c:251] [MSG] Module released                         	                                                                	
+103       	1085355-1   	--          	[DAP] [DAP_FMM_Integration.c:258] [MSG] <<< DAP_FMM_ExecuteBinFile complete     	                                                                	
+104       	1089098-1   	--          	[DAP] [DAP_FMM_Integration.c:276] [MSG] >>> DAP_FMM_ExecuteModule ENTER         	                                                                	
+105       	1089178-1   	--          	[DAP] [DAP_FMM_Integration.c:287] [MSG] ExecuteModule: path=[D:\DAP\hello_sdk_v0.bin3], name_len=24	                                                                	
+106       	1089267-1   	--          	[DAP] [DAP_FMM_Integration.c:127] [MSG] >>> DAP_FMM_ExecuteBinFile ENTER        	                                                                	
+107       	1089336-1   	--          	[DAP] [DAP_FMM_Integration.c:138] [MSG] ExecuteBinFile: path=[D:\DAP\hello_sdk_v0.bin3], len=24	                                                                	
+108       	1089474-1   	--          	[DAP] [DAP_FMM_Integration.c:161] [MSG] DAP_GetLoaderInited is initialized      	                                                                	
+109       	1089543-1   	--          	[DAP] [DAP_FMM_Integration.c:177] [MSG] Calling DAP_ExecuteAP...                	                                                                	
+110       	1089612-1   	--          	[DAP] [DAP_Loader_unisoc.c:260] [MSG] >>> DAP_ExecuteAP ENTER, path=[D:\DAP\hello_sdk_v0.bin3], ptr=0x82FCA13C	                                                                	
+111       	1089681-1   	--          	[DAP] [DAP_OSAssociated_unisoc.c:156] [MSG] FileOpen: path=[D:\DAP\hello_sdk_v0.bin3], len=24	                                                                	
+112       	1089795-1   	--          	[DAP] [DAP_OSAssociated_unisoc.c:168] [MSG] FileOpen OK: handle=0x000B0000      	                                                                	
+113       	1089868-1   	--          	[DAP] [DAP_OSAssociated_unisoc.c:229] [MSG] FileGetSize OK: size=788 bytes      	                                                                	
+114       	1089937-1   	--          	[DAP] [DAP_Loader_unisoc.c:286] [MSG] File size: 788 bytes                      	                                                                	
+115       	1090017-1   	--          	[DAP] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=352, actual=352	                                                                	
+116       	1090098-1   	--          	[DAP] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=788, actual=788	                                                                	
+117       	1090167-1   	--          	[DAP] [DAP_Loader_unisoc.c:365] [MSG] Full file loaded: 788 bytes at 0x83F30A94 	                                                                	
+118       	1090240-1   	--          	[DAP] tm15_sig_verify: total=788 hdr=96 sig=64 pay=628                          	                                                                	
+119       	1090241-1   	--          	[DAP] tm15_sig_verify: payload_off=160 signed_region_len=788                    	                                                                	
+120       	1090242-1   	--          	[DAP] tm15_sig[0..7]=bc 43 6b 4f b1 fd 14 67                                    	                                                                	
+121       	1090243-1   	--          	[DAP] tm15_pubkey[0..7]=eb e2 1c 44 2e 0c f7 ad                                 	                                                                	
+122       	1090244-1   	--          	[DAP] tm15_hdr[0..7]=42 49 4e 32 03 00 60 00                                    	                                                                	
+123       	1090245-1   	--          	[DAP] tm15_payload[0..7]=dc 10 f9 5d 46 29 ee b1                                	                                                                	
+124       	1090246-1   	--          	[DAP] tm15_msg_hash[0..7]=f2 82 a4 38 5d ea 7e 05                               	                                                                	
+125       	1090389-1   	--          	[DAP] tm15_sig_verify: ed25519_verify ret=0 (0=OK)                              	                                                                	
+126       	1090391-1   	--          	[DAP] [BIND] verify: binding_mode=1                                             	                                                                	
+127       	1090392-1   	--          	[DAP] [bind] tm28_DEBUG_secret[0..7]=90 50 c4 a8 e8 90 67 5e                    	                                                                	
+128       	1090393-1   	--          	[DAP] [bind] tm28_DEBUG_secret[8..15]=09 ec e9 ab d9 e0 ef 93                   	                                                                	
+129       	1090394-1   	--          	[DAP] [bind] tm28_DEBUG_secret[16..23]=5b 11 4b 7d f0 5a 75 83                  	                                                                	
+130       	1090395-1   	--          	[DAP] [bind] tm28_DEBUG_secret[24..31]=fe 41 de 6e fe 76 78 c6                  	                                                                	
+131       	1090396-1   	--          	[DAP] [BIND] derive: ID[0..7]=99 c7 87 6d 6d ef 30 eb                           	                                                                	
+132       	1090397-1   	--          	[DAP] [BIND] hdr_id=99c7876d6def30eb                                            	                                                                	
+133       	1090398-1   	--          	[DAP] [BIND] loc_id=99c7876d6def30eb                                            	                                                                	
+134       	1090399-1   	--          	[DAP] [BIND] verify: MATCH OK                                                   	                                                                	
+135       	1090409-1   	--          	[DAP] [DAP_Loader_unisoc.c:413] [MSG] BIN2 verified OK, payload at 0x83F30B34, payload_size=628, encrypted=1	                                                                	
+136       	1090478-1   	--          	[DAP] [DAP_Loader_unisoc.c:415] [MSG] tm22_alloc_base=0x83F30A94 Running_AP=0x83F30B34 offset=160	                                                                	
+137       	1090547-1   	--          	[DAP] [DAP_Loader_unisoc.c:425] [MSG] BIN2 payload SDK version: 1               	                                                                	
+138       	1090666-1   	--          	[DAP] [DAP_Loader_unisoc.c:446] [MSG] version>=v1: -----------call GetBSSSpace  	                                                                	
+139       	1090735-1   	--          	[DAP] [DAP_Loader_unisoc.c:450] [MSG] GetBSSSpace:    offset=0x000001C4,     addr=0x83F30CF8	                                                                	
+140       	1090804-1   	--          	[DAP] [DAP_Loader_unisoc.c:454] [MSG] GetBSSSpace returned BSS_size= 0 bytes    	                                                                	
+141       	1090873-1   	--          	[DAP] [DAP_Loader_unisoc.c:489] [MSG] tm28_BSS_realloc_enc: memcpy 628 bytes from decrypted payload	                                                                	
+142       	1090942-1   	--          	[DAP] [DAP_Loader_unisoc.c:525] [MSG] BSS realloc OK: file=628 + bss=0 = 628, base=0x83F300B0, encrypted=1	                                                                	
+143       	1091016-1   	--          	[DAP] [DAP_Loader_unisoc.c:555] [ERR] === [Kernel Direct] Inside Loader ===     	                                                                	
+144       	1091085-1   	--          	[DAP] [DAP_Loader_unisoc.c:556] [ERR] Kernel Direct: LoadAddr=0x83F300B0        	                                                                	
+145       	1091154-1   	--          	[DAP] [DAP_Loader_unisoc.c:557] [ERR] Kernel Direct: OSAPI=0x88DC5D71           	                                                                	
+146       	1091223-1   	--          	[DAP] [DAP_Loader_unisoc.c:558] [ERR] Kernel Direct: Register=0x88DC5D03        	                                                                	
+147       	1091292-1   	--          	[DAP] [DAP_Loader_unisoc.c:559] [ERR] Kernel Direct: DelAPI=0x88DC5E47          	                                                                	
+148       	1091361-1   	--          	[DAP] [DAP_Loader_unisoc.c:575] [MSG] Reloc: OSAPI=0x88DC5D71, Reg=0x88DC5D03, Del=0x88DC5E47, LoadAddr=0x83F300B0	                                                                	
+149       	1091430-1   	--          	[DAP] [DAP_Loader_unisoc.c:593] [MSG] Entry offset=0x00000184, base=0x83F300B0, absolute=0x83F30234	                                                                	
+150       	1091499-1   	--          	[DAP] [DAP_Loader_unisoc.c:595] [MSG] Header: TagCheckSum=0x0000026D, VersionMark=0x55AA0001, LoadAddr=0x83F300B0	                                                                	
+151       	1091568-1   	--          	[DAP] [DAP_Loader_unisoc.c:598] [MSG] Header: MTKExeTag=[MTK_Exe], GetBSSSpace=0x000001C4, Free=0x00000000	                                                                	
+152       	1091637-1   	--          	[DAP] [DAP_Loader_unisoc.c:604] [MSG] >>> JUMPING to entry_func NOW <<<         	                                                                	
+153       	1091706-1   	--          	[DAP] [DAP_Loader_unisoc.c:610] [ERR] >>> BEFORE Exec: Loader running standard entry	                                                                	
+154       	1091775-1   	--          	[DAP] >>> InterfaceRegister_Find ENTER: [OS_DisplayPopup]                       	                                                                	
+155       	1091776-1   	--          	[DAP] <<< InterfaceRegister_Find OK: [OS_DisplayPopup] -> 0x8810E3FD            	                                                                	
+156       	1091777-1   	--          	[DAP] [dap_gui_unisoc.c:79] [MSG] DAP_GUI_ShowAlertText: [Hello AIOS v0]        	                                                                	
+157       	1091867-1   	--          	[DAP] >>> InterfaceRegister_Find ENTER: [DAP_TracePrint]                        	                                                                	
+158       	1091868-1   	--          	[DAP] <<< InterfaceRegister_Find OK: [DAP_TracePrint] -> 0x8810B57F             	                                                                	
+159       	1091869-1   	--          	[DAP] [hello] dap_api.h v0 OK                                                   	                                                                	
+160       	1091870-1   	--          	[DAP] [DAP_Loader_unisoc.c:614] [ERR] <<< AFTER Exec: DAP_ExecuteAP result=0    	                                                                	
+161       	1091939-1   	--          	[DAP] [DAP_Loader_unisoc.c:618] [MSG] tm22_return handle: alloc_base=0x83F300B0 Running_AP=0x83F300B0 is_bin2=1	                                                                	
+162       	1092028-1   	--          	[DAP] [dap_gui_unisoc.c:79] [MSG] DAP_GUI_ShowAlertText: [OK:Module executed]   	                                                                	
+163       	1092098-1   	--          	[DAP] [DAP_FMM_Integration.c:236] [MSG] Module executed OK, result=0            	                                                                	
+164       	1092167-1   	--          	[DAP] [DAP_Loader_unisoc.c:675] [MSG] <<< DAP_ReleaseAP OK (freed alloc_base=0x83F300B0)	                                                                	
+165       	1092236-1   	--          	[DAP] [DAP_FMM_Integration.c:251] [MSG] Module released                         	                                                                	
+166       	1092305-1   	--          	[DAP] [DAP_FMM_Integration.c:258] [MSG] <<< DAP_FMM_ExecuteBinFile complete     	                                                                	
+167       	1094308-1   	--          	MNPHONE_GetDSDAProductForm 0                                                    	MN_AL                                                           	
+168       	1097410-1   	--          	MNPHONE_GetDSDAProductForm 0                                                    	MN_AL                                                           	
+169       	1101658-1   	--          	MNPHONE_GetDSDAProductForm 0                                                    	MN_AL                                                           	
+170       	1103417-1   	--          	MNPHONE_GetDSDAProductForm 0                                                    	MN_AL                                                           	

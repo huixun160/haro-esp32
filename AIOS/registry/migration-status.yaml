@@ -1,0 +1,15 @@
+# AIOS Migration Status Registry
+#
+# Tracks legacy API migration to DAP wrappers.
+#
+# Schema per entry:
+#   - legacy_api: string      # Original legacy API name
+#     dap_wrapper: string     # New DAP wrapper function name
+#     status: string          # planned / in-progress / wrapped / verified / deprecated
+#     remaining_calls: int    # Number of remaining direct legacy calls
+#     owner: string           # Engineer responsible
+#     notes: string           # Additional notes
+#
+# Updated during workflow execution as APIs are wrapped.
+
+migrations: []

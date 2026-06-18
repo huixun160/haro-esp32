@@ -1,0 +1,147 @@
+NO        	SN          	CORE        	Content                                                                         	Module                                                          	MSGID       	
+0         	383311-1    	--          	[DAP] [bind] tm28_DEBUG_secret[0..7]=41 03 46 54 58 9c b4 5a                    	                                                                	
+1         	383312-1    	--          	[DAP] [bind] tm28_DEBUG_secret[8..15]=ae 4b 63 0c 14 2a ea 30                   	                                                                	
+2         	383313-1    	--          	[DAP] [bind] tm28_DEBUG_secret[16..23]=48 80 5f 7a 35 e1 cc e3                  	                                                                	
+3         	383314-1    	--          	[DAP] [bind] tm28_DEBUG_secret[24..31]=ab ad d9 12 53 cb 86 e3                  	                                                                	
+4         	383315-1    	--          	[DAP] [BIND] derive: ID[0..7]=83 5c 97 2a 95 ed 6d c8                           	                                                                	
+5         	383316-1    	--          	[DAP] [bind] tm25_init ok                                                       	                                                                	
+6         	383317-1    	--          	[DAP] [bind] tm25_id[0..7]=83 5c 97 2a 95 ed 6d c8                              	                                                                	
+7         	383318-1    	--          	[DAP] [bind] tm25_id[8..15]=c9 ee b7 6a 77 76 17 0c                             	                                                                	
+8         	383319-1    	--          	[DAP] [bind] tm26_generate_bindfile ENTER                                       	                                                                	
+9         	383320-1    	--          	[DAP] [bind] tm28_DEBUG_secret[0..7]=41 03 46 54 58 9c b4 5a                    	                                                                	
+10        	383321-1    	--          	[DAP] [bind] tm28_DEBUG_secret[8..15]=ae 4b 63 0c 14 2a ea 30                   	                                                                	
+11        	383322-1    	--          	[DAP] [bind] tm28_DEBUG_secret[16..23]=48 80 5f 7a 35 e1 cc e3                  	                                                                	
+12        	383323-1    	--          	[DAP] [bind] tm28_DEBUG_secret[24..31]=ab ad d9 12 53 cb 86 e3                  	                                                                	
+13        	383324-1    	--          	[DAP] [BIND] derive: ID[0..7]=83 5c 97 2a 95 ed 6d c8                           	                                                                	
+14        	383460-1    	--          	[DAP] [BIND] export: .bind written OK (131 bytes)                               	                                                                	
+15        	383461-1    	--          	[DAP] [BIND] export: id=835c972a95ed6dc8c9eeb76a7776170c                        	                                                                	
+16        	383462-1    	--          	[DAP] [bind] tm28_DEBUG_secret[0..7]=41 03 46 54 58 9c b4 5a                    	                                                                	
+17        	383463-1    	--          	[DAP] [bind] tm28_DEBUG_secret[8..15]=ae 4b 63 0c 14 2a ea 30                   	                                                                	
+18        	383464-1    	--          	[DAP] [bind] tm28_DEBUG_secret[16..23]=48 80 5f 7a 35 e1 cc e3                  	                                                                	
+19        	383465-1    	--          	[DAP] [bind] tm28_DEBUG_secret[24..31]=ab ad d9 12 53 cb 86 e3                  	                                                                	
+20        	383466-1    	--          	[DAP] [BIND] derive: ID[0..7]=83 5c 97 2a 95 ed 6d c8                           	                                                                	
+21        	383467-1    	--          	[DAP] [bind] tm26_binding_id=835c972a95ed6dc8c9eeb76a7776170c                   	                                                                	
+22        	383468-1    	--          	[DAP] [bind] tm26_file_written=D:\DAP\device.bind                               	                                                                	
+23        	383469-1    	--          	[DAP] [bind] tm28_DEBUG_secret[0..7]=41 03 46 54 58 9c b4 5a                    	                                                                	
+24        	383470-1    	--          	[DAP] [bind] tm28_DEBUG_secret[8..15]=ae 4b 63 0c 14 2a ea 30                   	                                                                	
+25        	383471-1    	--          	[DAP] [bind] tm28_DEBUG_secret[16..23]=48 80 5f 7a 35 e1 cc e3                  	                                                                	
+26        	383472-1    	--          	[DAP] [bind] tm28_DEBUG_secret[24..31]=ab ad d9 12 53 cb 86 e3                  	                                                                	
+27        	383473-1    	--          	[DAP] [BIND] derive: ID[0..7]=83 5c 97 2a 95 ed 6d c8                           	                                                                	
+28        	383524-1    	--          	[DAP] [dap_gui_unisoc.c:79] [MSG] DAP_GUI_ShowAlertText: [Device Identity Debug 	                                                                	
+29        	403853-1    	--          	[DAP] [DAP_FMM_Integration.c:276] [MSG] >>> DAP_FMM_ExecuteModule ENTER         	                                                                	
+30        	403933-1    	--          	[DAP] [DAP_FMM_Integration.c:287] [MSG] ExecuteModule: path=[D:\DAP\hello_bigseek.bin], name_len=24	                                                                	
+31        	404022-1    	--          	[DAP] [DAP_FMM_Integration.c:127] [MSG] >>> DAP_FMM_ExecuteBinFile ENTER        	                                                                	
+32        	404091-1    	--          	[DAP] [DAP_FMM_Integration.c:138] [MSG] ExecuteBinFile: path=[D:\DAP\hello_bigseek.bin], len=24	                                                                	
+33        	404229-1    	--          	[DAP] [DAP_FMM_Integration.c:161] [MSG] DAP_GetLoaderInited is initialized      	                                                                	
+34        	404298-1    	--          	[DAP] [DAP_FMM_Integration.c:177] [MSG] Calling DAP_ExecuteAP...                	                                                                	
+35        	404367-1    	--          	[DAP] [DAP_Loader_unisoc.c:260] [MSG] >>> DAP_ExecuteAP ENTER, path=[D:\DAP\hello_bigseek.bin], ptr=0x82FCA13C	                                                                	
+36        	404436-1    	--          	[DAP] [DAP_OSAssociated_unisoc.c:156] [MSG] FileOpen: path=[D:\DAP\hello_bigseek.bin], len=24	                                                                	
+37        	404550-1    	--          	[DAP] [DAP_OSAssociated_unisoc.c:168] [MSG] FileOpen OK: handle=0x00150000      	                                                                	
+38        	404623-1    	--          	[DAP] [DAP_OSAssociated_unisoc.c:229] [MSG] FileGetSize OK: size=628 bytes      	                                                                	
+39        	404692-1    	--          	[DAP] [DAP_Loader_unisoc.c:286] [MSG] File size: 628 bytes                      	                                                                	
+40        	404772-1    	--          	[DAP] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=352, actual=352	                                                                	
+41        	404841-1    	--          	[DAP] [DAP_Loader_unisoc.c:334] [MSG] Module SDK version: 1                     	                                                                	
+42        	404921-1    	--          	[DAP] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=628, actual=628	                                                                	
+43        	404992-1    	--          	[DAP] [DAP_Loader_unisoc.c:365] [MSG] Full file loaded: 628 bytes at 0x83F2FD64 	                                                                	
+44        	405063-1    	--          	[DAP] [DAP_Loader_unisoc.c:446] [MSG] version>=v1: -----------call GetBSSSpace  	                                                                	
+45        	405135-1    	--          	[DAP] [DAP_Loader_unisoc.c:450] [MSG] GetBSSSpace:    offset=0x000001C4,     addr=0x83F2FF28	                                                                	
+46        	405205-1    	--          	[DAP] [DAP_Loader_unisoc.c:454] [MSG] GetBSSSpace returned BSS_size= 0 bytes    	                                                                	
+47        	405287-1    	--          	[DAP] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=628, actual=628	                                                                	
+48        	405357-1    	--          	[DAP] [DAP_Loader_unisoc.c:525] [MSG] BSS realloc OK: file=628 + bss=0 = 628, base=0x83F2FD64, encrypted=0	                                                                	
+49        	405433-1    	--          	[DAP] [DAP_Loader_unisoc.c:555] [ERR] === [Kernel Direct] Inside Loader ===     	                                                                	
+50        	405502-1    	--          	[DAP] [DAP_Loader_unisoc.c:556] [ERR] Kernel Direct: LoadAddr=0x83F2FD64        	                                                                	
+51        	405571-1    	--          	[DAP] [DAP_Loader_unisoc.c:557] [ERR] Kernel Direct: OSAPI=0x88403EC3           	                                                                	
+52        	405688-1    	--          	[DAP] [DAP_Loader_unisoc.c:558] [ERR] Kernel Direct: Register=0x88403E55        	                                                                	
+53        	405757-1    	--          	[DAP] [DAP_Loader_unisoc.c:559] [ERR] Kernel Direct: DelAPI=0x88404231          	                                                                	
+54        	405858-1    	--          	[DAP] [DAP_Loader_unisoc.c:575] [MSG] Reloc: OSAPI=0x88403EC3, Reg=0x88403E55, Del=0x88404231, LoadAddr=0x83F2FD64	                                                                	
+55        	405966-1    	--          	[DAP] [DAP_Loader_unisoc.c:593] [MSG] Entry offset=0x00000184, base=0x83F2FD64, absolute=0x83F2FEE8	                                                                	
+56        	406044-1    	--          	[DAP] [DAP_Loader_unisoc.c:595] [MSG] Header: TagCheckSum=0x0000026D, VersionMark=0x55AA0001, LoadAddr=0x83F2FD64	                                                                	
+57        	406113-1    	--          	[DAP] [DAP_Loader_unisoc.c:598] [MSG] Header: MTKExeTag=[MTK_Exe], GetBSSSpace=0x000001C4, Free=0x00000000	                                                                	
+58        	406182-1    	--          	[DAP] [DAP_Loader_unisoc.c:604] [MSG] >>> JUMPING to entry_func NOW <<<         	                                                                	
+59        	406251-1    	--          	[DAP] [DAP_Loader_unisoc.c:610] [ERR] >>> BEFORE Exec: Loader running standard entry	                                                                	
+60        	406320-1    	--          	[DAP] >>> InterfaceRegister_Find ENTER: [OS_DisplayPopup]                       	                                                                	
+61        	406321-1    	--          	[DAP] <<< InterfaceRegister_Find OK: [OS_DisplayPopup] -> 0x887594C5            	                                                                	
+62        	406322-1    	--          	[DAP] [dap_gui_unisoc.c:79] [MSG] DAP_GUI_ShowAlertText: [Hello AIOS v0]        	                                                                	
+63        	406412-1    	--          	[DAP] >>> InterfaceRegister_Find ENTER: [DAP_TracePrint]                        	                                                                	
+64        	406413-1    	--          	[DAP] <<< InterfaceRegister_Find OK: [DAP_TracePrint] -> 0x8876714F             	                                                                	
+65        	406414-1    	--          	[DAP] [hello] dap_api.h v0 OK                                                   	                                                                	
+66        	406415-1    	--          	[DAP] [DAP_Loader_unisoc.c:614] [ERR] <<< AFTER Exec: DAP_ExecuteAP result=0    	                                                                	
+67        	406484-1    	--          	[DAP] [DAP_Loader_unisoc.c:618] [MSG] tm22_return handle: alloc_base=0x83F2FD64 Running_AP=0x83F2FD64 is_bin2=0	                                                                	
+68        	406553-1    	--          	[DAP] [dap_gui_unisoc.c:79] [MSG] DAP_GUI_ShowAlertText: [OK:Module executed]   	                                                                	
+69        	406623-1    	--          	[DAP] [DAP_FMM_Integration.c:236] [MSG] Module executed OK, result=0            	                                                                	
+70        	406692-1    	--          	[DAP] [DAP_Loader_unisoc.c:675] [MSG] <<< DAP_ReleaseAP OK (freed alloc_base=0x83F2FD64)	                                                                	
+71        	406761-1    	--          	[DAP] [DAP_FMM_Integration.c:251] [MSG] Module released                         	                                                                	
+72        	406830-1    	--          	[DAP] [DAP_FMM_Integration.c:258] [MSG] <<< DAP_FMM_ExecuteBinFile complete     	                                                                	
+73        	410475-1    	--          	[DAP] [DAP_FMM_Integration.c:276] [MSG] >>> DAP_FMM_ExecuteModule ENTER         	                                                                	
+74        	410555-1    	--          	[DAP] [DAP_FMM_Integration.c:287] [MSG] ExecuteModule: path=[D:\DAP\hello_tm32.bin2], name_len=22	                                                                	
+75        	410644-1    	--          	[DAP] [DAP_FMM_Integration.c:127] [MSG] >>> DAP_FMM_ExecuteBinFile ENTER        	                                                                	
+76        	410713-1    	--          	[DAP] [DAP_FMM_Integration.c:138] [MSG] ExecuteBinFile: path=[D:\DAP\hello_tm32.bin2], len=22	                                                                	
+77        	410851-1    	--          	[DAP] [DAP_FMM_Integration.c:161] [MSG] DAP_GetLoaderInited is initialized      	                                                                	
+78        	410920-1    	--          	[DAP] [DAP_FMM_Integration.c:177] [MSG] Calling DAP_ExecuteAP...                	                                                                	
+79        	410989-1    	--          	[DAP] [DAP_Loader_unisoc.c:260] [MSG] >>> DAP_ExecuteAP ENTER, path=[D:\DAP\hello_tm32.bin2], ptr=0x82FCA13C	                                                                	
+80        	411058-1    	--          	[DAP] [DAP_OSAssociated_unisoc.c:156] [MSG] FileOpen: path=[D:\DAP\hello_tm32.bin2], len=22	                                                                	
+81        	411172-1    	--          	[DAP] [DAP_OSAssociated_unisoc.c:168] [MSG] FileOpen OK: handle=0x00150000      	                                                                	
+82        	411245-1    	--          	[DAP] [DAP_OSAssociated_unisoc.c:229] [MSG] FileGetSize OK: size=756 bytes      	                                                                	
+83        	411314-1    	--          	[DAP] [DAP_Loader_unisoc.c:286] [MSG] File size: 756 bytes                      	                                                                	
+84        	411394-1    	--          	[DAP] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=352, actual=352	                                                                	
+85        	411463-1    	--          	tm15_BIN2 detected (early magic check)                                          	                                                                	
+86        	411475-1    	--          	[DAP] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=756, actual=756	                                                                	
+87        	411544-1    	--          	[DAP] [DAP_Loader_unisoc.c:365] [MSG] Full file loaded: 756 bytes at 0x83F2FD64 	                                                                	
+88        	411615-1    	--          	tm15_BIN2 full verification starting...                                         	                                                                	
+89        	411616-1    	--          	[bin2] tm15_bin2_verify: v=2, hdr=64, pay=628, key=0, bind=1, enc=0             	                                                                	
+90        	411618-1    	--          	[DAP] tm15_sig_verify: total=756 hdr=64 sig=64 pay=628                          	                                                                	
+91        	411619-1    	--          	[DAP] tm15_sig_verify: payload_off=128 signed_region_len=756                    	                                                                	
+92        	411620-1    	--          	[DAP] tm15_sig[0..7]=54 63 80 f7 08 a0 7b de                                    	                                                                	
+93        	411621-1    	--          	[DAP] tm15_pubkey[0..7]=eb e2 1c 44 2e 0c f7 ad                                 	                                                                	
+94        	411622-1    	--          	[DAP] tm15_hdr[0..7]=42 49 4e 32 02 00 40 00                                    	                                                                	
+95        	411623-1    	--          	[DAP] tm15_payload[0..7]=4d 54 4b 5f 45 78 65 00                                	                                                                	
+96        	411624-1    	--          	[DAP] tm15_msg_hash[0..7]=7d f1 63 26 30 26 3b 39                               	                                                                	
+97        	411628-1    	--          	[bin2] tm21_sha512_h[0..7]=98 0b bb 6d 4f 0a 5e d3                              	                                                                	
+98        	411784-1    	--          	[bin2] tm21_t[0..7]=54 63 80 f7 08 a0 7b de                                     	                                                                	
+99        	411785-1    	--          	[bin2] tm21_R[0..7]=54 63 80 f7 08 a0 7b de                                     	                                                                	
+100       	411786-1    	--          	[DAP] tm15_sig_verify: ed25519_verify ret=0 (0=OK)                              	                                                                	
+101       	411787-1    	--          	[bin2] tm15_BIN2 signature OK                                                   	                                                                	
+102       	411788-1    	--          	[DAP] [BIND] verify: binding_mode=1                                             	                                                                	
+103       	411789-1    	--          	[DAP] [bind] tm28_DEBUG_secret[0..7]=41 03 46 54 58 9c b4 5a                    	                                                                	
+104       	411790-1    	--          	[DAP] [bind] tm28_DEBUG_secret[8..15]=ae 4b 63 0c 14 2a ea 30                   	                                                                	
+105       	411791-1    	--          	[DAP] [bind] tm28_DEBUG_secret[16..23]=48 80 5f 7a 35 e1 cc e3                  	                                                                	
+106       	411792-1    	--          	[DAP] [bind] tm28_DEBUG_secret[24..31]=ab ad d9 12 53 cb 86 e3                  	                                                                	
+107       	411793-1    	--          	[DAP] [BIND] derive: ID[0..7]=83 5c 97 2a 95 ed 6d c8                           	                                                                	
+108       	411794-1    	--          	[DAP] [BIND] hdr_id=835c972a95ed6dc8                                            	                                                                	
+109       	411795-1    	--          	[DAP] [BIND] loc_id=835c972a95ed6dc8                                            	                                                                	
+110       	411796-1    	--          	[DAP] [BIND] verify: MATCH OK                                                   	                                                                	
+111       	411797-1    	--          	[bin2] [bind] tm27_verify OK: binding_mode=1                                    	                                                                	
+112       	411798-1    	--          	[bin2] tm15_BIN2 verify success                                                 	                                                                	
+113       	411799-1    	--          	[DAP] [DAP_Loader_unisoc.c:413] [MSG] BIN2 verified OK, payload at 0x83F2FDE4, payload_size=628, encrypted=0	                                                                	
+114       	411868-1    	--          	[DAP] [DAP_Loader_unisoc.c:415] [MSG] tm22_alloc_base=0x83F2FD64 Running_AP=0x83F2FDE4 offset=128	                                                                	
+115       	411937-1    	--          	[DAP] [DAP_Loader_unisoc.c:425] [MSG] BIN2 payload SDK version: 1               	                                                                	
+116       	412056-1    	--          	[DAP] [DAP_Loader_unisoc.c:446] [MSG] version>=v1: -----------call GetBSSSpace  	                                                                	
+117       	412125-1    	--          	[DAP] [DAP_Loader_unisoc.c:450] [MSG] GetBSSSpace:    offset=0x000001C4,     addr=0x83F2FFA8	                                                                	
+118       	412194-1    	--          	[DAP] [DAP_Loader_unisoc.c:454] [MSG] GetBSSSpace returned BSS_size= 0 bytes    	                                                                	
+119       	412267-1    	--          	[DAP] [DAP_Loader_unisoc.c:509] [MSG] tm22_BSS_reread: BIN2 seek to payload_off=128, read_size=628	                                                                	
+120       	412343-1    	--          	[DAP] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=628, actual=628	                                                                	
+121       	412412-1    	--          	[DAP] [DAP_Loader_unisoc.c:525] [MSG] BSS realloc OK: file=628 + bss=0 = 628, base=0x83F2FD64, encrypted=0	                                                                	
+122       	412486-1    	--          	[DAP] [DAP_Loader_unisoc.c:555] [ERR] === [Kernel Direct] Inside Loader ===     	                                                                	
+123       	412555-1    	--          	[DAP] [DAP_Loader_unisoc.c:556] [ERR] Kernel Direct: LoadAddr=0x83F2FD64        	                                                                	
+124       	412624-1    	--          	[DAP] [DAP_Loader_unisoc.c:557] [ERR] Kernel Direct: OSAPI=0x88403EC3           	                                                                	
+125       	412693-1    	--          	[DAP] [DAP_Loader_unisoc.c:558] [ERR] Kernel Direct: Register=0x88403E55        	                                                                	
+126       	412762-1    	--          	[DAP] [DAP_Loader_unisoc.c:559] [ERR] Kernel Direct: DelAPI=0x88404231          	                                                                	
+127       	412831-1    	--          	[DAP] [DAP_Loader_unisoc.c:575] [MSG] Reloc: OSAPI=0x88403EC3, Reg=0x88403E55, Del=0x88404231, LoadAddr=0x83F2FD64	                                                                	
+128       	412900-1    	--          	[DAP] [DAP_Loader_unisoc.c:593] [MSG] Entry offset=0x00000184, base=0x83F2FD64, absolute=0x83F2FEE8	                                                                	
+129       	412969-1    	--          	[DAP] [DAP_Loader_unisoc.c:595] [MSG] Header: TagCheckSum=0x0000026D, VersionMark=0x55AA0001, LoadAddr=0x83F2FD64	                                                                	
+130       	413038-1    	--          	[DAP] [DAP_Loader_unisoc.c:598] [MSG] Header: MTKExeTag=[MTK_Exe], GetBSSSpace=0x000001C4, Free=0x00000000	                                                                	
+131       	413107-1    	--          	[DAP] [DAP_Loader_unisoc.c:604] [MSG] >>> JUMPING to entry_func NOW <<<         	                                                                	
+132       	413176-1    	--          	[DAP] [DAP_Loader_unisoc.c:610] [ERR] >>> BEFORE Exec: Loader running standard entry	                                                                	
+133       	413245-1    	--          	[DAP] >>> InterfaceRegister_Find ENTER: [OS_DisplayPopup]                       	                                                                	
+134       	413246-1    	--          	[DAP] <<< InterfaceRegister_Find OK: [OS_DisplayPopup] -> 0x887594C5            	                                                                	
+135       	413247-1    	--          	[DAP] [dap_gui_unisoc.c:79] [MSG] DAP_GUI_ShowAlertText: [Hello AIOS v0]        	                                                                	
+136       	413337-1    	--          	[DAP] >>> InterfaceRegister_Find ENTER: [DAP_TracePrint]                        	                                                                	
+137       	413338-1    	--          	[DAP] <<< InterfaceRegister_Find OK: [DAP_TracePrint] -> 0x8876714F             	                                                                	
+138       	413339-1    	--          	[DAP] [hello] dap_api.h v0 OK                                                   	                                                                	
+139       	413340-1    	--          	[DAP] [DAP_Loader_unisoc.c:614] [ERR] <<< AFTER Exec: DAP_ExecuteAP result=0    	                                                                	
+140       	413409-1    	--          	[DAP] [DAP_Loader_unisoc.c:618] [MSG] tm22_return handle: alloc_base=0x83F2FD64 Running_AP=0x83F2FD64 is_bin2=1	                                                                	
+141       	413478-1    	--          	[DAP] [dap_gui_unisoc.c:79] [MSG] DAP_GUI_ShowAlertText: [OK:Module executed]   	                                                                	
+142       	413548-1    	--          	[DAP] [DAP_FMM_Integration.c:236] [MSG] Module executed OK, result=0            	                                                                	
+143       	413617-1    	--          	[DAP] [DAP_Loader_unisoc.c:675] [MSG] <<< DAP_ReleaseAP OK (freed alloc_base=0x83F2FD64)	                                                                	
+144       	413686-1    	--          	[DAP] [DAP_FMM_Integration.c:251] [MSG] Module released                         	                                                                	
+145       	413755-1    	--          	[DAP] [DAP_FMM_Integration.c:258] [MSG] <<< DAP_FMM_ExecuteBinFile complete     	                                                                	

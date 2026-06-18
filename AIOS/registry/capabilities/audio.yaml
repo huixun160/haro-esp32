@@ -1,0 +1,31 @@
+# Audio Capability Registry
+# TM-36 Phase 5
+
+module: audio
+description: "音频子系统 — 播放/录音/音量/铃声/编解码器"
+source: [pdf_doc, sdk_headers, dap_wrapper]
+dap_coverage: partial  # ~25%
+
+capabilities:
+  - name: playback
+    description: "音频播放控制（文件/缓冲区/停止/暂停/恢复/跳转）"
+    layer: APP_CANDIDATE
+    apis: [MMIAUDIO_PlayFile, MMIAUDIO_PlayBuffer, MMIAUDIO_Stop, MMIAUDIO_Pause, MMIAUDIO_Resume, MMIAUDIO_Seek, MMIAUDIO_GetDuration, MMIAUDIO_GetCurrentPos, MMIAUDIO_GetPlayState, MMIAUDIO_IsPlaying, MMIAUDIO_SetCallback, MMIAUDIO_GetSpectrum]
+
+  - name: recording
+    description: "录音（开始/停止/暂停/格式设置）"
+    layer: APP_CANDIDATE
+    apis: [MMIAUDIO_RecordStart, MMIAUDIO_RecordStop, MMIAUDIO_RecordPause, MMIAUDIO_RecordResume, MMIAUDIO_RecordGetDuration, MMIAUDIO_SetRecordFormat]
+
+  - name: volume_device
+    description: "音量和音频设备控制"
+    layer: APP_CANDIDATE
+    apis: [MMIAUDIO_SetVolume, MMIAUDIO_GetVolume, MMIAUDIO_SetMaxVolume, MMIAUDIO_GetMaxVolume, MMIAUDIO_SetDevice, MMIAUDIO_GetDevice, MMIAUDIO_SetMode]
+
+  - name: ringtone
+    description: "铃声和震动"
+    layer: SERVICE_CANDIDATE
+    apis: [MMIAUDIO_PlayRing, MMIAUDIO_StopRing, MMIAUDIO_PlayTone, MMIAUDIO_StopTone, MMIAUDIO_Vibrate, MMIAUDIO_StopVibrate]
+
+dependency: [os_core, filesystem]
+notes: "DAP 已封装播放核心（Play/Stop/Pause/Resume/Volume）。缺少 Seek/Duration/Recording。"

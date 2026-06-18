@@ -1,0 +1,11 @@
+NO        	SN          	CORE        	Content                                                                         	Module                                                          	MSGID       	
+0         	122959-1    	--          	Time: 10294 [P7] [dap_gui_unisoc.c:79] [MSG] G01: [Hello AIOS v0]               	                                                                	
+1         	122987-1    	--          	Time: 10294 [P7] [dap_gui_unisoc.c:79] [MSG] G01: [OK:Module executed]          	                                                                	
+2         	127241-1    	--          	[P7] [dap_gui_unisoc.c:79] [MSG] G01: [Hello AIOS v0]                           	                                                                	
+3         	127288-1    	--          	[P7] [dap_gui_unisoc.c:79] [MSG] G01: [OK:Module executed]                      	                                                                	
+4         	130221-1    	--          	[P7] [dap_gui_unisoc.c:79] [MSG] G01: [Hello AIOS v0]                           	                                                                	
+5         	130248-1    	--          	[P7] [dap_gui_unisoc.c:79] [MSG] G01: [OK:Module executed]                      	                                                                	
+6         	132706-1    	--          	[P7] [dap_gui_unisoc.c:79] [MSG] G01: [Hello AIOS v0]                           	                                                                	
+7         	132733-1    	--          	[P7] [dap_gui_unisoc.c:79] [MSG] G01: [OK:Module executed]                      	                                                                	
+8         	138110-1    	--          	[P7] [dap_gui_unisoc.c:79] [MSG] G01: [Hello AIOS v0]                           	                                                                	
+9         	138139-1    	--          	[P7] [dap_gui_unisoc.c:79] [MSG] G01: [OK:Module executed]                      	                                                                	

@@ -1,0 +1,132 @@
+# OS Core Capability Registry
+# Source: OS接口使用指南V1.1.pdf + DAP_OSAssociated_unisoc.c
+# TM-36 Phase 1a
+
+module: os_core
+description: "Unisoc OSA — 操作系统抽象层（Assert/Event/IRQ/Memory/MemPool/Signal/Thread/Timer/Time/Mutex/Semaphore/ClientServer/Trace）"
+source: [pdf_doc, sdk_headers, dap_wrapper]
+dap_coverage: partial  # 13/74 = 18%
+
+capabilities:
+
+  - name: assert
+    description: "断言检查（失败触发系统 assert / 蓝屏）"
+    layer: OS_INTERNAL
+    apis: [SCI_ASSERT]
+
+  - name: event
+    description: "事件标记组（多线程同步/通知）"
+    layer: SERVICE_CANDIDATE
+    apis: [SCI_CreateEvent, SCI_SetEvent, SCI_GetEvent, SCI_DeleteEvent]
+
+  - name: irq
+    description: "IRQ 中断管理（关闭/恢复）"
+    layer: OS_INTERNAL
+    apis: [SCI_DisableIRQ, SCI_RestoreIRQ]
+
+  - name: memory_system
+    description: "系统内存管理（alloc/free/memcpy/memset）"
+    layer: APP_CANDIDATE
+    apis:
+      - SCI_ALLOC_CONST
+      - SCI_ALLOC_APP
+      - SCI_ALLOC_BASE
+      - SCI_ALLOC
+      - SCI_ALLOCA
+      - SCI_FREE
+      - SCI_MEMCPY
+      - SCI_MEMSET
+      - SCI_MEM16CPY
+      - SCI_MEM16SET
+
+  - name: memory_pool
+    description: "委托内存池管理"
+    layer: ADAPTER_ONLY
+    apis: [SCI_CreateMemPool, SCI_DeleteMemPool, SCI_MPALLOC, SCI_MPFREE]
+
+  - name: message
+    description: "线程间消息（Signal）发送/接收"
+    layer: SERVICE_CANDIDATE
+    apis: [SCI_SendSignal, SCI_SendSignalFront, SCI_SendSignal_PS, SCI_GetSignal, SCI_PeekSignal]
+
+  - name: thread
+    description: "线程管理（创建/删除/挂起/恢复/休眠/查询）"
+    layer: SERVICE_CANDIDATE
+    apis:
+      - SCI_CreateThread
+      - SCI_CreateStaticThread
+      - SCI_CreateAppThread
+      - SCI_CreateBaseThread
+      - SCI_DeleteThread
+      - SCI_IdentifyThread
+      - SCI_IsThreadExist
+      - SCI_IsThreadQueueAvilable
+      - SCI_SuspendThread
+      - SCI_ResumeThread
+      - SCI_ThreadExit
+      - SCI_GetThreadInfo
+      - SCI_GetLastError
+      - SCI_Sleep
+      - SCI_SetThreadEvent
+      - SCI_GetThreadEvent
+      - SCI_GetThreadLogFlag
+      - SCI_SetThreadLogFlag
+      - SCI_GetSaveQ
+      - SCI_AddToSaveQ
+      - SCI_DelFromSaveQ
+      - SCI_ClrSaveQ
+      - SCI_GetNextSig
+      - SCI_SetThreadStackErrorNotify
+
+  - name: timer
+    description: "定时器管理（单次/周期/修改/启停/查询）"
+    layer: APP_CANDIDATE
+    apis:
+      - SCI_CreateTimer
+      - SCI_CreatePeriodTimer
+      - SCI_ChangeTimer
+      - SCI_ActiveTimer
+      - SCI_DeactiveTimer
+      - SCI_IsTimerActive
+      - SCI_DeleteTimer
+      - SCI_GetTimerInfo
+
+  - name: time
+    description: "系统时间（tick 计数）"
+    layer: APP_CANDIDATE
+    apis: [SCI_GetTickCount]
+
+  - name: mutex
+    description: "互斥信号量（线程安全锁）"
+    layer: SERVICE_CANDIDATE
+    apis: [SCI_CreateMutex, SCI_GetMutex, SCI_PutMutex, SCI_DeleteMutex]
+
+  - name: semaphore
+    description: "计数信号量（P/V 操作）"
+    layer: SERVICE_CANDIDATE
+    apis:
+      - SCI_CreateSemaphore
+      - SCI_GetSemaphore
+      - SCI_PutSemaphore
+      - SCI_DeleteSemaphore
+      - SCI_GetSemaphoreInfo
+
+  - name: client_server
+    description: "服务器-客户端通信机制"
+    layer: ADAPTER_ONLY
+    apis:
+      - SCI_CreateClientList
+      - SCI_DeleteClientList
+      - SCI_SendEventToClient
+      - SCI_RegisterMsg
+      - SCI_UnregisterMsg
+      - SCI_IsClientRegisted
+
+  - name: trace
+    description: "日志/跟踪信息输出"
+    layer: APP_CANDIDATE
+    apis: [SCI_TRACE_ERROR, SCI_TRACE_HIGH, SCI_TRACE_MID, SCI_TRACE_LOW, SCI_TRACE_BUF]
+
+dependency: []
+
+notes: "DAP 覆盖 18%（13/74 APIs）。线程/事件/互斥/信号量/消息 完全未封装，APP 无法做多任务。"

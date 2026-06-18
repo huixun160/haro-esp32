@@ -1,0 +1,26 @@
+# Camera Capability Registry
+# TM-36 Phase 6
+
+module: camera
+description: "数码相机 — 预览/拍照/参数设置/回放"
+source: [pdf_doc, sdk_headers]
+dap_coverage: none
+
+capabilities:
+  - name: camera_control
+    description: "预览/拍照/回放/状态"
+    layer: SERVICE_CANDIDATE
+    apis: [DCAMERA_Open, DCAMERA_Close, DCAMERA_StartPreview, DCAMERA_StopPreview, DCAMERA_Snapshot, DCAMERA_StartReview, DCAMERA_StopReview, DCAMERA_GetState]
+
+  - name: camera_params
+    description: "拍照参数（尺寸/效果/白平衡/曝光/变焦/闪光）"
+    layer: SERVICE_CANDIDATE
+    apis: [DCAMERA_SetParam, DCAMERA_GetParam, DCAMERA_SetPhotoSize, DCAMERA_SetEffect, DCAMERA_SetWB, DCAMERA_SetEV, DCAMERA_SetFlicker, DCAMERA_SetContrast, DCAMERA_SetBrightness, DCAMERA_SetZoom, DCAMERA_SetFlash]
+
+  - name: camera_info
+    description: "摄像头信息查询/传感器切换"
+    layer: SERVICE_CANDIDATE
+    apis: [DCAMERA_GetInfo, DCAMERA_GetSupportedSize, DCAMERA_GetSensorCount, DCAMERA_SetSensor, DCAMERA_SetCallbackFunc, DCAMERA_SetDisplayRect]
+
+dependency: [os_core, device]
+notes: "DAP 0%。相机对功能手机APP需求较低，但扫码场景可能需要。"

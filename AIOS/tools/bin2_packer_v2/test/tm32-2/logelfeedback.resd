@@ -1,0 +1,122 @@
+NO        	SN          	CORE        	Content                                                                         	Module                                                          	MSGID       	
+0         	380935-1    	--          	MNPHONE_GetDSDAProductForm 0                                                    	MN_AL                                                           	
+1         	383199-1    	--          	MNPHONE_GetDSDAProductForm 0                                                    	MN_AL                                                           	
+2         	384395-1    	--          	MNPHONE_GetDSDAProductForm 0                                                    	MN_AL                                                           	
+3         	391191-1    	--          	Time: 39515 [P7] [DAP_FMM_Integration.c:276] [MSG] >>> F7_ExecMod ENTER         	                                                                	
+4         	391192-1    	--          	Time: 39515 [P7] [DAP_FMM_Integration.c:287] [MSG] ExecuteModule: path=[D:\DAP\hello_bigseek.bin], name_len=24	                                                                	
+5         	391193-1    	--          	Time: 39515 [P7] [DAP_FMM_Integration.c:127] [MSG] >>> F7_ExecBin ENTER         	                                                                	
+6         	391194-1    	--          	Time: 39515 [P7] [DAP_FMM_Integration.c:138] [MSG] ExecuteBinFile: path=[D:\DAP\hello_bigseek.bin], len=24	                                                                	
+7         	391195-1    	--          	Time: 39515 [P7] [DAP_FMM_Integration.c:161] [MSG] GL7 is initialized           	                                                                	
+8         	391196-1    	--          	Time: 39515 [P7] [DAP_FMM_Integration.c:177] [MSG] Calling X7...                	                                                                	
+9         	391197-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:260] [MSG] >>> X7 ENTER, path=[D:\DAP\hello_bigseek.bin], ptr=0x82FCA13C	                                                                	
+10        	391198-1    	--          	Time: 39515 [P7] [DAP_OSAssociated_unisoc.c:156] [MSG] FileOpen: path=[D:\DAP\hello_bigseek.bin], len=24	                                                                	
+11        	391255-1    	--          	Time: 39515 [P7] [DAP_OSAssociated_unisoc.c:168] [MSG] FileOpen OK: handle=0x001F0000	                                                                	
+12        	391260-1    	--          	Time: 39515 [P7] [DAP_OSAssociated_unisoc.c:229] [MSG] FileGetSize OK: size=628 bytes	                                                                	
+13        	391261-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:286] [MSG] File size: 628 bytes           	                                                                	
+14        	391273-1    	--          	Time: 39515 [P7] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=352, actual=352	                                                                	
+15        	391274-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:334] [MSG] Module SDK version: 1          	                                                                	
+16        	391286-1    	--          	Time: 39515 [P7] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=628, actual=628	                                                                	
+17        	391287-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:365] [MSG] Full file loaded: 628 bytes at 0x83F3112C	                                                                	
+18        	391288-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:446] [MSG] version>=v1: -----------call GetBSSSpace	                                                                	
+19        	391289-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:450] [MSG] GetBSSSpace:    offset=0x000001C4,     addr=0x83F312F0	                                                                	
+20        	391290-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:454] [MSG] GetBSSSpace returned BSS_size= 0 bytes	                                                                	
+21        	391302-1    	--          	Time: 39515 [P7] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=628, actual=628	                                                                	
+22        	391303-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:525] [MSG] BSS realloc OK: file=628 + bss=0 = 628, base=0x83F3112C, encrypted=0	                                                                	
+23        	391309-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:555] [ERR] === [Kernel Direct] Inside Loader ===	                                                                	
+24        	391310-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:556] [ERR] Kernel Direct: LoadAddr=0x83F3112C	                                                                	
+25        	391311-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:557] [ERR] Kernel Direct: OSAPI=0x88DD4F67	                                                                	
+26        	391312-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:558] [ERR] Kernel Direct: Register=0x88DD4EF9	                                                                	
+27        	391313-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:559] [ERR] Kernel Direct: DelAPI=0x88DD52D5	                                                                	
+28        	391314-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:575] [MSG] Reloc: OSAPI=0x88DD4F67, Reg=0x88DD4EF9, Del=0x88DD52D5, LoadAddr=0x83F3112C	                                                                	
+29        	391315-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:593] [MSG] Entry offset=0x00000184, base=0x83F3112C, absolute=0x83F312B0	                                                                	
+30        	391316-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:595] [MSG] Header: TagCheckSum=0x0000026D, VersionMark=0x55AA0001, LoadAddr=0x83F3112C	                                                                	
+31        	391317-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:598] [MSG] Header: MTKExeTag=[MTK_Exe], GetBSSSpace=0x000001C4, Free=0x00000000	                                                                	
+32        	391318-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:604] [MSG] >>> JUMPING to entry_func NOW <<<	                                                                	
+33        	391319-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:610] [ERR] >>> BEFORE Exec: Loader running standard entry	                                                                	
+34        	391320-1    	--          	Time: 39515 [P7] >>> InterfaceRegister_Find ENTER: [OS_DisplayPopup]            	                                                                	
+35        	391321-1    	--          	Time: 39515 [P7] <<< InterfaceRegister_Find OK: [OS_DisplayPopup] -> 0x8811520D 	                                                                	
+36        	391322-1    	--          	Time: 39515 [P7] [dap_gui_unisoc.c:79] [MSG] DAP_GUI_ShowAlertText: [Hello AIOS v0]	                                                                	
+37        	391364-1    	--          	Time: 39515 [P7] >>> InterfaceRegister_Find ENTER: [DAP_TracePrint]             	                                                                	
+38        	391365-1    	--          	Time: 39515 [P7] <<< InterfaceRegister_Find OK: [DAP_TracePrint] -> 0x88760577  	                                                                	
+39        	391366-1    	--          	Time: 39515 [P7] [hello] dap_api.h v0 OK                                        	                                                                	
+40        	391367-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:614] [ERR] <<< AFTER Exec: X7 result=0    	                                                                	
+41        	391368-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:618] [MSG] tm22_return handle: alloc_base=0x83F3112C Running_AP=0x83F3112C is_bin2=0	                                                                	
+42        	391369-1    	--          	Time: 39515 [P7] [dap_gui_unisoc.c:79] [MSG] DAP_GUI_ShowAlertText: [OK:Module executed]	                                                                	
+43        	391371-1    	--          	Time: 39515 [P7] [DAP_FMM_Integration.c:236] [MSG] Module executed OK, result=0 	                                                                	
+44        	391372-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:675] [MSG] <<< R7 OK (freed alloc_base=0x83F3112C)	                                                                	
+45        	391373-1    	--          	Time: 39515 [P7] [DAP_FMM_Integration.c:251] [MSG] Module released              	                                                                	
+46        	391374-1    	--          	Time: 39515 [P7] [DAP_FMM_Integration.c:258] [MSG] <<< F7_ExecBin complete      	                                                                	
+47        	396363-1    	--          	Time: 39515 [P7] [DAP_FMM_Integration.c:276] [MSG] >>> F7_ExecMod ENTER         	                                                                	
+48        	396364-1    	--          	Time: 39515 [P7] [DAP_FMM_Integration.c:287] [MSG] ExecuteModule: path=[D:\DAP\hello_bigseek.bin2], name_len=25	                                                                	
+49        	396365-1    	--          	Time: 39515 [P7] [DAP_FMM_Integration.c:127] [MSG] >>> F7_ExecBin ENTER         	                                                                	
+50        	396366-1    	--          	Time: 39515 [P7] [DAP_FMM_Integration.c:138] [MSG] ExecuteBinFile: path=[D:\DAP\hello_bigseek.bin2], len=25	                                                                	
+51        	396367-1    	--          	Time: 39515 [P7] [DAP_FMM_Integration.c:161] [MSG] GL7 is initialized           	                                                                	
+52        	396368-1    	--          	Time: 39515 [P7] [DAP_FMM_Integration.c:177] [MSG] Calling X7...                	                                                                	
+53        	396369-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:260] [MSG] >>> X7 ENTER, path=[D:\DAP\hello_bigseek.bin2], ptr=0x82FCA13C	                                                                	
+54        	396370-1    	--          	Time: 39515 [P7] [DAP_OSAssociated_unisoc.c:156] [MSG] FileOpen: path=[D:\DAP\hello_bigseek.bin2], len=25	                                                                	
+55        	396416-1    	--          	Time: 39515 [P7] [DAP_OSAssociated_unisoc.c:168] [MSG] FileOpen OK: handle=0x00200000	                                                                	
+56        	396421-1    	--          	Time: 39515 [P7] [DAP_OSAssociated_unisoc.c:229] [MSG] FileGetSize OK: size=756 bytes	                                                                	
+57        	396422-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:286] [MSG] File size: 756 bytes           	                                                                	
+58        	396445-1    	--          	Time: 39515 [P7] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=352, actual=352	                                                                	
+59        	396446-1    	--          	Time: 39515 v15_BIN2 detected (early magic check)                               	                                                                	
+60        	396458-1    	--          	Time: 39515 [P7] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=756, actual=756	                                                                	
+61        	396459-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:365] [MSG] Full file loaded: 756 bytes at 0x83F303FC	                                                                	
+62        	396460-1    	--          	Time: 39515 v15_BIN2 full verification starting...                              	                                                                	
+63        	396461-1    	--          	Time: 39515 [s2] v15_bin2_verify: v=2, hdr=64, pay=628, key=0, bind=1, enc=0    	                                                                	
+64        	396462-1    	--          	Time: 39515 [P7] v15_sig_verify: total=756 hdr=64 sig=64 pay=628                	                                                                	
+65        	396463-1    	--          	Time: 39515 [P7] v15_sig_verify: payload_off=128 signed_region_len=756          	                                                                	
+66        	396464-1    	--          	Time: 39515 [P7] v15_sig[0..7]=a0 5c 0a c9 6e d8 c3 9c                          	                                                                	
+67        	396465-1    	--          	Time: 39515 [P7] v15_pubkey[0..7]=eb e2 1c 44 2e 0c f7 ad                       	                                                                	
+68        	396466-1    	--          	Time: 39515 [P7] v15_hdr[0..7]=42 49 4e 32 02 00 40 00                          	                                                                	
+69        	396467-1    	--          	Time: 39515 [P7] v15_payload[0..7]=4d 54 4b 5f 45 78 65 00                      	                                                                	
+70        	396468-1    	--          	Time: 39515 [P7] v15_msg_hash[0..7]=00 bf 11 94 29 0f 7c 7b                     	                                                                	
+71        	396677-1    	--          	Time: 39515 [P7] v15_sig_verify: ed25519_verify ret=0 (0=OK)                    	                                                                	
+72        	396678-1    	--          	Time: 39515 [s2] v15_BIN2 signature OK                                          	                                                                	
+73        	396679-1    	--          	Time: 39515 [P7] [sb] verify: binding_mode=1                                    	                                                                	
+74        	396680-1    	--          	Time: 39515 [P7] [sb] v28_DEBUG_secret[0..7]=f2 b3 c2 ab c8 bc 18 4f            	                                                                	
+75        	396681-1    	--          	Time: 39515 [P7] [sb] v28_DEBUG_secret[8..15]=e1 33 a4 e1 8a 7b dd 61           	                                                                	
+76        	396682-1    	--          	Time: 39515 [P7] [sb] v28_DEBUG_secret[16..23]=0b 6e 17 96 06 1a 17 ff          	                                                                	
+77        	396683-1    	--          	Time: 39515 [P7] [sb] v28_DEBUG_secret[24..31]=68 ce dc 38 93 5b d0 aa          	                                                                	
+78        	396684-1    	--          	Time: 39515 [P7] [sb] derive: ID[0..7]=f9 df d1 6b 8b da 6a 5f                  	                                                                	
+79        	396685-1    	--          	Time: 39515 [P7] [sb] hdr_id=f9dfd16b8bda6a5f                                   	                                                                	
+80        	396686-1    	--          	Time: 39515 [P7] [sb] loc_id=f9dfd16b8bda6a5f                                   	                                                                	
+81        	396687-1    	--          	Time: 39515 [P7] [sb] verify: MATCH OK                                          	                                                                	
+82        	396688-1    	--          	Time: 39515 [s2] [sb] v27_verify OK: binding_mode=1                             	                                                                	
+83        	396689-1    	--          	Time: 39515 [s2] v15_BIN2 verify success                                        	                                                                	
+84        	396690-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:413] [MSG] BIN2 verified OK, payload at 0x83F3047C, payload_size=628, encrypted=0	                                                                	
+85        	396691-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:415] [MSG] tm22_alloc_base=0x83F303FC Running_AP=0x83F3047C offset=128	                                                                	
+86        	396692-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:425] [MSG] BIN2 payload SDK version: 1    	                                                                	
+87        	396744-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:446] [MSG] version>=v1: -----------call GetBSSSpace	                                                                	
+88        	396745-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:450] [MSG] GetBSSSpace:    offset=0x000001C4,     addr=0x83F30640	                                                                	
+89        	396746-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:454] [MSG] GetBSSSpace returned BSS_size= 0 bytes	                                                                	
+90        	396751-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:509] [MSG] tm22_BSS_reread: BIN2 seek to payload_off=128, read_size=628	                                                                	
+91        	396759-1    	--          	Time: 39515 [P7] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=628, actual=628	                                                                	
+92        	396761-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:525] [MSG] BSS realloc OK: file=628 + bss=0 = 628, base=0x83F303FC, encrypted=0	                                                                	
+93        	396767-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:555] [ERR] === [Kernel Direct] Inside Loader ===	                                                                	
+94        	396768-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:556] [ERR] Kernel Direct: LoadAddr=0x83F303FC	                                                                	
+95        	396769-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:557] [ERR] Kernel Direct: OSAPI=0x88DD4F67	                                                                	
+96        	396770-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:558] [ERR] Kernel Direct: Register=0x88DD4EF9	                                                                	
+97        	396771-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:559] [ERR] Kernel Direct: DelAPI=0x88DD52D5	                                                                	
+98        	396772-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:575] [MSG] Reloc: OSAPI=0x88DD4F67, Reg=0x88DD4EF9, Del=0x88DD52D5, LoadAddr=0x83F303FC	                                                                	
+99        	396773-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:593] [MSG] Entry offset=0x00000184, base=0x83F303FC, absolute=0x83F30580	                                                                	
+100       	396774-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:595] [MSG] Header: TagCheckSum=0x0000026D, VersionMark=0x55AA0001, LoadAddr=0x83F303FC	                                                                	
+101       	396775-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:598] [MSG] Header: MTKExeTag=[MTK_Exe], GetBSSSpace=0x000001C4, Free=0x00000000	                                                                	
+102       	396776-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:604] [MSG] >>> JUMPING to entry_func NOW <<<	                                                                	
+103       	396777-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:610] [ERR] >>> BEFORE Exec: Loader running standard entry	                                                                	
+104       	396778-1    	--          	Time: 39515 [P7] >>> InterfaceRegister_Find ENTER: [OS_DisplayPopup]            	                                                                	
+105       	396779-1    	--          	Time: 39515 [P7] <<< InterfaceRegister_Find OK: [OS_DisplayPopup] -> 0x8811520D 	                                                                	
+106       	396780-1    	--          	Time: 39515 [P7] [dap_gui_unisoc.c:79] [MSG] DAP_GUI_ShowAlertText: [Hello AIOS v0]	                                                                	
+107       	396804-1    	--          	Time: 39515 [P7] >>> InterfaceRegister_Find ENTER: [DAP_TracePrint]             	                                                                	
+108       	396805-1    	--          	Time: 39515 [P7] <<< InterfaceRegister_Find OK: [DAP_TracePrint] -> 0x88760577  	                                                                	
+109       	396806-1    	--          	Time: 39515 [P7] [hello] dap_api.h v0 OK                                        	                                                                	
+110       	396807-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:614] [ERR] <<< AFTER Exec: X7 result=0    	                                                                	
+111       	396808-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:618] [MSG] tm22_return handle: alloc_base=0x83F303FC Running_AP=0x83F303FC is_bin2=1	                                                                	
+112       	396809-1    	--          	Time: 39515 [P7] [dap_gui_unisoc.c:79] [MSG] DAP_GUI_ShowAlertText: [OK:Module executed]	                                                                	
+113       	396811-1    	--          	Time: 39515 [P7] [DAP_FMM_Integration.c:236] [MSG] Module executed OK, result=0 	                                                                	
+114       	396812-1    	--          	Time: 39515 [P7] [DAP_Loader_unisoc.c:675] [MSG] <<< R7 OK (freed alloc_base=0x83F303FC)	                                                                	
+115       	396813-1    	--          	Time: 39515 [P7] [DAP_FMM_Integration.c:251] [MSG] Module released              	                                                                	
+116       	396814-1    	--          	Time: 39515 [P7] [DAP_FMM_Integration.c:258] [MSG] <<< F7_ExecBin complete      	                                                                	
+117       	522184-1    	--          	Time: 49918 NAM_getCSFBInd_Hdlr()called                                         	LNAS                                                            	
+118       	522438-1    	--          	Time: 50513 mm: mm_load_adaptive_nv_parameter_configuration, is_support_apc[1]  	MM                                                              	
+119       	523504-1    	--          	Time: 50513 MNPHONE_GetDSDAProductForm 0                                        	MN_AL                                                           	
+120       	527741-1    	--          	MNPHONE_GetDSDAProductForm 0                                                    	MN_AL                                                           	

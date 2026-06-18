@@ -1,0 +1,90 @@
+# AIOS Agent Permissions
+# Purpose: Restrict which agents can modify which paths
+# Prevents cross-layer contamination during AI-assisted development
+# Last updated: 2026-03-25
+
+# Format:
+#   agent_name:
+#     allowed_paths: [glob patterns of paths this agent may modify]
+#     read_only_paths: [glob patterns this agent may read but not modify]
+#     description: "what this agent does"
+
+agents:
+  memo-critic:
+    allowed_paths: []
+    read_only_paths:
+      - "AIOS/projects/*/technical_memos/**"
+    description: "Reviews memos — read-only, no code changes"
+
+  api-governor:
+    allowed_paths:
+      - "AIOS/registry/**"
+    read_only_paths:
+      - "Third-party/DAP/**"
+      - "AIOS/service_contracts/**"
+    description: "Manages API registry entries"
+
+  boundary-reviewer:
+    allowed_paths: []
+    read_only_paths:
+      - "Third-party/DAP/**"
+      - "AIOS/architecture_constitution.md"
+    description: "Reviews architecture boundary compliance — read-only"
+
+  embedded-reviewer:
+    allowed_paths: []
+    read_only_paths:
+      - "Third-party/DAP/**"
+      - "make/**"
+    description: "Reviews embedded code quality — read-only"
+
+  closeout-reviewer:
+    allowed_paths:
+      - "AIOS/projects/*/quality_reports/**"
+      - "AIOS/projects/*/feedback/**"
+    read_only_paths:
+      - "AIOS/MEMORY.md"
+    description: "Generates closeout artifacts"
+
+  knowledge-curator:
+    allowed_paths:
+      - "AIOS/MEMORY.md"
+      - "AIOS/docs/pitfalls/**"
+      - "AIOS/projects/*/pitfalls/**"
+    read_only_paths:
+      - "AIOS/projects/*/technical_memos/**"
+      - "AIOS/projects/*/quality_reports/**"
+    description: "Curates knowledge and pitfall records"
+
+  assignment-reviewer:
+    allowed_paths: []
+    read_only_paths:
+      - "AIOS/engineers/**"
+      - "AIOS/projects/**"
+    description: "Reviews assignment conflicts — read-only"
+
+  onboarding-agent:
+    allowed_paths:
+      - "AIOS/engineers/**"
+      - "AIOS/projects/*/technical_memos/*/"
+      - "AIOS/projects/*/feedback/*/"
+      - "AIOS/projects/*/quality_reports/*/"
+    read_only_paths: []
+    description: "Creates engineer profiles and project directories"
+
+# Future agents (placeholder — do not activate yet)
+# architecture-reviewer:
+#   allowed_paths: []
+#   read_only_paths:
+#     - "Third-party/DAP/**"
+#     - "AIOS/architecture_constitution.md"
+#     - "AIOS/service_contracts/**"
+#   description: "Validates architecture constitution compliance"
+
+# integration-critic:
+#   allowed_paths: []
+#   read_only_paths:
+#     - "AIOS/service_contracts/**"
+#     - "AIOS/registry/**"
+#     - "AIOS/acceptance_tests.yaml"
+#   description: "Checks contract consistency and API conflicts"

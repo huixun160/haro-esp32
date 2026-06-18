@@ -1,0 +1,19 @@
+# Project Definition — FeaturePhone Secure
+
+project: featurephone_secure
+display_name: "AIOS Feature Phone Secure Platform"
+description: "DAP runtime, BIN2/BIN3 security, device binding, SDK, and external deliverables for Unisoc Mocor feature phones"
+created_at: "2026-03-09"
+lead: KaiwenZheng
+
+modules:
+  - dap_runtime
+  - dap_security
+  - app_architecture
+  - workflow_infra
+  - sdk
+
+build_target: ums9117_240X320BAR_64MB_ML
+platform: Unisoc Mocor (UMS9117)
+
+tm_counter: 40   # next TM number for this project

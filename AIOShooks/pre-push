@@ -1,0 +1,64 @@
+#!/usr/bin/env python3
+"""
+AIOS pre-push hook
+
+Runs governance checks before pushing to remote:
+  1. API Guard — detect unregistered APIs
+  2. Registry Guard — validate registry YAML files
+
+All checks are warn-only. This hook never blocks a push.
+"""
+
+import os
+import subprocess
+import sys
+
+HOOK_DIR = os.path.dirname(os.path.abspath(__file__))
+
+SCRIPTS_CANDIDATES = [
+    os.path.join(HOOK_DIR, '..', '..', 'hooks', 'scripts'),
+    os.path.join(HOOK_DIR, 'scripts'),
+]
+
+SCRIPTS_DIR = None
+for candidate in SCRIPTS_CANDIDATES:
+    if os.path.isdir(candidate):
+        SCRIPTS_DIR = os.path.abspath(candidate)
+        break
+
+GUARDS = [
+    'api_guard.py',
+    'registry_guard.py',
+]
+
+
+def run_guard(script_path):
+    """Run a guard script, capturing output."""
+    try:
+        result = subprocess.run(
+            [sys.executable, script_path],
+            capture_output=True, text=True, timeout=5
+        )
+        if result.stdout:
+            print(result.stdout, end='')
+    except Exception:
+        pass  # fail-open
+
+
+def main():
+    if not SCRIPTS_DIR:
+        return
+
+    for guard in GUARDS:
+        script = os.path.join(SCRIPTS_DIR, guard)
+        if os.path.exists(script):
+            run_guard(script)
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except Exception:
+        pass  # fail-open
+
+    sys.exit(0)  # always allow push

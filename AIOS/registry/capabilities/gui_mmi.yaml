@@ -1,0 +1,148 @@
+# GUI/MMI Capability Registry
+# Source: MMI Development Guide V1.3 + FORM/IMGUI docs + source headers
+# TM-36 Phase 2a
+
+module: gui_mmi
+description: "Unisoc MMI Framework — 窗口管理/消息处理/GUI绘制/控件/资源"
+source: [pdf_doc, sdk_headers, dap_wrapper, source_code]
+dap_coverage: minimal  # ~8%
+
+capabilities:
+
+  - name: window_management
+    description: "窗口创建/关闭/焦点/Applet 生命周期"
+    layer: SERVICE_CANDIDATE
+    apis:
+      - MMK_CreateWin
+      - MMK_CreateWinCtrlTable
+      - MMK_CloseWin
+      - MMK_CloseAllWin
+      - MMK_GetActiveWin
+      - MMK_GetFocusWin
+      - MMK_IsOpenWin
+      - MMK_WinGainFocus
+      - MMK_WinLoseFocus
+      - MMK_SetWinDisplayStyle
+      - MMK_RunApplet
+      - MMK_CloseApplet
+      - MMK_ReturnIdleWin
+
+  - name: message_handling
+    description: "窗口消息投递与分发（MSG_*）"
+    layer: SERVICE_CANDIDATE
+    apis:
+      - MMK_PostMsg
+      - MMK_SendMsg
+
+  - name: gui_text
+    description: "文字显示与度量（Unicode/多字体）"
+    layer: APP_CANDIDATE
+    apis:
+      - GUI_DisplayText
+      - GUI_DisplayTextExt
+      - GUI_DisplayTextInRect
+      - GUI_GetTextWidth
+      - GUI_GetTextHeight
+      - GUI_GetCharWidth
+      - GUI_GetFontHeight
+      - GUI_GetTextNumInOneRow
+      - GUISTR_DrawTextToLCDInRect
+      - GUISTR_GetStringWidth
+
+  - name: gui_graphics
+    description: "基本图形绘制（点/线/矩形/圆/弧）"
+    layer: APP_CANDIDATE
+    apis:
+      - GUI_DrawPoint
+      - GUI_DrawLine
+      - GUI_DrawHLine
+      - GUI_DrawVLine
+      - GUI_DrawRect
+      - GUI_FillRect
+      - GUI_DrawRoundRect
+      - GUI_DrawCircle
+      - GUI_FillCircle
+      - GUI_DrawArc
+      - GUI_DrawPolygon
+      - GUI_SetPixel
+      - GUI_GetPixel
+      - GUILCD_GetInfo
+
+  - name: gui_image
+    description: "图片绘制（资源图片/BMP/JPEG/动画）"
+    layer: APP_CANDIDATE
+    apis:
+      - GUIRES_DisplayImg
+      - GUIRES_GetImgWidthHeight
+      - GUI_DisplayBmp
+      - GUI_DisplayJPEG
+      - GUI_DrawBitmap
+      - GUIANIM_SetCtrlData
+      - GUIANIM_SetCtrlImgId
+
+  - name: controls
+    description: "UI控件系统（菜单/表单/列表/编辑框/标签/按钮/进度条/文本框/动画/软键）"
+    layer: SERVICE_CANDIDATE
+    apis:
+      - GUIMENU_CreateCtrl
+      - GUIMENU_SetMaxItemNum
+      - GUIMENU_SetItemText
+      - GUIMENU_GetCurIdx
+      - GUIFORM_CreateCtrl
+      - GUIFORM_SetStyle
+      - GUILIST_CreateCtrl
+      - GUILIST_SetMaxItem
+      - GUILIST_SetItemText
+      - GUILIST_GetCurIdx
+      - GUIEDIT_CreateCtrl
+      - GUIEDIT_SetMaxLen
+      - GUIEDIT_GetText
+      - GUIEDIT_SetText
+      - GUILABEL_CreateCtrl
+      - GUILABEL_SetText
+      - GUIBUTTON_CreateCtrl
+      - GUIBUTTON_SetText
+      - GUIPRGBAR_CreateCtrl
+      - GUIPRGBAR_SetValue
+      - GUITEXT_CreateCtrl
+      - GUITEXT_SetText
+      - GUIANIM_CreateCtrl
+      - GUISOFTKEY_SetText
+      - GUISOFTKEY_SetStyle
+
+  - name: resources
+    description: "字符串/图片/菜单 资源管理"
+    layer: APP_CANDIDATE
+    apis:
+      - MMI_GetLabelTextById
+      - MMI_GetImageById
+      - MMI_GetMenuById
+      - MMIRES_GetText
+      - MMIRES_GetImage
+      - MMISET_GetCurrentLang
+
+events:
+  - MSG_OPEN_WINDOW
+  - MSG_CLOSE_WINDOW
+  - MSG_FULL_PAINT
+  - MSG_GET_FOCUS
+  - MSG_LOSE_FOCUS
+  - MSG_APP_OK
+  - MSG_APP_CANCEL
+  - MSG_KEYDOWN_OK
+  - MSG_KEYDOWN_CANCEL
+  - MSG_KEYDOWN_UP
+  - MSG_KEYDOWN_DOWN
+  - MSG_KEYDOWN_LEFT
+  - MSG_KEYDOWN_RIGHT
+  - MSG_KEYDOWN_0 through MSG_KEYDOWN_9
+  - MSG_KEYLONG_OK
+  - MSG_TIMER
+  - MSG_APP_MENU
+
+dependency: [os_core, device]
+
+notes: |
+  DAP 覆盖 ~8%。仅封装了底层 LCD 绘制（DrawLine/Rect/String/Image）。
+  窗口系统、控件、消息处理、资源管理完全未暴露。
+  这是 APP 开发最大的瓶颈 — 没有窗口/控件就无法构建标准 UI。

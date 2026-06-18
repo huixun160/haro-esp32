@@ -1,0 +1,1273 @@
+# AIOS API Registry
+#
+# TM-35: Extended with module/level/stability/source/constraints/exposure fields
+# Schema: AIOS/registry/schema/api_schema.yaml
+#
+# APIs are organized by module. Each entry must have at minimum:
+#   api, module, level, stability, source, layer_from, layer_to, input, output, description
+#
+# Optional: abi, constraints, dependency, exposure, owner, thread_context, error_codes,
+#           unisoc_api, verified, verified_date, pitfall
+
+apis:
+
+  # ===========================================================================
+  #  MODULE: memory (5 APIs) — DAP_OSAssociated_unisoc.c
+  #  Unisoc底层: SCI_ALLOC_APP, SCI_FREE, memcpy, memset
+  # ===========================================================================
+
+  - api: DAP_MemAlloc
+    module: memory
+    level: L1
+    stability: beta
+    source: unisoc_os
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: "uint32 size"
+    output: "void *"
+    error_codes: [PNULL]
+    unisoc_api: SCI_ALLOC_APP
+    description: "内存分配封装。失败返回 PNULL"
+    constraints:
+      mmi_thread_only: false
+    exposure:
+      app_accessible: true
+      sdk_exposed: true
+    pitfall: "返回指针做偏移后，原始基地址必须保留用于 free（ADR-004）"
+
+  - api: DAP_MemFree
+    module: memory
+    level: L1
+    stability: beta
+    source: unisoc_os
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: "void *ptr"
+    output: void
+    error_codes: []
+    unisoc_api: SCI_FREE
+    description: "内存释放封装。ptr 必须是 DAP_MemAlloc 原始返回值"
+    constraints:
+      mmi_thread_only: false
+    exposure:
+      app_accessible: true
+      sdk_exposed: true
+    pitfall: "释放偏移指针会导致 SCI_Release_Buffer assert / heap 损坏"
+
+  - api: DAP_MemAllocZ
+    module: memory
+    level: L1
+    stability: beta
+    source: dap_custom
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: "uint32 size"
+    output: "void *"
+    error_codes: [PNULL]
+    unisoc_api: "SCI_ALLOC_APP + memset"
+    description: "分配内存并清零"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_MemCpy
+    module: memory
+    level: L1
+    stability: beta
+    source: dap_custom
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: "void *dst, const void *src, uint32 size"
+    output: "void *"
+    error_codes: []
+    unisoc_api: memcpy
+    description: "内存拷贝（NULL 安全）"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_MemSet
+    module: memory
+    level: L1
+    stability: beta
+    source: dap_custom
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: "void *dst, uint8 val, uint32 size"
+    output: "void *"
+    error_codes: []
+    unisoc_api: memset
+    description: "内存填充（NULL 安全）"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  # ===========================================================================
+  #  MODULE: filesystem (10 APIs) — DAP_OSAssociated_unisoc.c
+  #  Unisoc底层: SFS_CreateFile, SFS_ReadFile, SFS_WriteFile, etc.
+  # ===========================================================================
+
+  - api: DAP_FileOpen
+    module: filesystem
+    level: L1
+    stability: beta
+    source: unisoc_os
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: "const uint16 *filename"
+    output: DAP_HANDLE
+    error_codes: [PNULL]
+    unisoc_api: SFS_CreateFile
+    description: "只读打开文件（SFS_MODE_READ | SFS_MODE_OPEN_EXISTING）"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_FileRead
+    module: filesystem
+    level: L1
+    stability: beta
+    source: unisoc_os
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: "DAP_HANDLE handle, void *buffer, uint32 size, uint32 *bytes_read"
+    output: DAP_RESULT
+    error_codes: [DAP_SUCCESS, DAP_ERROR]
+    unisoc_api: SFS_ReadFile
+    description: "读取文件数据（同步）"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_FileWrite
+    module: filesystem
+    level: L1
+    stability: beta
+    source: unisoc_os
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: "DAP_HANDLE handle, const void *buffer, uint32 size, uint32 *bytes_written"
+    output: DAP_RESULT
+    error_codes: [DAP_SUCCESS, DAP_ERROR]
+    unisoc_api: SFS_WriteFile
+    description: "写入文件数据（同步）"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_FileGetSize
+    module: filesystem
+    level: L1
+    stability: beta
+    source: unisoc_os
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: "DAP_HANDLE handle, uint32 *size"
+    output: DAP_RESULT
+    error_codes: [DAP_SUCCESS, DAP_ERROR]
+    unisoc_api: SFS_GetFileSize
+    description: "获取文件大小"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_FileClose
+    module: filesystem
+    level: L1
+    stability: beta
+    source: unisoc_os
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: DAP_HANDLE
+    output: void
+    error_codes: []
+    unisoc_api: SFS_CloseFile
+    description: "关闭文件"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_FileSeek
+    module: filesystem
+    level: L1
+    stability: beta
+    source: unisoc_os
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: "DAP_HANDLE handle, int32 offset, uint32 origin"
+    output: DAP_RESULT
+    error_codes: [DAP_SUCCESS, DAP_ERROR]
+    unisoc_api: SFS_SetFilePointer
+    description: "设置文件读写位置"
+    pitfall: "BIN2 文件重读时必须 seek 到 payload_off(112)，不能 seek(0)"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_FileDelete
+    module: filesystem
+    level: L1
+    stability: beta
+    source: unisoc_os
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: "const uint16 *path"
+    output: DAP_RESULT
+    error_codes: [DAP_SUCCESS, DAP_ERROR]
+    unisoc_api: SFS_DeleteFile
+    description: "删除文件"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_FileExists
+    module: filesystem
+    level: L1
+    stability: beta
+    source: dap_custom
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: "const uint16 *path"
+    output: BOOLEAN
+    error_codes: [TRUE, FALSE]
+    unisoc_api: "SFS_CreateFile (probe + close)"
+    description: "检查文件是否存在"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_DirCreate
+    module: filesystem
+    level: L1
+    stability: beta
+    source: unisoc_os
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: "const uint16 *path"
+    output: DAP_RESULT
+    error_codes: [DAP_SUCCESS, DAP_ERROR]
+    unisoc_api: SFS_CreateDirectory
+    description: "创建目录（已存在视为成功）"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_DirDelete
+    module: filesystem
+    level: L1
+    stability: beta
+    source: unisoc_os
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: "const uint16 *path"
+    output: DAP_RESULT
+    error_codes: [DAP_SUCCESS, DAP_ERROR]
+    unisoc_api: SFS_DeleteDirectory
+    description: "删除目录"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  # ===========================================================================
+  #  MODULE: timer (3 APIs) — DAP_OSAssociated_unisoc.c
+  #  Unisoc底层: SCI_SET_TIMER (SDL Timer)
+  # ===========================================================================
+
+  - api: DAP_TimerCreate
+    module: timer
+    level: L1
+    stability: beta
+    source: unisoc_os
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: MMI Task
+    input: "uint32 timeout_ms, uint32 timer_id"
+    output: DAP_HANDLE
+    error_codes: [PNULL]
+    unisoc_api: SCI_SET_TIMER
+    description: "创建 SDL 定时器（超时通过 Signal 通知创建线程）"
+    exposure:
+      app_accessible: true
+      sdk_exposed: true
+
+  - api: DAP_TimerDestroy
+    module: timer
+    level: L1
+    stability: beta
+    source: unisoc_os
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: MMI Task
+    input: DAP_HANDLE
+    output: void
+    error_codes: []
+    unisoc_api: SCI_KILL_TIMER
+    description: "停止并销毁定时器"
+    exposure:
+      app_accessible: true
+      sdk_exposed: true
+
+  - api: DAP_TimerIsActive
+    module: timer
+    level: L1
+    stability: beta
+    source: unisoc_os
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: DAP_HANDLE
+    output: BOOLEAN
+    error_codes: [TRUE, FALSE]
+    unisoc_api: SCI_IS_TIMER_ACTIVE
+    description: "查询定时器是否活跃"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  # ===========================================================================
+  #  MODULE: debug (3 APIs) — DAP_OSAssociated_unisoc.c
+  #  Unisoc底层: SCI_TRACE_LOW, SCI_TRACE_ERROR, SCI_ASSERT
+  # ===========================================================================
+
+  - api: DAP_TracePrint
+    module: debug
+    level: L1
+    stability: beta
+    source: unisoc_os
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: "const char *format, ..."
+    output: void
+    error_codes: []
+    unisoc_api: SCI_TRACE_LOW
+    description: "格式化日志（varargs → vsnprintf → SCI_TRACE_LOW）"
+    verified: true
+    verified_date: "2026-03-10"
+    pitfall: "原实现忽略 varargs，必须用 vsnprintf 格式化"
+    exposure:
+      app_accessible: true
+      sdk_exposed: true
+
+  - api: DAP_TraceError
+    module: debug
+    level: L1
+    stability: beta
+    source: unisoc_os
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: "const char *format, ..."
+    output: void
+    error_codes: []
+    unisoc_api: SCI_TRACE_ERROR
+    description: "错误级别日志输出"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_Assert
+    module: debug
+    level: L1
+    stability: beta
+    source: unisoc_os
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: "BOOLEAN expr, const char *msg"
+    output: void
+    error_codes: []
+    unisoc_api: SCI_ASSERT
+    description: "断言检查（失败触发系统 assert）"
+    exposure:
+      app_accessible: false
+      sdk_exposed: false
+
+  # ===========================================================================
+  #  MODULE: time (3 APIs) — DAP_OSAssociated_unisoc.c
+  # ===========================================================================
+
+  - api: DAP_GetOSALVersion
+    module: time
+    level: L2
+    stability: beta
+    source: dap_custom
+    layer_from: DAP
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: any
+    input: void
+    output: uint16
+    error_codes: []
+    description: "返回 OSAL 版本号（v1.0 = 0x0100）"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_GetTick
+    module: time
+    level: L1
+    stability: beta
+    source: unisoc_os
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: void
+    output: uint32
+    error_codes: []
+    unisoc_api: SCI_GetTickCount
+    description: "获取系统 tick 计数值"
+    exposure:
+      app_accessible: true
+      sdk_exposed: true
+
+  - api: DAP_Sleep
+    module: time
+    level: L1
+    stability: beta
+    source: unisoc_os
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: "uint32 ms"
+    output: void
+    error_codes: []
+    unisoc_api: SCI_Sleep
+    description: "休眠指定毫秒数（阻塞当前任务）"
+    constraints:
+      mmi_thread_only: false
+    pitfall: "MMI 线程中调用会阻塞 UI，导致消息队列溢出 assert"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  # ===========================================================================
+  #  MODULE: gui (3 APIs) — dap_gui_unisoc.c
+  #  Unisoc底层: MMIPUB_OpenAlertWinByTextId/Ptr
+  # ===========================================================================
+
+  - api: MMIPUB_OpenAlertWinByTextId
+    module: gui
+    level: L1
+    stability: alpha
+    source: unisoc_mmi
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: MMI Task
+    input: "uint32, MMI_TEXT_ID_T, MMI_IMAGE_ID_T, uint32, ..."
+    output: void
+    error_codes: []
+    unisoc_api: MMIPUB_OpenAlertWinByTextId
+    description: "文本 ID 弹窗（直接暴露 Unisoc API）"
+    constraints:
+      mmi_thread_only: true
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: MMIPUB_OpenAlertWinByTextPtr
+    module: gui
+    level: L1
+    stability: alpha
+    source: unisoc_mmi
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: MMI Task
+    input: "uint32, MMI_STRING_T*, MMI_IMAGE_ID_T, uint32, ..."
+    output: void
+    error_codes: []
+    unisoc_api: MMIPUB_OpenAlertWinByTextPtr
+    description: "文本指针弹窗（直接暴露 Unisoc API）"
+    constraints:
+      mmi_thread_only: true
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: OS_DisplayPopup
+    module: gui
+    level: L2
+    stability: beta
+    source: dap_custom
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: MMI Task
+    input: "const char *text"
+    output: void
+    error_codes: []
+    unisoc_api: "→ MMIPUB_OpenAlertWinByTextPtr"
+    description: "ASCII 文本弹窗封装（ASCII→Unicode 转换 + 3秒自动关闭）"
+    constraints:
+      mmi_thread_only: true
+    exposure:
+      app_accessible: true
+      sdk_exposed: true
+
+  # ===========================================================================
+  #  MODULE: audio (13 APIs) — dap_audio_bridge.c
+  #  Unisoc底层: AUDIO_* APIs
+  # ===========================================================================
+
+  - api: DAP_AudioPlayFile
+    module: audio
+    level: L2
+    stability: beta
+    source: unisoc_audio
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: MMI Task
+    input: "const uint16 *filename"
+    output: int32
+    error_codes: [-1]
+    unisoc_api: "AUDIO_CreateFileHandle + AUDIO_Play"
+    description: "播放音频文件（自动选择 codec，支持 MP3/AAC/AMR/OGG/WMA/MIDI/WAV）"
+    constraints:
+      mmi_thread_only: true
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_AudioStop
+    module: audio
+    level: L2
+    stability: beta
+    source: unisoc_audio
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: MMI Task
+    input: "int32 handle"
+    output: int32
+    error_codes: [0, -1]
+    unisoc_api: "AUDIO_Stop + AUDIO_CloseHandle"
+    description: "停止音频播放"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_AudioPause
+    module: audio
+    level: L2
+    stability: beta
+    source: unisoc_audio
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: MMI Task
+    input: "int32 handle"
+    output: int32
+    error_codes: [0, -1]
+    unisoc_api: AUDIO_Pause
+    description: "暂停播放"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_AudioResume
+    module: audio
+    level: L2
+    stability: beta
+    source: unisoc_audio
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: MMI Task
+    input: "int32 handle"
+    output: int32
+    error_codes: [0, -1]
+    unisoc_api: AUDIO_Resume
+    description: "恢复播放"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_AudioGetPlayInfo
+    module: audio
+    level: L2
+    stability: beta
+    source: unisoc_audio
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: MMI Task
+    input: "int32 handle, uint32 *cur_ms, uint32 *total_ms"
+    output: int32
+    error_codes: [0, -1]
+    unisoc_api: AUDIO_GetPlayingInfo
+    description: "获取播放进度（当前/总毫秒数）"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_AudioSetVolume
+    module: audio
+    level: L2
+    stability: beta
+    source: unisoc_audio
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: "int32 level"
+    output: int32
+    error_codes: [0, -1]
+    unisoc_api: AUDIO_SetVolume
+    description: "设置音量 (0-9)"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_AudioScanDir
+    module: audio
+    level: L2
+    stability: beta
+    source: dap_custom
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: any
+    input: "const uint16 *dir_path, uint16 *out_names, int32 max_count"
+    output: int32
+    error_codes: [-1]
+    unisoc_api: "SFS_FindFirstFile / SFS_FindNextFile / SFS_FindClose"
+    description: "扫描目录下的音频文件（按扩展名过滤）"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_AudioRecordStart
+    module: audio
+    level: L2
+    stability: alpha
+    source: unisoc_audio
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: MMI Task
+    input: "const uint16 *filename, int32 format"
+    output: int32
+    error_codes: [-1]
+    unisoc_api: "AUDIO_CreateRecordFileHandle + AUDIO_Play + AUDIO_SetDevMode"
+    description: "开始录音（format: 0=WAV, 1=AMR, 2=MP3）"
+    constraints:
+      mmi_thread_only: true
+    pitfall: "PCM 格式可能导致 DSP assert，建议使用 AMR"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_AudioRecordStop
+    module: audio
+    level: L2
+    stability: alpha
+    source: unisoc_audio
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: MMI Task
+    input: "int32 handle"
+    output: int32
+    error_codes: [0, -1]
+    unisoc_api: "AUDIO_Stop + AUDIO_CloseHandle"
+    description: "停止录音"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_AudioRecordPause
+    module: audio
+    level: L2
+    stability: alpha
+    source: unisoc_audio
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: MMI Task
+    input: "int32 handle"
+    output: int32
+    error_codes: [0, -1]
+    unisoc_api: AUDIO_Pause
+    description: "暂停录音"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_AudioRecordResume
+    module: audio
+    level: L2
+    stability: alpha
+    source: unisoc_audio
+    layer_from: DAP
+    layer_to: OS
+    owner: DAP Security Team
+    thread_context: MMI Task
+    input: "int32 handle"
+    output: int32
+    error_codes: [0, -1]
+    unisoc_api: AUDIO_Resume
+    description: "恢复录音"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_AudioSetCallback
+    module: audio
+    level: L2
+    stability: alpha
+    source: dap_custom
+    layer_from: DAP
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: any
+    input: "void *cb"
+    output: void
+    error_codes: []
+    description: "设置音频事件回调函数指针"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: DAP_AudioGetState
+    module: audio
+    level: L2
+    stability: alpha
+    source: dap_custom
+    layer_from: DAP
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: any
+    input: "int32 handle"
+    output: int32
+    error_codes: []
+    description: "获取音频状态 (0=IDLE, 1=PLAYING, 2=PAUSED, 3=RECORDING)"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  # ===========================================================================
+  #  MODULE: loader (5 APIs) — DAP_InterfaceRegister.c / DAP_Loader_unisoc.c
+  # ===========================================================================
+
+  - api: InterfaceRegister_Add
+    module: loader
+    level: L1
+    stability: stable
+    source: dap_custom
+    layer_from: DAP
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: any
+    input: "char *FunctionName, TOSInterface OSInterface"
+    output: _INT32
+    error_codes: [OS_OK, OS_ERROR]
+    description: "按名称注册 API 到哈希表"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: InterfaceRegister_Find
+    module: loader
+    level: L1
+    stability: stable
+    source: dap_custom
+    layer_from: DAP
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: any
+    input: "char *FunctionName"
+    output: TOSInterface
+    error_codes: [OS_NULLAPI]
+    description: "按名称查找已注册 API"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  - api: InterfaceRegister_Del
+    module: loader
+    level: L1
+    stability: stable
+    source: dap_custom
+    layer_from: DAP
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: any
+    input: "char *FunctionName"
+    output: _INT32
+    error_codes: [OS_OK, OS_ERROR]
+    description: "按名称删除已注册 API"
+    exposure:
+      app_accessible: false
+      sdk_exposed: false
+
+  - api: InterfaceRegister_AddById
+    module: loader
+    level: L1
+    stability: stable
+    source: dap_custom
+    layer_from: DAP
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: any
+    input: "unsigned short id, TOSInterface func"
+    output: _INT32
+    error_codes: [OS_OK, OS_ERROR]
+    description: "按 ID 注册 API（O(1) 查找，EXTERNAL_BUILD 用）"
+    exposure:
+      app_accessible: false
+      sdk_exposed: false
+
+  - api: InterfaceRegister_FindById
+    module: loader
+    level: L1
+    stability: stable
+    source: dap_custom
+    layer_from: DAP
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: any
+    input: "unsigned short id"
+    output: TOSInterface
+    error_codes: [OS_NULLAPI]
+    description: "按 ID 查找 API（bootstrapped as '__FB'）"
+    exposure:
+      app_accessible: true
+      sdk_exposed: false
+
+  # ===========================================================================
+  #  MODULE: loader — High-level Loader APIs
+  # ===========================================================================
+
+  - api: DAP_LoaderInit
+    module: loader
+    level: L2
+    stability: beta
+    source: dap_custom
+    layer_from: Adapter
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: MMI Task
+    input: void
+    output: BOOLEAN
+    error_codes: [TRUE, FALSE]
+    description: "初始化 DAP 加载器（注册表 + OS API + DeviceSecret）"
+    verified: true
+    verified_date: "2026-03-11"
+    exposure:
+      app_accessible: false
+      sdk_exposed: false
+
+  - api: DAP_ExecuteAP
+    module: loader
+    level: L2
+    stability: beta
+    source: dap_custom
+    layer_from: Adapter
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: MMI Task
+    input: "uint16 *ExeFileName, char *CMD, int32 *Result"
+    output: TAPHandle
+    error_codes: [DAP_ERR_NONE, DAP_ERR_FILE_OPEN, DAP_ERR_FILE_SIZE, DAP_ERR_MEMORY, DAP_ERR_FILE_READ, DAP_ERR_FORMAT, DAP_ERR_SIGNATURE, DAP_ERR_HASH, DAP_ERR_SECURITY, DAP_ERR_CHECKSUM]
+    description: "加载并执行 .bin/.bin2/.bin3 模块"
+    verified: true
+    verified_date: "2026-03-11"
+    pitfall: "BIN2 路径下 Running_AP 前移 112B，必须用 alloc_base free"
+    exposure:
+      app_accessible: false
+      sdk_exposed: false
+
+  - api: DAP_ReleaseAP
+    module: loader
+    level: L2
+    stability: beta
+    source: dap_custom
+    layer_from: Adapter
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: MMI Task
+    input: "TAPHandle APHandle"
+    output: void
+    error_codes: []
+    description: "释放已加载模块内存"
+    verified: true
+    verified_date: "2026-03-11"
+    exposure:
+      app_accessible: false
+      sdk_exposed: false
+
+  - api: DAP_FMM_IsBinFile
+    module: loader
+    level: L2
+    stability: beta
+    source: dap_custom
+    layer_from: Adapter
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: MMI Task
+    input: "const uint16 *filename"
+    output: BOOLEAN
+    error_codes: []
+    description: "检查文件扩展名是否为 .bin/.bin2/.bin3"
+    verified: true
+    verified_date: "2026-03-10"
+    pitfall: "新文件格式必须同时更新此函数"
+    exposure:
+      app_accessible: false
+      sdk_exposed: false
+
+  # ===========================================================================
+  #  MODULE: security (10 APIs) — bin2_loader.c / bin2_crypto.c / device_binding.c
+  # ===========================================================================
+
+  - api: bin2_detect
+    module: security
+    level: L2
+    stability: alpha
+    source: dap_custom
+    layer_from: DAP
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: any
+    input: "const uint8 *buffer, uint32 buffer_size"
+    output: int
+    error_codes: [BIN2_OK, BIN2_ERR_NOT_BIN2]
+    description: "检测缓冲区是否为 BIN2 格式（仅检查 magic）"
+    exposure:
+      app_accessible: false
+      sdk_exposed: false
+
+  - api: bin2_verify
+    module: security
+    level: L2
+    stability: alpha
+    source: dap_custom
+    layer_from: DAP
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: any
+    input: "const uint8 *buffer, uint32 buffer_size"
+    output: int
+    error_codes: [BIN2_OK, BIN2_ERR_HEADER, BIN2_ERR_SIGNATURE, BIN2_ERR_HASH, BIN2_ERR_SIZE, BIN2_ERR_VERSION]
+    description: "完整验证 BIN2 文件（header + Ed25519 签名 + SHA-256 hash）"
+    exposure:
+      app_accessible: false
+      sdk_exposed: false
+
+  - api: bin2_get_payload_offset
+    module: security
+    level: L2
+    stability: alpha
+    source: dap_custom
+    layer_from: DAP
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: any
+    input: void
+    output: uint32
+    error_codes: []
+    description: "返回 BIN2 payload 偏移量（=112 字节）"
+    exposure:
+      app_accessible: false
+      sdk_exposed: false
+
+  - api: bin2_get_payload_size
+    module: security
+    level: L2
+    stability: alpha
+    source: dap_custom
+    layer_from: DAP
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: any
+    input: "const uint8 *buffer"
+    output: uint32
+    error_codes: []
+    description: "从 BIN2 header 获取 payload 大小"
+    exposure:
+      app_accessible: false
+      sdk_exposed: false
+
+  - api: bin2_payload_check_enc_mode
+    module: security
+    level: L2
+    stability: alpha
+    source: dap_custom
+    layer_from: DAP
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: any
+    input: "const BIN2_Header *hdr"
+    output: int
+    error_codes: [BIN2_OK, BIN2_ERR_ENC_MODE]
+    description: "检查加密模式合法性"
+    exposure:
+      app_accessible: false
+      sdk_exposed: false
+
+  - api: bin2_payload_decrypt
+    module: security
+    level: L2
+    stability: alpha
+    source: dap_custom
+    layer_from: DAP
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: any
+    input: "const BIN2_Header *hdr, uint8 *payload, uint32 payload_size"
+    output: int
+    error_codes: [PAYLOAD_CRYPTO_OK, PAYLOAD_CRYPTO_ERR_DERIVE, PAYLOAD_CRYPTO_ERR_DECRYPT]
+    description: "原地解密 AES-128-CTR payload"
+    exposure:
+      app_accessible: false
+      sdk_exposed: false
+
+  - api: device_binding_log_id
+    module: security
+    level: L2
+    stability: alpha
+    source: dap_custom
+    layer_from: DAP
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: MMI Task
+    input: void
+    output: void
+    error_codes: []
+    description: "输出 BindingID 到 Logel"
+    verified: true
+    verified_date: "2026-03-12"
+    exposure:
+      app_accessible: false
+      sdk_exposed: false
+
+  - api: binding_derive_id
+    module: security
+    level: L2
+    stability: alpha
+    source: dap_custom
+    layer_from: DAP
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: any
+    input: "uint8 *out_id, uint32 out_len"
+    output: int
+    error_codes: [BIND_OK, BIND_ERR_NOT_INIT, BIND_ERR_DERIVE]
+    description: "从 DeviceSecret 派生 BindingID"
+    verified: true
+    verified_date: "2026-03-12"
+    exposure:
+      app_accessible: false
+      sdk_exposed: false
+
+  - api: device_bindfile_generate
+    module: security
+    level: L2
+    stability: alpha
+    source: dap_custom
+    layer_from: DAP
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: MMI Task
+    input: void
+    output: BOOLEAN
+    error_codes: [TRUE, FALSE]
+    description: "生成 D:\\DAP\\device.bind（JSON 格式）"
+    exposure:
+      app_accessible: false
+      sdk_exposed: false
+
+  - api: device_bindfile_exists
+    module: security
+    level: L2
+    stability: alpha
+    source: dap_custom
+    layer_from: DAP
+    layer_to: DAP
+    owner: DAP Security Team
+    thread_context: MMI Task
+    input: void
+    output: BOOLEAN
+    error_codes: [TRUE, FALSE]
+    description: "检查 device.bind 是否已存在"
+    exposure:
+      app_accessible: false
+      sdk_exposed: false
+
+  # ===========================================================================
+  #  MODULE: sdk (7 APIs) — sdk/dap_api.h (macro wrappers, L3)
+  # ===========================================================================
+
+  - api: dap_malloc
+    module: sdk
+    level: L3
+    stability: stable
+    source: dap_custom
+    layer_from: APP
+    layer_to: DAP
+    owner: DAP SDK Team
+    thread_context: MMI Task
+    input: "size_t size, char *cmd"
+    output: "void *"
+    error_codes: [NULL]
+    description: "SDK v0: 内存分配宏 → FindInterface(DAP_MemAlloc)"
+    verified: true
+    verified_date: "2026-03-19"
+    exposure:
+      app_accessible: true
+      sdk_exposed: true
+
+  - api: dap_free
+    module: sdk
+    level: L3
+    stability: stable
+    source: dap_custom
+    layer_from: APP
+    layer_to: DAP
+    owner: DAP SDK Team
+    thread_context: MMI Task
+    input: "void *ptr, char *cmd"
+    output: void
+    error_codes: []
+    description: "SDK v0: 内存释放宏 → FindInterface(DAP_MemFree)"
+    verified: true
+    verified_date: "2026-03-19"
+    exposure:
+      app_accessible: true
+      sdk_exposed: true
+
+  - api: dap_log
+    module: sdk
+    level: L3
+    stability: stable
+    source: dap_custom
+    layer_from: APP
+    layer_to: DAP
+    owner: DAP SDK Team
+    thread_context: MMI Task
+    input: "const char *msg, char *cmd"
+    output: void
+    error_codes: []
+    description: "SDK v0: 日志宏 → FindInterface(DAP_TracePrint)"
+    verified: true
+    verified_date: "2026-03-19"
+    exposure:
+      app_accessible: true
+      sdk_exposed: true
+
+  - api: dap_timer_create
+    module: sdk
+    level: L3
+    stability: stable
+    source: dap_custom
+    layer_from: APP
+    layer_to: DAP
+    owner: DAP SDK Team
+    thread_context: MMI Task
+    input: "int ms, void *callback, char *cmd"
+    output: int
+    error_codes: [-1]
+    description: "SDK v0: 定时器创建宏"
+    verified: true
+    verified_date: "2026-03-19"
+    exposure:
+      app_accessible: true
+      sdk_exposed: true
+
+  - api: dap_timer_destroy
+    module: sdk
+    level: L3
+    stability: stable
+    source: dap_custom
+    layer_from: APP
+    layer_to: DAP
+    owner: DAP SDK Team
+    thread_context: MMI Task
+    input: "int timer_id, char *cmd"
+    output: void
+    error_codes: []
+    description: "SDK v0: 定时器销毁宏"
+    verified: true
+    verified_date: "2026-03-19"
+    exposure:
+      app_accessible: true
+      sdk_exposed: true
+
+  - api: dap_popup
+    module: sdk
+    level: L3
+    stability: stable
+    source: dap_custom
+    layer_from: APP
+    layer_to: DAP
+    owner: DAP SDK Team
+    thread_context: MMI Task
+    input: "const char *msg, char *cmd"
+    output: void
+    error_codes: []
+    description: "SDK v0: 弹窗宏 → FindInterface(OS_DisplayPopup)"
+    verified: true
+    verified_date: "2026-03-19"
+    exposure:
+      app_accessible: true
+      sdk_exposed: true
+
+  - api: dap_get_tick
+    module: sdk
+    level: L3
+    stability: stable
+    source: dap_custom
+    layer_from: APP
+    layer_to: DAP
+    owner: DAP SDK Team
+    thread_context: any
+    input: "char *cmd"
+    output: uint32_t
+    error_codes: [0]
+    description: "SDK v0: 获取系统 tick 宏"
+    verified: true
+    verified_date: "2026-03-19"
+    exposure:
+      app_accessible: true
+      sdk_exposed: true

@@ -1,0 +1,58 @@
+# AIOS Module States — Persistent Cross-Session State
+# Project: aios_workflow_meta
+# Purpose: Track per-module execution state for planner scheduling
+# Last updated: 2026-03-25
+#
+# Valid states (defined in manifest.yaml):
+#   INTAKE | RESEARCHING | SPEC_READY | READY_TO_IMPLEMENT |
+#   IMPLEMENTING | READY_FOR_MANUAL_BUILD | READY_FOR_MANUAL_FLASH |
+#   READY_FOR_MANUAL_LOG_CAPTURE | READY_TO_INTEGRATE | BLOCKED | CLOSED
+
+modules:
+  abi_v1:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: ""
+
+  dap_runtime:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: ""
+
+  ui_service:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: ""
+
+  storage_service:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: ""
+
+  network_service:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: ""
+
+  ui_adapter:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: ""
+
+  storage_adapter:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: ""
+
+  app_runtime:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: ""

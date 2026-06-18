@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "binding_alg": "SHA256-128",
+  "binding_id": "8df2ca78dc0ba0fc48dc49c5a1fc05eb",
+  "device_model": "ums9117",
+  "device_secret": "c3a634ce52dd8cf9d7433ea1ea587af3cb68e0e21c237ffcf948924f82008818"
+}

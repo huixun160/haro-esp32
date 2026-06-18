@@ -1,0 +1,20 @@
+# Project Definition — robot_aios
+
+project: robot_aios
+display_name: "ARCS SDK Robot AIOS Platform"
+description: "基于 ARCS SDK 的智能机器人项目，接入 AIOS 新语音链路，并推进语音服务、UI、调试能力的平台化。"
+created_at: "2026-04-14"
+lead: weizongquan
+
+modules:
+  - arcs_sdk_voice
+  - cloud_adapter
+  - wakeup_service
+  - mcp_runtime
+  - ui_runtime
+  - robot_capability
+
+build_target: arcs_evb
+platform: ListenAI ARCS SDK
+
+tm_counter: 2

@@ -1,0 +1,57 @@
+#!/usr/bin/env python3
+"""
+AIOS post-merge hook
+
+Generates a sync summary after git pull / merge to help
+engineers understand what changed.
+
+Calls AIOS/scripts/generate_sync_summary.py.
+"""
+
+import os
+import subprocess
+import sys
+
+HOOK_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Resolve project root
+PROJECT_ROOT_CANDIDATES = [
+    os.path.join(HOOK_DIR, '..', '..'),  # installed in .git/hooks/
+    os.path.join(HOOK_DIR, '..'),         # run from hooks/ directly
+]
+
+PROJECT_ROOT = None
+for candidate in PROJECT_ROOT_CANDIDATES:
+    sync_script = os.path.join(candidate, 'AIOS', 'scripts', 'generate_sync_summary.py')
+    if os.path.exists(sync_script):
+        PROJECT_ROOT = os.path.abspath(candidate)
+        break
+
+
+def main():
+    if not PROJECT_ROOT:
+        return
+
+    sync_script = os.path.join(PROJECT_ROOT, 'AIOS', 'scripts', 'generate_sync_summary.py')
+    registry_dir = os.path.join(PROJECT_ROOT, 'AIOS', 'registry')
+
+    if not os.path.exists(sync_script):
+        return
+
+    try:
+        result = subprocess.run(
+            [sys.executable, sync_script, '--registry', registry_dir, '--since', 'ORIG_HEAD'],
+            capture_output=True, text=True, cwd=PROJECT_ROOT, timeout=10
+        )
+        if result.stdout.strip():
+            print("\n\033[36m📋 AIOS SYNC SUMMARY (post-merge):\033[0m")
+            print(result.stdout)
+    except Exception:
+        pass  # fail-open
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except Exception:
+        pass  # fail-open

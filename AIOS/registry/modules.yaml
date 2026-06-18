@@ -1,0 +1,47 @@
+# AIOS Module Registry
+#
+# Schema per entry:
+#   - module: string        # Module name (e.g. dap_loader)
+#     owner: string         # Engineer or team name
+#     layer: string         # Architecture layer (dap_core / adapter / app / os)
+#     depends_on: list      # Module dependencies
+#     source_path: string   # Source directory path
+#     description: string   # Brief description
+#
+# Modules are registered incrementally during workflow execution.
+
+modules:
+  - module: bin2_loader
+    owner: DAP Security Team
+    layer: dap_core
+    depends_on: [bin2_crypto]
+    source_path: Third-party/DAP/security/bin2_loader.c
+    description: "BIN2 格式检测、验证流程编排、payload 偏移/大小查询"
+
+  - module: bin2_crypto
+    owner: DAP Security Team
+    layer: dap_core
+    depends_on: [ed25519_verify, dap_sha256]
+    source_path: Third-party/DAP/security/bin2_crypto.c
+    description: "Ed25519 签名验证 + SHA-256 hash 校验（BIN2 安全层）"
+
+  - module: ed25519_verify
+    owner: DAP Security Team
+    layer: dap_core
+    depends_on: []
+    source_path: Third-party/DAP/security/ed25519/ed25519_verify.c
+    description: "Ed25519 签名验证（TweetNaCl 派生，纯 C 实现）"
+
+  - module: dap_sha256
+    owner: DAP Security Team
+    layer: dap_core
+    depends_on: []
+    source_path: Third-party/DAP/security/sha256.c
+    description: "SHA-256 哈希（dap_ 前缀，避免与 SSV WiFi 模块冲突）"
+
+  - module: bin2_packer
+    owner: DAP Security Team
+    layer: tools
+    depends_on: []
+    source_path: AIOS/tools/bin2_packer/bin2_pack.py
+    description: "PC 端 BIN2 打包签名工具（Python，依赖 PyNaCl）"

@@ -1,0 +1,78 @@
+# HAL Capability Registry
+# TM-36 Phase 7
+
+module: hal
+description: "硬件抽象层 — GPIO/I2C/SPI/UART/ADC/PWM/RTC/Timer/WDG/USB/Sleep/Charge/SDIO"
+source: [pdf_doc, sdk_headers]
+dap_coverage: none
+
+capabilities:
+  - name: gpio
+    description: "通用I/O — 方向/电平/中断/回调"
+    layer: ADAPTER_ONLY
+    apis: [GPIO_Init, GPIO_GetDirection, GPIO_SetDirection, GPIO_Enable, GPIO_Disable, GPIO_GetValue, GPIO_SetValue, GPIO_EnableInt, GPIO_DisableInt, GPIO_SetIntType, GPIO_GetIntType, GPIO_GetIntStatus, GPIO_ClearIntStatus, GPIO_SetInterruptSense, GPIO_AddCallbackToIntTable, GPIO_DeleteFromIntTable, GPIO_GetDataMask, GPIO_SetDataMask, GPIO_GetMaxNumber, GPIO_SetInitState, GPIO_GetShakeInterval]
+
+  - name: i2c
+    description: "I2C 总线 — 打开/关闭/读/写"
+    layer: ADAPTER_ONLY
+    apis: [I2C_Open, I2C_Close, I2C_Write, I2C_Read]
+
+  - name: spi
+    description: "SPI 总线 — 同步和异步读写"
+    layer: ADAPTER_ONLY
+    apis: [SPI_HAL_Open, SPI_HAL_Close, SPI_HAL_Write, SPI_HAL_Read, SPI_HAL_WriteRead, SPI_HAL_RW, SPI_HAL_Read_Async, SPI_HAL_Write_Async]
+
+  - name: uart
+    description: "串口 — 打开/参数/读/写/关闭"
+    layer: ADAPTER_ONLY
+    apis: [uart_port_open, uart_port_param_init, uart_set_termios, uart_write, uart_read, uart_port_close]
+
+  - name: adc
+    description: "ADC — 采样/电压/温度/电池"
+    layer: ADAPTER_ONLY
+    apis: [ADC_Init, ADC_GetValue, ADC_GetVoltageMV, ADC_GetTemperature, ADC_GetBatteryVoltage, ADC_Close]
+
+  - name: pwm
+    description: "PWM — 脉宽调制输出"
+    layer: ADAPTER_ONLY
+    apis: [PWM_Init, PWM_SetDuty, PWM_Enable, PWM_Disable]
+
+  - name: rtc
+    description: "RTC 实时时钟 — 时间/日期/闹钟"
+    layer: SERVICE_CANDIDATE
+    apis: [RTC_GetTime, RTC_SetTime, RTC_GetDate, RTC_SetDate, RTC_SetAlarm, RTC_GetAlarm, RTC_EnableAlarm, RTC_DisableAlarm]
+
+  - name: timer_hal
+    description: "硬件定时器"
+    layer: ADAPTER_ONLY
+    apis: [TIMER_HAL_Open, TIMER_HAL_Close, TIMER_HAL_Start, TIMER_HAL_Stop, TIMER_HAL_GetValue, TIMER_HAL_SetCallback]
+
+  - name: watchdog
+    description: "看门狗"
+    layer: OS_INTERNAL
+    apis: [WDG_Init, WDG_Feed, WDG_Enable, WDG_Disable]
+
+  - name: usb
+    description: "USB 连接/读写/模式"
+    layer: ADAPTER_ONLY
+    apis: [USB_Init, USB_Open, USB_Close, USB_Read, USB_Write, USB_GetState, USB_SetMode, USB_IsConnected]
+
+  - name: sleep_power
+    description: "电源管理 — 深度睡眠/唤醒"
+    layer: ADAPTER_ONLY
+    apis: [SLEEP_DisableDeepSleep, SLEEP_EnableDeepSleep, SLEEP_RegisterWakeup, SLEEP_UnregisterWakeup, SLEEP_LockActive, SLEEP_UnlockActive]
+
+  - name: charge
+    description: "充电管理 — 电池状态/电量/充电器"
+    layer: APP_CANDIDATE
+    apis: [CHR_GetBatteryState, CHR_GetBatteryLevel, CHR_IsCharging, CHR_GetChargerType, CHR_SetCallback, CHR_GetVoltage]
+
+  - name: sdio
+    description: "SDIO 接口"
+    layer: ADAPTER_ONLY
+    apis: [SDIO_Init, SDIO_Open, SDIO_Close, SDIO_Read, SDIO_Write, SDIO_SendCmd]
+
+dependency: []
+notes: |
+  HAL 大部分是 ADAPTER_ONLY。
+  对 APP 有价值的：RTC时间(RTC_GetTime/Date), 电池状态(CHR_GetBatteryLevel/IsCharging), USB连接(USB_IsConnected)。

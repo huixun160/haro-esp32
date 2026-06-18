@@ -1,0 +1,59 @@
+# Service Contract: ui_service
+# Purpose: Define the UI capability service interface
+# Layer: service
+# Last updated: 2026-03-25
+
+service: ui_service
+description: "UI capability service — screen management, widget rendering, input handling"
+layer: service
+owner: null
+
+# Functions exposed to ABI layer
+functions:
+  - name: create_screen
+    description: "Create a new screen context"
+    input: []
+    output: screen_id
+    error: -1
+
+  - name: destroy_screen
+    description: "Destroy a screen context and release resources"
+    input: [screen_id]
+    output: status
+    error: -1
+
+  - name: create_label
+    description: "Create a text label widget on a screen"
+    input: [screen_id, x, y, width, height, text]
+    output: widget_id
+    error: -1
+
+  - name: create_button
+    description: "Create an interactive button widget"
+    input: [screen_id, x, y, width, height, text, callback_id]
+    output: widget_id
+    error: -1
+
+  - name: render_screen
+    description: "Render all widgets on the active screen"
+    input: [screen_id]
+    output: status
+    error: -1
+
+  - name: handle_key_event
+    description: "Process a key press event"
+    input: [key_code]
+    output: handled
+    error: 0
+
+# Lifecycle constraints
+lifecycle:
+  init: required          # must call init before use
+  background: allowed     # service persists across screen switches
+  memory: persistent      # service state survives app suspend
+  thread_safe: false       # must be called from main thread only
+
+# Dependencies
+deps:
+  services: []
+  adapters: [ui_adapter]

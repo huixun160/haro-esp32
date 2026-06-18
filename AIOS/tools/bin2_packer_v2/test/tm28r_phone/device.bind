@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "binding_alg": "SHA256-128",
+  "binding_id": "75c4b33c4cca62d7c7c5c8b5775729f1",
+  "device_model": "ums9117"
+}

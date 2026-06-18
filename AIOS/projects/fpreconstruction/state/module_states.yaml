@@ -1,0 +1,117 @@
+# AIOS Module States — Persistent Cross-Session State
+# Project: fpreconstruction
+# Purpose: Track per-module execution state for planner scheduling
+# Last updated: 2026-03-25
+#
+# Valid states (defined in manifest.yaml):
+#   INTAKE | RESEARCHING | SPEC_READY | READY_TO_IMPLEMENT |
+#   IMPLEMENTING | READY_FOR_MANUAL_BUILD | READY_FOR_MANUAL_FLASH |
+#   READY_FOR_MANUAL_LOG_CAPTURE | READY_TO_INTEGRATE | BLOCKED | CLOSED
+
+modules:
+  # ── L2: ABI ─────────────────────────────────────────────────
+  abi_v1:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: "Stage 1 关键交付: 冻结 ABI v1"
+
+  # ── L3: Runtime ─────────────────────────────────────────────
+  dap_runtime:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: ""
+
+  # ── L4: Services ────────────────────────────────────────────
+  ui_service:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: "Stage 2 首批 MVP: LVGL bridge"
+
+  storage_service:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: "Stage 2 首批 MVP"
+
+  network_service:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: "Stage 2 首批 MVP — 首个联网 APP 前置"
+
+  package_service:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: "Stage 3: 下载/安装/运行"
+
+  device_service:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: "Stage 2 首批 MVP"
+
+  audio_service:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: ""
+
+  telephony_service:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: "延后到第二阶段 service 化"
+
+  security_service:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: "已有 DeviceSecret/BIN2 签名基础"
+
+  # ── L5: Adapters ────────────────────────────────────────────
+  ui_adapter:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: ""
+
+  storage_adapter:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: ""
+
+  network_adapter:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: ""
+
+  device_adapter:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: ""
+
+  audio_adapter:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: ""
+
+  telephony_adapter:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: ""
+
+  # ── L1: Application ────────────────────────────────────────
+  app_runtime:
+    state: INTAKE
+    owner: null
+    updated_at: "2026-03-25"
+    notes: ""

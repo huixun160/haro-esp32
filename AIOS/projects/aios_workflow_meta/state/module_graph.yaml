@@ -1,0 +1,45 @@
+# AIOS Module Dependency Graph
+# Project: aios_workflow_meta
+# Purpose: Machine-readable module dependencies for planner scheduling
+# Last updated: 2026-03-25
+
+modules:
+  - name: abi_v1
+    description: "APP↔DAP interface contract (C ABI)"
+    deps: []
+    layer: interface
+
+  - name: dap_runtime
+    description: "Dynamic Application Platform core runtime"
+    deps: [abi_v1]
+    layer: platform
+
+  - name: ui_service
+    description: "UI capability service (screen, widgets, input)"
+    deps: [abi_v1]
+    layer: service
+
+  - name: storage_service
+    description: "File system and persistent storage service"
+    deps: [abi_v1]
+    layer: service
+
+  - name: network_service
+    description: "Network connectivity service"
+    deps: [abi_v1]
+    layer: service
+
+  - name: ui_adapter
+    description: "Mocor UI API adapter (GUIREF/MMI bridge)"
+    deps: [ui_service]
+    layer: adapter
+
+  - name: storage_adapter
+    description: "Mocor SFS file API adapter"
+    deps: [storage_service]
+    layer: adapter
+
+  - name: app_runtime
+    description: "Application execution environment"
+    deps: [dap_runtime, ui_service, storage_service]
+    layer: application

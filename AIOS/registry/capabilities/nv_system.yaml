@@ -1,0 +1,26 @@
+# NV/System Capability Registry
+# TM-36
+
+module: nv_system
+description: "NV持久化存储 + 系统信息 + 系统设置"
+source: [pdf_doc, sdk_headers]
+dap_coverage: none
+
+capabilities:
+  - name: nv_storage
+    description: "NV 读写（FixNV/RuntimeNV）"
+    layer: SERVICE_CANDIDATE
+    apis: [MMIAPIPHONE_ReadNV, MMIAPIPHONE_WriteNV, MMINV_Read, MMINV_Write, MMINV_GetItemLen, EFS_NvItemRead, EFS_NvItemWrite, EFS_NvItemDelete]
+
+  - name: system_info
+    description: "系统信息查询（版本/IMEI/电池/信号）"
+    layer: APP_CANDIDATE
+    apis: [MMIAPIPHONE_GetSoftwareVersion, MMIAPIPHONE_GetHardwareVersion, MMIAPIPHONE_GetIMEI, MMIAPIPHONE_GetIMSI, MMIAPIPHONE_GetBatteryState, MMIAPIPHONE_GetSignalStrength]
+
+  - name: system_settings
+    description: "系统设置（语言/时间格式/背光）"
+    layer: APP_CANDIDATE
+    apis: [MMISET_GetCurrentLang, MMISET_SetCurrentLang, MMISET_GetTimeFormat, MMISET_GetDateFormat, MMISET_GetBacklightTime, MMISET_SetBacklightTime]
+
+dependency: [os_core, filesystem]
+notes: "APP 可安全读取系统信息。NV 写入需谨慎（可能影响系统参数）。"

@@ -1,0 +1,23 @@
+# AIOS Ownership Registry
+#
+# ⚠️ DEPRECATED (TM-40): This file is superseded by AIOS/engineers/*/profile.yaml
+# Kept for backward compatibility. New registrations go to engineers/<name>/profile.yaml.
+#
+# Engineers register here on first deployment via /aios-onboard.
+#
+# Schema per entry:
+#   - name: string           # Engineer name (e.g. zhukangwei)
+#     role: string           # Job title (e.g. Platform Engineer)
+#     responsibility: string # Primary responsibility area
+#     modules: list          # Owned modules
+#     registered_at: string  # ISO 8601 date
+#
+# Engineers are registered via the onboarding-agent during first deployment.
+
+engineers:
+  - name: KaiwenZheng
+    role: Director of AI Research
+    responsibility: AI models, workflow development, feature phone architecture design
+    organization: NextBigSeek
+    modules: []
+    registered_at: "2026-03-09"

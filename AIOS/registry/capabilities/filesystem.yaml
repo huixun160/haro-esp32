@@ -1,0 +1,82 @@
+# FileSystem Capability Registry
+# Source: UMS9117 SFS接口使用指南V1.1.pdf
+# TM-36 Phase 1b
+
+module: filesystem
+description: "Unisoc SFS — FAT16/FAT32 文件系统（设备/文件/目录/查找）"
+source: [pdf_doc, sdk_headers, dap_wrapper]
+dap_coverage: partial  # 10/34 = 29%
+
+capabilities:
+
+  - name: device_management
+    description: "存储设备注册/注销/格式化/状态/空间查询"
+    layer: ADAPTER_ONLY
+    apis:
+      - SFS_Init
+      - SFS_RegisterDevice
+      - SFS_RegisterDeviceAsyn
+      - SFS_UnRegisterDevice
+      - SFS_Format
+      - SFS_FormatByOption
+      - SFS_GetDeviceStatus
+      - SFS_GetDeviceFreeSpace
+      - SFS_GetDeviceUsedSpace
+      - SFS_GetDeviceLabel
+      - SFS_SetDeviceLabel
+
+  - name: file_directory_ops
+    description: "文件和目录的创建/删除/重命名/属性/查找"
+    layer: APP_CANDIDATE
+    apis:
+      - SFS_CreateFile
+      - SFS_CreateFileAsyn
+      - SFS_DeleteFile
+      - SFS_RenameFile
+      - SFS_SetAttr
+      - SFS_GetAttr
+      - SFS_SetAttrAsyn
+      - SFS_GetAttrAsyn
+      - SFS_CreateDirectory
+      - SFS_CreateDirectoryAsyn
+      - SFS_DeleteDirectory
+      - SFS_DeleteDirectoryAsyn
+      - SFS_FindFirstFile
+      - SFS_FindFirstFileCtrl
+      - SFS_FindPreFile
+      - SFS_FindNextFile
+      - SFS_FindClose
+      # Not implemented:
+      - SFS_DeleteTree
+      - SFS_CopyFile
+      - SFS_CopyTree
+      - SFS_MoveFile
+      - SFS_MoveTree
+      - SFS_Abort
+
+  - name: file_io
+    description: "文件读写/大小/指针/关闭/刷新"
+    layer: APP_CANDIDATE
+    apis:
+      - SFS_GetFileSize
+      - SFS_SetFileSize
+      - SFS_ReadFile
+      - SFS_WriteFile
+      - SFS_FlushFile
+      - SFS_SetFilePointer
+      - SFS_GetFilePointer
+      - SFS_CloseFile
+
+  - name: utility
+    description: "路径工具函数"
+    layer: ADAPTER_ONLY
+    apis:
+      - SFS_GetDevnameFromPath
+      - SFS_ConvertStrmodeToBinmode
+
+dependency: [os_core]
+
+notes: |
+  DAP覆盖29%。DAP_FileOpen仅只读模式。RenameFile/FlushFile/GetFreeSpace未封装。
+  SFS_CopyFile/MoveFile/DeleteTree 等6个API标记为「未实现」。
+  所有路径参数为 Unicode (UTF-16LE)。

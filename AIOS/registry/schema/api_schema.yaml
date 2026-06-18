@@ -1,0 +1,71 @@
+# AIOS API Schema Definition
+# Defines the structure for API entries in apis.yaml
+#
+# TM-35: API资产体系
+# Date: 2026-03-23
+
+schema:
+  version: "1.0"
+  description: "AIOS API Registry Schema — defines required and optional fields for each API entry"
+
+  required_fields:
+    - api           # API function name (unique identifier)
+    - module        # Functional module: memory | filesystem | timer | debug | time | gui | audio | security | loader | sdk
+    - level         # API abstraction level: L1 (low-level OS wrapper) | L2 (DAP service) | L3 (APP-facing SDK)
+    - stability     # Maturity: stable | beta | alpha | unstable | deprecated
+    - source        # Origin: unisoc_os | unisoc_mmi | unisoc_audio | dap_custom
+    - layer_from    # Caller layer: APP | DAP | Adapter | OS
+    - layer_to      # Callee layer: APP | DAP | Adapter | OS
+    - input         # Parameter types (C signature string)
+    - output        # Return type
+    - description   # Brief Chinese/English description
+
+  optional_fields:
+    - owner              # Engineer or team name
+    - thread_context     # Expected thread context: MMI Task | any | interrupt
+    - error_codes        # List of possible return codes
+    - abi:               # ABI information (optional until migration decision)
+        function_id: int       # Numeric ID from dap_interface_id.h
+        version: int           # ABI version
+    - constraints:       # Calling constraints
+        async: bool
+        max_block_time_ms: int
+        mmi_thread_only: bool
+    - dependency: list   # Module dependencies
+    - exposure:          # Visibility
+        app_accessible: bool
+        sdk_exposed: bool
+    - unisoc_api: string # Underlying Unisoc API name (e.g. SCI_ALLOC_APP)
+    - verified: bool     # Whether verified on device
+    - verified_date: string
+    - pitfall: string    # Known pitfalls
+
+  enums:
+    module:
+      - memory
+      - filesystem
+      - timer
+      - debug
+      - time
+      - gui
+      - audio
+      - security
+      - loader
+      - sdk
+      - network
+      - device
+    level:
+      - L1    # Low-level OS wrapper (direct Unisoc API mapping)
+      - L2    # DAP service layer (business logic)
+      - L3    # APP-facing SDK (macro-wrapped, stable ABI)
+    stability:
+      - stable
+      - beta
+      - alpha
+      - unstable
+      - deprecated
+    source:
+      - unisoc_os     # Unisoc OS APIs (SCI_*, SFS_*)
+      - unisoc_mmi    # Unisoc MMI APIs (MMIPUB_*)
+      - unisoc_audio  # Unisoc Audio APIs (AUDIO_*)
+      - dap_custom    # DAP custom implementation

@@ -1,0 +1,36 @@
+# Bluetooth Capability Registry
+# TM-36 Phase 6
+
+module: bluetooth
+description: "蓝牙子系统 — Core/Discovery/Pairing/OPP/FTP/HFP-HS"
+source: [pdf_doc, sdk_headers]
+dap_coverage: none
+
+capabilities:
+  - name: bt_core
+    description: "蓝牙初始化/启停/可见性"
+    layer: SERVICE_CANDIDATE
+    apis: [BT_Init, BT_Deinit, BT_Start, BT_Stop, BT_GetState, BT_SetVisibility, BT_GetVisibility, BT_SetLocalName, BT_GetLocalName]
+
+  - name: bt_discovery_pairing
+    description: "设备搜索/配对/管理"
+    layer: SERVICE_CANDIDATE
+    apis: [BT_SearchDevice, BT_CancelSearch, BT_PairDevice, BT_InputPairPin, BT_CancelPair, BT_GetPairedDeviceCount, BT_GetPairedDeviceInfo, BT_GetPairedDeviceName, BT_SetPairedDeviceName, BT_GetPairedDeviceService, BT_RefreshPairedDeviceService, BT_RemovePairedDevice]
+
+  - name: bt_opp
+    description: "OPP 文件推送"
+    layer: SERVICE_CANDIDATE
+    apis: [BT_OppSendFile, BT_CancelOppSendFile, BT_OppReceiveFile, BT_CancelOppReceiveFile]
+
+  - name: bt_ftp
+    description: "FTP 文件传输"
+    layer: SERVICE_CANDIDATE
+    apis: [BT_FTC_ConnectServer, BT_FTC_CancelConnectServer, BT_FTC_SetPath, BT_FTC_GoBackPath, BT_FTC_GoRootPath, BT_FTC_AddNewFolder, BT_FTC_DeleteObject, BT_FTC_SendFile, BT_FTC_ReceiveFile, BT_FTC_CancelTransfer]
+
+  - name: bt_hfp
+    description: "免提/耳机通话"
+    layer: SERVICE_CANDIDATE
+    apis: [BT_ActivateHS, BT_CancelActivateHS, BT_DeactivateHS, BT_GetActivatedHS, BT_StartRing, BT_StopRing, BT_CallConnected, BT_CallDisconnected, BT_TransferAudioConn]
+
+dependency: [os_core]
+notes: "DAP 0%。蓝牙对APP主要价值在于音频(A2DP)和文件传输。"

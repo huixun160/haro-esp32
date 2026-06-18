@@ -1,0 +1,21 @@
+# Device (Display + Keypad) Capability Registry
+# TM-36 Phase 2b
+
+module: device
+description: "显示和键盘 HAL — LCD 刷新/图层/按键"
+source: [pdf_doc, sdk_headers]
+dap_coverage: none
+
+capabilities:
+  - name: display
+    description: "LCD 显示管理（坐标/图层/休眠/刷新）"
+    layer: ADAPTER_ONLY
+    apis: [DISPLAY_ConvertCoordinate, DISPLAY_InvalidateRect, DISPLAY_BlendLayer, DISPLAY_DisableLayer, DISPLAY_EnterSleep, DISPLAY_IsPermit, DISPLAY_BlendAndInvalidateRect]
+
+  - name: keypad
+    description: "键盘读取/状态/客户端注册"
+    layer: ADAPTER_ONLY
+    apis: [KPD_SyncGetKey, KPD_SetKpdReadMode, KPD_GetKpdReadMode, KPD_GetKeyStatus, KPD_SetGreenKeyPressed, KPD_GetGreenKeyPressed, KPD_RegisterClient, KPD_UnregisterClient]
+
+dependency: [os_core]
+notes: "APP不直接调用 — 通过GUI层(GUI_DrawXxx)和消息层(MSG_KEYDOWN)间接使用。"

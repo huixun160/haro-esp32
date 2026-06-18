@@ -1,0 +1,59 @@
+# Capability Schema Definition
+#
+# TM-36: Defines the structure for per-module capability YAML files
+# Located at: registry/capabilities/<module>.yaml
+
+schema_version: "1.0"
+
+# Required fields for each capability YAML
+required_fields:
+  module:
+    type: string
+    description: "Module name (lowercase, underscore-separated)"
+
+  description:
+    type: string
+    description: "Module description"
+
+  source:
+    type: list
+    description: "Data sources used to populate this file"
+    enum_items: [pdf_doc, sdk_headers, dap_wrapper, source_code]
+
+  capabilities:
+    type: list
+    description: "List of capabilities within this module"
+    item_fields:
+      name:
+        type: string
+        required: true
+      description:
+        type: string
+        required: true
+      layer:
+        type: string
+        required: true
+        enum: [APP_CANDIDATE, SERVICE_CANDIDATE, ADAPTER_ONLY, OS_INTERNAL, UNKNOWN]
+      apis:
+        type: list
+        required: true
+        description: "API names belonging to this capability"
+
+# Optional fields
+optional_fields:
+  events:
+    type: list
+    description: "Events/signals/messages associated with this module"
+
+  dependency:
+    type: list
+    description: "Other modules this module depends on"
+
+  dap_coverage:
+    type: string
+    description: "How much of this module is covered by DAP wrappers"
+    enum: [full, partial, none]
+
+  notes:
+    type: string
+    description: "Additional notes"

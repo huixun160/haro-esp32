@@ -1,0 +1,258 @@
+# AIOS Workflow Component Manifest
+#
+# Central registry of all workflow components and their dependencies.
+# Created per TM-39 recommendation, maintained per TM-40.
+#
+# Last updated: 2026-03-25
+
+# ─── GIT REMOTE ───────────────────────────────────────────────
+git:
+  remote:
+    ssh: git@192.168.0.92:feature-phone/fp-aios-kz.git
+    http: http://192.168.0.92/feature-phone/fp-aios-kz.git
+  branch_pattern: "eng/{engineer}/{project}"
+  main_branch: main
+  merge_owners: [KaiwenZheng, James]
+  fallback: "GitLab 不可用时可本地继续工作，恢复后再 push"
+
+# ─── MODULE STATES (TM-02) ────────────────────────────────────
+states:
+  valid:
+    - INTAKE
+    - RESEARCHING
+    - SPEC_READY
+    - READY_TO_IMPLEMENT
+    - IMPLEMENTING
+    - READY_FOR_MANUAL_BUILD
+    - READY_FOR_MANUAL_FLASH
+    - READY_FOR_MANUAL_LOG_CAPTURE
+    - READY_TO_INTEGRATE
+    - BLOCKED
+    - CLOSED
+  terminal: [CLOSED]
+  human_gates:
+    - READY_FOR_MANUAL_BUILD
+    - READY_FOR_MANUAL_FLASH
+    - READY_FOR_MANUAL_LOG_CAPTURE
+  state_file: "projects/<project>/state/module_states.yaml"
+  graph_file: "projects/<project>/state/module_graph.yaml"
+
+# ─── AGENTS ───────────────────────────────────────────────────
+agents:
+  - name: memo-critic
+    file: workflow/agents/memo-critic.md
+    skills: [intake-memo, clarify-memo]
+    trigger: "/aios-workflow Step 2, /aios-intake Step 3"
+
+  - name: api-governor
+    file: workflow/agents/api-governor.md
+    skills: [detect-api, record-api]
+    trigger: "/aios-workflow Step 6 (during implementation)"
+
+  - name: boundary-reviewer
+    file: workflow/agents/boundary-reviewer.md
+    skills: []
+    trigger: "/aios-workflow Step 6 (during implementation)"
+
+  - name: embedded-reviewer
+    file: workflow/agents/embedded-reviewer.md
+    skills: []
+    trigger: "/aios-workflow Step 6 (during implementation)"
+
+  - name: closeout-reviewer
+    file: workflow/agents/closeout-reviewer.md
+    skills: [close-task, package-commit]
+    trigger: "/aios-workflow Step 9, /aios-close Step 1"
+
+  - name: onboarding-agent
+    file: workflow/agents/onboarding-agent.md
+    skills: [onboard-engineer, register-engineer]
+    trigger: "/aios-onboard, first-time /aios-* usage"
+
+  - name: assignment-reviewer
+    file: workflow/agents/assignment-reviewer.md
+    skills: []
+    trigger: "/aios-workflow (after spec freeze)"
+    added_in: TM-40
+
+  - name: knowledge-curator
+    file: workflow/agents/knowledge-curator.md
+    skills: [sync-shared-knowledge]
+    trigger: "/aios-close, manual knowledge review"
+    added_in: TM-40
+
+  # Future agents (TM-02 — activate in Week 3)
+  # - name: architecture-reviewer
+  #   file: workflow/agents/architecture-reviewer.md
+  #   skills: []
+  #   trigger: "/aios-workflow Step 6 (during implementation)"
+  #   added_in: TM-02
+
+  # - name: integration-critic
+  #   file: workflow/agents/integration-critic.md
+  #   skills: []
+  #   trigger: "/aios-workflow Step 6 (during implementation)"
+  #   added_in: TM-02
+
+# ─── SKILLS ───────────────────────────────────────────────────
+skills:
+  - name: intake-memo
+    file: workflow/skills/intake-memo.md
+    called_by: ["/aios-workflow Step 1", "/aios-intake Step 2"]
+
+  - name: clarify-memo
+    file: workflow/skills/clarify-memo.md
+    called_by: ["/aios-workflow Step 3", "/aios-clarify Step 2"]
+
+  - name: freeze-spec
+    file: workflow/skills/freeze-spec.md
+    called_by: ["/aios-workflow Step 4"]
+
+  - name: pitfall-scan
+    file: workflow/skills/pitfall-scan.md
+    called_by: ["/aios-workflow Step 5"]
+
+  - name: plan-task
+    file: workflow/skills/plan-task.md
+    called_by: ["/aios-workflow Step 5"]
+
+  - name: execute-task
+    file: workflow/skills/execute-task.md
+    called_by: ["/aios-workflow Step 6"]
+
+  - name: prepare-verification
+    file: workflow/skills/prepare-verification.md
+    called_by: ["/aios-workflow Step 7"]
+
+  - name: close-task
+    file: workflow/skills/close-task.md
+    called_by: ["/aios-workflow Step 9", "/aios-close Step 2"]
+
+  - name: close-feedback
+    file: workflow/skills/close-feedback.md
+    called_by: ["/aios-close Step 4"]
+
+  - name: package-commit
+    file: workflow/skills/package-commit.md
+    called_by: ["/aios-workflow Step 10", "/aios-close Step 7"]
+
+  - name: detect-api
+    file: workflow/skills/detect-api.md
+    called_by: ["api-governor agent"]
+
+  - name: record-api
+    file: workflow/skills/record-api.md
+    called_by: ["api-governor agent"]
+
+  - name: onboard-engineer
+    file: workflow/skills/onboard-engineer.md
+    called_by: ["/aios-onboard"]
+
+  - name: register-engineer
+    file: workflow/skills/register-engineer.md
+    called_by: ["/aios-onboard"]
+    added_in: TM-40
+
+  - name: register-project
+    file: workflow/skills/register-project.md
+    called_by: ["manual"]
+    added_in: TM-40
+
+  - name: sync-shared-knowledge
+    file: workflow/skills/sync-shared-knowledge.md
+    called_by: ["pitfall-scan", "/aios-close"]
+    added_in: TM-40
+
+  - name: log-execution
+    file: workflow/skills/log-execution.md
+    called_by: ["execute-task", "close-task"]
+    added_in: TM-40
+
+  - name: session-login
+    file: workflow/skills/session-login.md
+    called_by: ["/aios-login", "/aios-onboard Step 6"]
+    added_in: TM-40
+
+  - name: planner
+    file: workflow/skills/planner.md
+    called_by: ["/aios-workflow (auto, before task planning)"]
+    added_in: TM-02
+
+# ─── RULES ────────────────────────────────────────────────────
+rules:
+  - name: ambiguity-first
+    file: workflow/rules/ambiguity-first.md
+
+  - name: api-registration-required
+    file: workflow/rules/api-registration-required.md
+
+  - name: first-deploy-onboarding
+    file: workflow/rules/first-deploy-onboarding.md
+
+  - name: git-manual-commit
+    file: workflow/rules/git-manual-commit.md
+
+  - name: memo-required
+    file: workflow/rules/memo-required.md
+
+  - name: pitfall-log-required
+    file: workflow/rules/pitfall-log-required.md
+
+  - name: pitfall-review-required
+    file: workflow/rules/pitfall-review-required.md
+
+  - name: spec-freeze
+    file: workflow/rules/spec-freeze.md
+
+# ─── TEMPLATES ────────────────────────────────────────────────
+templates:
+  - name: feedback_template
+    file: workflow/templates/feedback_template.md
+
+  - name: technical_memo_template
+    file: workflow/templates/technical_memo_template.md
+
+  - name: verification_checklist
+    file: workflow/templates/verification_checklist.md
+
+# ─── HOOKS ────────────────────────────────────────────────────
+hooks:
+  - name: pre-commit
+    file: AIOShooks/pre-commit
+    guards: [api_guard, registry_guard, memo_guard, pitfall_guard]
+    behavior: warn-only, fail-open
+
+  - name: pre-push
+    file: AIOShooks/pre-push
+    guards: [api_guard, registry_guard]
+    behavior: warn-only, fail-open
+
+  - name: post-merge
+    file: AIOShooks/post-merge
+    guards: []
+    behavior: informational (sync summary)
+
+# ─── WORKFLOW COMMANDS ────────────────────────────────────────
+commands:
+  - name: /aios-workflow
+    file: .agents/workflows/aios-workflow.md
+
+  - name: /aios-intake
+    file: .agents/workflows/aios-intake.md
+
+  - name: /aios-clarify
+    file: .agents/workflows/aios-clarify.md
+
+  - name: /aios-close
+    file: .agents/workflows/aios-close.md
+
+  - name: /aios-onboard
+    file: .agents/workflows/aios-onboard.md
+
+  - name: /aios-login
+    file: .agents/workflows/aios-login.md
+    added_in: TM-40
+
+  - name: /aios-newproject
+    file: .agents/workflows/aios-newproject.md
+    added_in: TM-40

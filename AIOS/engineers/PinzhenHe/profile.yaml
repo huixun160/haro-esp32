@@ -1,0 +1,19 @@
+name: PinzhenHe
+role: 实习生
+organization: NextBigSeek
+responsibility: ARCS SDK / 语音链路 / UI
+registered_at: "2026-04-07"
+
+projects:
+  - project: aios_workflow_meta
+    role: contributor
+    joined_at: "2026-04-07"
+
+modules_owned: []
+
+contact:
+  gitlab: "@pinzhenhe"
+
+preferences:
+  language: zh-CN
+  review_depth: brief

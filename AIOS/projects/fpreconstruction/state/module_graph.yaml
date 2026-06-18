@@ -1,0 +1,96 @@
+# AIOS Module Dependency Graph
+# Project: fpreconstruction
+# Purpose: Machine-readable module dependencies for planner scheduling
+# Source: James 版整体架构文档 — 五层模型 (L1-L6)
+# Last updated: 2026-03-25
+
+modules:
+  # ── Layer 2: ABI / SDK ──────────────────────────────────────
+  - name: abi_v1
+    description: "APP↔DAP interface contract (C ABI) — 函数签名、错误码、handle、异步模型"
+    deps: []
+    layer: L2_abi
+
+  # ── Layer 3: DAP Runtime ────────────────────────────────────
+  - name: dap_runtime
+    description: "装载、重定位、生命周期、ABI 校验、service gateway"
+    deps: [abi_v1]
+    layer: L3_runtime
+
+  # ── Layer 4: AIOS System Services ──────────────────────────
+  - name: ui_service
+    description: "页面管理、窗口切换、菜单/列表/对话框、输入事件、LVGL bridge"
+    deps: [abi_v1]
+    layer: L4_service
+
+  - name: storage_service
+    description: "文件读写、KV/配置、NV 抽象、APP 私有目录、T 卡目录"
+    deps: [abi_v1]
+    layer: L4_service
+
+  - name: network_service
+    description: "联网状态、socket 抽象、HTTP/下载、DNS、callback/timeout/retry"
+    deps: [abi_v1]
+    layer: L4_service
+
+  - name: package_service
+    description: "APP 下载、验签、安装、卸载、版本管理、launcher 注册"
+    deps: [abi_v1, storage_service, security_service, network_service]
+    layer: L4_service
+
+  - name: device_service
+    description: "电量、充电、时间、背光、震动、键盘输入、设备信息"
+    deps: [abi_v1]
+    layer: L4_service
+
+  - name: audio_service
+    description: "音频播放、录音、提示音、路由/音量"
+    deps: [abi_v1]
+    layer: L4_service
+
+  - name: telephony_service
+    description: "SIM 状态、通话、信号、短信、4G/IMS/VoLTE 查询"
+    deps: [abi_v1]
+    layer: L4_service
+
+  - name: security_service
+    description: "包签名校验、DeviceSecret/设备绑定、权限验证、API gating"
+    deps: [abi_v1]
+    layer: L4_service
+
+  # ── Layer 5: Adapter Layer (Mocor-specific) ─────────────────
+  - name: ui_adapter
+    description: "LVGL↔Mocor display/input bridge"
+    deps: [ui_service]
+    layer: L5_adapter
+
+  - name: storage_adapter
+    description: "AIOS Storage↔Mocor SFS bridge"
+    deps: [storage_service]
+    layer: L5_adapter
+
+  - name: network_adapter
+    description: "AIOS Network↔Mocor TCPIP/GPRS/socket bridge"
+    deps: [network_service]
+    layer: L5_adapter
+
+  - name: device_adapter
+    description: "AIOS Device↔Mocor HAL/Driver bridge"
+    deps: [device_service]
+    layer: L5_adapter
+
+  - name: audio_adapter
+    description: "AIOS Audio↔Mocor audio HAL bridge"
+    deps: [audio_service]
+    layer: L5_adapter
+
+  - name: telephony_adapter
+    description: "AIOS Telephony↔Mocor Modem/SIM bridge"
+    deps: [telephony_service]
+    layer: L5_adapter
+
+  # ── Layer 1: Application Layer ──────────────────────────────
+  - name: app_runtime
+    description: "应用执行环境 — 依赖 runtime + 所有核心 service"
+    deps: [dap_runtime, ui_service, storage_service, network_service, device_service]
+    layer: L1_application

@@ -1,0 +1,52 @@
+# AIOS Decisions Registry
+#
+# Records architectural and design decisions (ADRs).
+#
+# Schema per entry:
+#   - id: string             # Decision ID (e.g. ADR-001)
+#     title: string          # Short decision title
+#     date: string           # ISO 8601 date
+#     status: string         # proposed / accepted / deprecated / superseded
+#     context: string        # Why this decision was needed
+#     decision: string       # What was decided
+#     consequences: string   # Impact and trade-offs
+#     related_memo: string   # Technical memo reference
+#
+# Decisions are recorded during workflow close-task phase.
+
+decisions:
+  - id: ADR-001
+    title: "SHA-256 symbols prefixed with dap_ to avoid linker collision"
+    date: "2026-03-10"
+    status: accepted
+    context: "SSV WiFi module already defines sha256_init/update/final/hash. Adding a second SHA-256 to DAP causes duplicate symbol errors."
+    decision: "All DAP SHA-256 symbols use dap_ prefix (dap_sha256_init, DAP_SHA256_CTX, etc.)"
+    consequences: "No symbol collision; all DAP crypto code must use dap_-prefixed SHA-256 API"
+    related_memo: TM-15
+
+  - id: ADR-002
+    title: "BIN2 signature message = header + zeros(64) + payload"
+    date: "2026-03-10"
+    status: accepted
+    context: "Ed25519 verify needs a contiguous message. BIN2 file layout has signature between header and payload."
+    decision: "Temporarily zero the signature region; message = entire file with sig area zeroed. Packer uses same construction."
+    consequences: "Verifier modifies buffer in-place (saved/restored). Packer and verifier must use identical message construction."
+    related_memo: TM-15
+
+  - id: ADR-003
+    title: "DAP security modules use DAP_DBG for logging, not SCI_TRACE_LOW"
+    date: "2026-03-10"
+    status: accepted
+    context: "SCI_TRACE_LOW macro is unavailable in DAP security compilation units (os_api.h not in include chain)."
+    decision: "Use DAP_DBG/DAP_DBG_ERR macros which call DAP_TracePrint() — a linked function that works everywhere."
+    consequences: "All DAP modules have consistent logging path. DAP_TracePrint must be properly implemented with vsnprintf."
+    related_memo: TM-15
+
+  - id: ADR-008
+    title: "DAP_LoaderInit is lazy (triggered by FMM), security trace needs dual trigger"
+    date: "2026-03-12"
+    status: accepted
+    context: "DAP_LoaderInit() is only called from DAP_FMM_ExecuteBinFile when user runs a .bin file, not at boot. TM-25 BindingID Logel output placed in LoaderInit was unreachable at boot."
+    decision: "Security trace functions that need to be observable without running a .bin must also be called from the *#3472# debug menu (MMIAPIENG_OpenSecurityDebugWin)."
+    consequences: "New security diagnostic functions need dual integration: both DAP_LoaderInit and device_identity_debug.c"
+    related_memo: TM-25

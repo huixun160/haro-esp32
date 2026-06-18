@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+"""
+AIOS pre-commit hook
+
+Runs governance checks before each commit:
+  1. API Guard — detect unregistered APIs
+  2. Registry Guard — validate registry YAML files
+  3. Memo Guard — check for Technical Memo reference
+  4. Pitfall Guard — remind to document bug fixes
+
+All checks are warn-only. This hook never blocks a commit.
+"""
+
+import os
+import subprocess
+import sys
+
+HOOK_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# When installed to .git/hooks/, scripts are at ../../AIOShooks/scripts/
+# When run directly from AIOShooks/, scripts are at ./scripts/
+SCRIPTS_CANDIDATES = [
+    os.path.join(HOOK_DIR, '..', '..', 'AIOShooks', 'scripts'),  # installed in .git/hooks/
+    os.path.join(HOOK_DIR, 'scripts'),                         # run from AIOShooks/ directly
+]
+
+SCRIPTS_DIR = None
+for candidate in SCRIPTS_CANDIDATES:
+    if os.path.isdir(candidate):
+        SCRIPTS_DIR = os.path.abspath(candidate)
+        break
+
+GUARDS = [
+    'api_guard.py',
+    'registry_guard.py',
+    'memo_guard.py',
+    'pitfall_guard.py',
+]
+
+
+def run_guard(script_path):
+    """Run a guard script, capturing output."""
+    try:
+        result = subprocess.run(
+            [sys.executable, script_path],
+            capture_output=True, text=True, timeout=5
+        )
+        if result.stdout:
+            print(result.stdout, end='')
+    except Exception:
+        pass  # fail-open
+
+
+def main():
+    if not SCRIPTS_DIR:
+        return
+
+    for guard in GUARDS:
+        script = os.path.join(SCRIPTS_DIR, guard)
+        if os.path.exists(script):
+            run_guard(script)
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except Exception:
+        pass  # fail-open
+
+    sys.exit(0)  # always allow commit

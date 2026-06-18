@@ -1,0 +1,102 @@
+# Network Capability Registry
+# Source: Socket/HTTP/SSL/GPRS PDFs + source code
+# TM-36 Phase 3
+
+module: network
+description: "网络通信 — BSD Socket / HTTP Client / SSL-TLS / DNS / GPRS"
+source: [pdf_doc, sdk_headers]
+dap_coverage: none  # 0%
+
+capabilities:
+
+  - name: socket_tcp_udp
+    description: "BSD-style Socket 接口（TCP/UDP 连接/发送/接收）"
+    layer: APP_CANDIDATE
+    apis:
+      - sci_sock_socket
+      - sci_sock_bind
+      - sci_sock_listen
+      - sci_sock_accept
+      - sci_sock_connect
+      - sci_sock_send
+      - sci_sock_sendto
+      - sci_sock_recv
+      - sci_sock_recvfrom
+      - sci_sock_shutdown
+      - sci_sock_socketclose
+      - sci_sock_setsockopt
+      - sci_sock_getsockopt
+      - sci_sock_getpeername
+      - sci_sock_getsockname
+      - sci_sock_asyncselect
+      - sci_sock_modifynetid
+
+  - name: dns
+    description: "域名解析"
+    layer: APP_CANDIDATE
+    apis:
+      - sci_gethostbyname
+      - sci_gethostbyname_ext
+      - sci_dns_cancel
+
+  - name: http_client
+    description: "HTTP 客户端（GET/POST/HEAD/PUT + Auth + Cookie）"
+    layer: APP_CANDIDATE
+    apis:
+      - HTTP_CreateSession
+      - HTTP_DeleteSession
+      - HTTP_GetRequest
+      - HTTP_PostRequest
+      - HTTP_HeadRequest
+      - HTTP_PutRequest
+      - HTTP_CancelRequest
+      - HTTP_CloseConnection
+      - HTTP_SetAuth
+      - HTTP_SetProxy
+      - HTTP_SetCookie
+      - HTTP_GetResponseHeader
+      - HTTP_GetResponseBody
+      - HTTP_GetResponseStatus
+      - HTTP_SetUserAgent
+
+  - name: ssl_tls
+    description: "SSL/TLS 加密层"
+    layer: SERVICE_CANDIDATE
+    apis:
+      - SSL_Create
+      - SSL_Destroy
+      - SSL_Connect
+      - SSL_Send
+      - SSL_Recv
+      - SSL_Close
+      - SSL_SetCert
+      - SSL_SetVersion
+      - SSL_GetError
+
+  - name: gprs_pdp
+    description: "GPRS/LTE PDP Context 激活/去激活/APN"
+    layer: ADAPTER_ONLY
+    apis:
+      - MNGPRS_ActivatePdpContext
+      - MNGPRS_DeactivatePdpContext
+      - MNGPRS_GetPdpContextState
+      - MNGPRS_SetQos
+      - MNGPRS_GetQos
+      - MNGPRS_GetDataAcctInfo
+      - MNGPRS_SetApn
+      - MNGPRS_GetApn
+
+events:
+  - SOCKET_CONNECT_EVENT_IND
+  - SOCKET_READ_EVENT_IND
+  - SOCKET_WRITE_EVENT_IND
+  - SOCKET_CONNECTION_CLOSE_EVENT_IND
+  - SOCKET_ACCEPT_EVENT_IND
+  - SOCKET_FULL_CLOSED_EVENT_IND
+  - HTTP_RESPONSE_HEADER_IND
+  - HTTP_RESPONSE_DATA_IND
+  - HTTP_ERROR_IND
+
+dependency: [os_core]
+
+notes: "DAP 0% — 最关键的缺失。Socket/HTTP/SSL 全部可用但未封装。全部异步模式。"

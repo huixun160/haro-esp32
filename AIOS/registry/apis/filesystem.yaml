@@ -1,0 +1,152 @@
+# FileSystem API Registry (per-module split)
+# Source: UMS9117 SFS接口使用指南V1.1.pdf
+# TM-36 Phase 1b — SFS APIs NOT yet in DAP
+
+apis:
+
+  # ---- Device Ops (none in DAP) ----
+  - api: SFS_GetDeviceFreeSpace
+    module: filesystem
+    capability: device_management
+    level: L1
+    layer: APP_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "const uint16 *dev_name, uint32 *free_space_high, uint32 *free_space_low"
+    output: SFS_ERROR_E
+    description: "获取设备剩余空间（字节, 64位拆分）"
+
+  - api: SFS_GetDeviceUsedSpace
+    module: filesystem
+    capability: device_management
+    level: L1
+    layer: APP_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "const uint16 *dev_name, uint32 *used_space_high, uint32 *used_space_low"
+    output: SFS_ERROR_E
+    description: "获取设备已用空间"
+
+  - api: SFS_GetDeviceStatus
+    module: filesystem
+    capability: device_management
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "const uint16 *dev_name"
+    output: SFS_ERROR_E
+    description: "获取设备状态（就绪/未就绪/不存在）"
+
+  # ---- File/Dir Ops (not in DAP) ----
+  - api: SFS_RenameFile
+    module: filesystem
+    capability: file_directory_ops
+    level: L1
+    layer: APP_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "const uint16 *old_name, const uint16 *new_name"
+    output: SFS_ERROR_E
+    description: "重命名/移动文件"
+
+  - api: SFS_SetAttr
+    module: filesystem
+    capability: file_directory_ops
+    level: L1
+    layer: APP_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "const uint16 *path, uint16 attr"
+    output: SFS_ERROR_E
+    description: "设置文件属性（只读/隐藏/系统/存档）"
+
+  - api: SFS_GetAttr
+    module: filesystem
+    capability: file_directory_ops
+    level: L1
+    layer: APP_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "const uint16 *path, uint16 *attr"
+    output: SFS_ERROR_E
+    description: "获取文件属性"
+
+  - api: SFS_FindFirstFileCtrl
+    module: filesystem
+    capability: file_directory_ops
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "const uint16 *path, const uint16 *ctrl_str, SFS_FIND_DATA_T *find_data"
+    output: SFS_HANDLE
+    description: "按控制字符串查找文件（支持排序/过滤）"
+
+  - api: SFS_FindPreFile
+    module: filesystem
+    capability: file_directory_ops
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "SFS_HANDLE handle, SFS_FIND_DATA_T *find_data"
+    output: SFS_ERROR_E
+    description: "查找上一个匹配文件"
+
+  # ---- File Internal (not in DAP) ----
+  - api: SFS_SetFileSize
+    module: filesystem
+    capability: file_io
+    level: L1
+    layer: APP_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "SFS_HANDLE handle, uint32 size"
+    output: SFS_ERROR_E
+    description: "设置文件大小（截断或扩展）"
+
+  - api: SFS_FlushFile
+    module: filesystem
+    capability: file_io
+    level: L1
+    layer: APP_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: SFS_HANDLE
+    output: SFS_ERROR_E
+    description: "刷新文件缓冲到磁盘"
+
+  - api: SFS_GetFilePointer
+    module: filesystem
+    capability: file_io
+    level: L1
+    layer: APP_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "SFS_HANDLE handle, uint32 *position"
+    output: SFS_ERROR_E
+    description: "获取当前文件指针位置"
+
+  # ---- Async variants ----
+  - api: SFS_CreateFileAsyn
+    module: filesystem
+    capability: file_directory_ops
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "const uint16 *path, uint32 access, uint32 share, uint32 mode, SFS_OVERLAPPED_T *overlapped"
+    output: SFS_HANDLE
+    description: "异步创建/打开文件（回调通知完成）"
+
+  - api: SFS_CreateDirectoryAsyn
+    module: filesystem
+    capability: file_directory_ops
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "const uint16 *path, SFS_OVERLAPPED_T *overlapped"
+    output: SFS_ERROR_E
+    description: "异步创建目录"

@@ -1,0 +1,9 @@
+NO        	SN          	CORE        	Content                                                                         	Module                                                          	MSGID       	
+0         	300064-1    	--          	[DAP] [bind] tm28_DEBUG_secret[0..7]=90 50 c4 a8 e8 90 67 5e                    	                                                                	
+1         	300065-1    	--          	[DAP] [bind] tm28_DEBUG_secret[8..15]=09 ec e9 ab d9 e0 ef 93                   	                                                                	
+2         	300066-1    	--          	[DAP] [bind] tm28_DEBUG_secret[16..23]=5b 11 4b 7d f0 5a 75 83                  	                                                                	
+3         	300067-1    	--          	[DAP] [bind] tm28_DEBUG_secret[24..31]=fe 41 de 6e fe 76 78 c6                  	                                                                	
+4         	309368-1    	--          	[DAP] [bind] tm28_DEBUG_secret[0..7]=90 50 c4 a8 e8 90 67 5e                    	                                                                	
+5         	309369-1    	--          	[DAP] [bind] tm28_DEBUG_secret[8..15]=09 ec e9 ab d9 e0 ef 93                   	                                                                	
+6         	309370-1    	--          	[DAP] [bind] tm28_DEBUG_secret[16..23]=5b 11 4b 7d f0 5a 75 83                  	                                                                	
+7         	309371-1    	--          	[DAP] [bind] tm28_DEBUG_secret[24..31]=fe 41 de 6e fe 76 78 c6                  	                                                                	

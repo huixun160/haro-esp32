@@ -1,0 +1,26 @@
+# Telephony Capability Registry
+# TM-36 Phase 4
+
+module: telephony
+description: "电话子系统 — 网络注册/语音通话/短信/SIM卡/补充业务"
+source: [pdf_doc, sdk_headers]
+dap_coverage: none
+
+capabilities:
+  - name: network_registration
+    description: "网络注册/PLMN/信号/小区"
+    layer: ADAPTER_ONLY
+    apis: [MNPHONE_PowerOnEx, MNPHONE_PowerOff, MNPHONE_GetPlmnMode, MNPHONE_SetPlmnMode, MNPHONE_GetPlmnList, MNPHONE_SelectPlmn, MNPHONE_GetRegStatus, MNPHONE_GetSignalQuality, MNPHONE_GetIMSI, MNPHONE_GetIMEI, MNPHONE_GetCellId, MNPHONE_GetBandSelection, MNPHONE_SetBandSelection, MNPHONE_SetFlight, MNPHONE_IsSimOK]
+
+  - name: voice_call
+    description: "语音通话（拨号/接听/挂断/保持/多方）"
+    layer: SERVICE_CANDIDATE
+    apis: [MNCALL_MakeCall, MNCALL_EndCall, MNCALL_AnswerCall, MNCALL_HoldCall, MNCALL_RetrieveCall, MNCALL_SwapCalls, MNCALL_SendDTMF, MNCALL_GetCallStatus, MNCALL_GetCallCount, MNCALL_GetCallInfo, MNCALL_ConferenceCall, MNCALL_RejectCall]
+
+  - name: sms
+    description: "短信收发/读取/删除"
+    layer: SERVICE_CANDIDATE
+    apis: [MNSMS_SendSms, MNSMS_ReadSms, MNSMS_DeleteSms, MNSMS_GetSmsCount, MNSMS_GetSmsStatus, MNSMS_SetSmsCenterAddr, MNSMS_GetSmsCenterAddr, MNSMS_GetNewSmsInd, MNSMS_GetSmsStorageStatus]
+
+dependency: [os_core]
+notes: "DAP 0%。信号质量和 SIM 状态查询对 APP 有价值。"

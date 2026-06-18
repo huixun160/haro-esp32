@@ -1,0 +1,237 @@
+NO        	SN          	CORE        	Content                                                                         	Module                                                          	MSGID       	
+0         	39682-1     	--          	Time: 252 [DAP] [DAP_FMM_Integration.c:276] [MSG] >>> DAP_FMM_ExecuteModule ENTER	                                                                	
+1         	39762-1     	--          	Time: 252 [DAP] [DAP_FMM_Integration.c:287] [MSG] ExecuteModule: path=[D:\DAP\hello_bigseek.bin], name_len=24	                                                                	
+2         	39831-1     	--          	Time: 252 [DAP] [DAP_FMM_Integration.c:127] [MSG] >>> DAP_FMM_ExecuteBinFile ENTER	                                                                	
+3         	39920-1     	--          	Time: 252 [DAP] [DAP_FMM_Integration.c:138] [MSG] ExecuteBinFile: path=[D:\DAP\hello_bigseek.bin], len=24	                                                                	
+4         	40057-1     	--          	Time: 252 [DAP] [DAP_FMM_Integration.c:148] [WRN] Loader NOT initialized at startup!	                                                                	
+5         	40127-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:171] [MSG] >>> DAP_LoaderInit ENTER        	                                                                	
+6         	40196-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+7         	40197-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+8         	40198-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+9         	40199-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+10        	40200-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+11        	40201-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+12        	40202-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:713] [MSG] <<< Install_InterfaceRegister_API OK	                                                                	
+13        	40271-1     	--          	Time: 252 [DAP] [DAP_InstallOSAPI_unisoc.c:250] [MSG] >>> DAP_InstallOSAPI_UNISOC ENTER	                                                                	
+14        	40340-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+15        	40341-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+16        	40342-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+17        	40343-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+18        	40344-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+19        	40345-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+20        	40346-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+21        	40347-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+22        	40348-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+23        	40349-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+24        	40350-1     	--          	Time: 252 [DAP] [DAP_InstallOSAPI_unisoc.c:61] [MSG] <<< Install_Memory_API OK (5 APIs)	                                                                	
+25        	40419-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+26        	40420-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+27        	40421-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+28        	40422-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+29        	40423-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+30        	40424-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+31        	40425-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+32        	40426-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+33        	40427-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+34        	40428-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+35        	40429-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+36        	40430-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+37        	40431-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+38        	40432-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+39        	40433-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+40        	40434-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+41        	40435-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+42        	40436-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+43        	40437-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+44        	40438-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+45        	40439-1     	--          	Time: 252 [DAP] [DAP_InstallOSAPI_unisoc.c:115] [MSG] <<< Install_FileSystem_API OK (10 APIs)	                                                                	
+46        	40508-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+47        	40509-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+48        	40510-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+49        	40511-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+50        	40512-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+51        	40513-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+52        	40514-1     	--          	Time: 252 [DAP] [DAP_InstallOSAPI_unisoc.c:148] [MSG] <<< Install_Timer_API OK (3 APIs)	                                                                	
+53        	40583-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+54        	40584-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+55        	40585-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+56        	40586-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+57        	40587-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+58        	40588-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+59        	40589-1     	--          	Time: 252 [DAP] [DAP_InstallOSAPI_unisoc.c:175] [MSG] <<< Install_Debug_API OK (3 APIs)	                                                                	
+60        	40658-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+61        	40659-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+62        	40660-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+63        	40661-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+64        	40662-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+65        	40663-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+66        	40664-1     	--          	Time: 252 [DAP] <<< Install_GUI_API OK (3 APIs)                                 	                                                                	
+67        	40665-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+68        	40666-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+69        	40667-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+70        	40668-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+71        	40669-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+72        	40670-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+73        	40671-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+74        	40672-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+75        	40673-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+76        	40674-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+77        	40675-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+78        	40676-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+79        	40677-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+80        	40678-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+81        	40679-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+82        	40680-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+83        	40681-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+84        	40682-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+85        	40683-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+86        	40684-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+87        	40685-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+88        	40686-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+89        	40687-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+90        	40688-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+91        	40689-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+92        	40690-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+93        	40691-1     	--          	Time: 252 [DAP] [dap_audio_bridge.c:741] [MSG] <<< Install_Audio_API OK (13 APIs)	                                                                	
+94        	40760-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+95        	40761-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+96        	40762-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+97        	40763-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+98        	40764-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+99        	40765-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+100       	40766-1     	--          	Time: 252 [DAP] [DAP_InstallOSAPI_unisoc.c:231] [MSG] <<< Install_Time_API OK (3 APIs)	                                                                	
+101       	40835-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+102       	40836-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+103       	40837-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+104       	40838-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+105       	40839-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+106       	40840-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+107       	40841-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+108       	40842-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+109       	40843-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+110       	40844-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+111       	40845-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+112       	40846-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+113       	40847-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+114       	40848-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+115       	40849-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+116       	40850-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+117       	40851-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+118       	40852-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+119       	40853-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+120       	40854-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+121       	40855-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+122       	40856-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+123       	40857-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+124       	40858-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+125       	40859-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+126       	40860-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+127       	40861-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+128       	40862-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+129       	40863-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+130       	40864-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+131       	40865-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+132       	40866-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+133       	40867-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+134       	40868-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+135       	40869-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+136       	40870-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+137       	40871-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+138       	40872-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+139       	40873-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+140       	40874-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+141       	40875-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+142       	40876-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+143       	40877-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+144       	40878-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+145       	40879-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+146       	40880-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+147       	40881-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+148       	40882-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+149       	40883-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+150       	40884-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+151       	40885-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+152       	40886-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+153       	40887-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+154       	40888-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+155       	40889-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+156       	40890-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+157       	40891-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+158       	40892-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+159       	40893-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+160       	40894-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+161       	40895-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+162       	40896-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+163       	40897-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+164       	40898-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+165       	40899-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+166       	40900-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+167       	40901-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+168       	40902-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+169       	40903-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+170       	40904-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+171       	40905-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+172       	40906-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+173       	40907-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+174       	40908-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+175       	40909-1     	--          	Time: 252 [DAP] >>> Function:Register_Add ENTER                                 	                                                                	
+176       	40910-1     	--          	Time: 252 [DAP] >>> Function:Register_Add EXIT                                  	                                                                	
+177       	40911-1     	--          	Time: 252 [DAP] [DAP_InstallOSAPI_unisoc.c:291] [MSG] <<< DAP_LVGL_RegisterAPIs OK (5 APIs)	                                                                	
+178       	40982-1     	--          	Time: 252 [DAP] [DAP_InstallOSAPI_unisoc.c:295] [MSG] <<< DAP_InstallOSAPI_UNISOC OK	                                                                	
+179       	41052-1     	--          	Time: 252 [DAP] >>> device_secret_init ENTER                                    	                                                                	
+180       	41055-1     	--          	Time: 252 [DAP] DeviceSecret: gen_count loaded = 1                              	                                                                	
+181       	41056-1     	--          	Time: 252 [DAP] DeviceSecret: loaded from NV OK (version=1)                     	                                                                	
+182       	41057-1     	--          	Time: 252 [DAP] DeviceSecret loaded fingerprint: 3CECB8103F5C8588               	                                                                	
+183       	41058-1     	--          	Time: 252 [DAP] <<< device_secret_init OK (existing secret)                     	                                                                	
+184       	41059-1     	--          	Time: 252 [DAP] [bind] tm28_DEBUG_secret[0..7]=90 50 c4 a8 e8 90 67 5e          	                                                                	
+185       	41060-1     	--          	Time: 252 [DAP] [bind] tm28_DEBUG_secret[8..15]=09 ec e9 ab d9 e0 ef 93         	                                                                	
+186       	41061-1     	--          	Time: 252 [DAP] [bind] tm28_DEBUG_secret[16..23]=5b 11 4b 7d f0 5a 75 83        	                                                                	
+187       	41062-1     	--          	Time: 252 [DAP] [bind] tm28_DEBUG_secret[24..31]=fe 41 de 6e fe 76 78 c6        	                                                                	
+188       	41063-1     	--          	Time: 252 [DAP] [BIND] derive: ID[0..7]=99 c7 87 6d 6d ef 30 eb                 	                                                                	
+189       	41064-1     	--          	Time: 252 [DAP] [bind] tm25_init ok                                             	                                                                	
+190       	41065-1     	--          	Time: 252 [DAP] [bind] tm25_id[0..7]=99 c7 87 6d 6d ef 30 eb                    	                                                                	
+191       	41066-1     	--          	Time: 252 [DAP] [bind] tm25_id[8..15]=76 f7 bd 08 3e 48 90 c9                   	                                                                	
+192       	41067-1     	--          	Time: 252 [DAP] [bind] tm26_generate_bindfile ENTER                             	                                                                	
+193       	41068-1     	--          	Time: 252 [DAP] [bind] tm28_DEBUG_secret[0..7]=90 50 c4 a8 e8 90 67 5e          	                                                                	
+194       	41069-1     	--          	Time: 252 [DAP] [bind] tm28_DEBUG_secret[8..15]=09 ec e9 ab d9 e0 ef 93         	                                                                	
+195       	41070-1     	--          	Time: 252 [DAP] [bind] tm28_DEBUG_secret[16..23]=5b 11 4b 7d f0 5a 75 83        	                                                                	
+196       	41071-1     	--          	Time: 252 [DAP] [bind] tm28_DEBUG_secret[24..31]=fe 41 de 6e fe 76 78 c6        	                                                                	
+197       	41072-1     	--          	Time: 252 [DAP] [BIND] derive: ID[0..7]=99 c7 87 6d 6d ef 30 eb                 	                                                                	
+198       	41139-1     	--          	Time: 252 [DAP] [BIND] export: .bind written OK (131 bytes)                     	                                                                	
+199       	41140-1     	--          	Time: 252 [DAP] [BIND] export: id=99c7876d6def30eb76f7bd083e4890c9              	                                                                	
+200       	41141-1     	--          	Time: 252 [DAP] [bind] tm28_DEBUG_secret[0..7]=90 50 c4 a8 e8 90 67 5e          	                                                                	
+201       	41142-1     	--          	Time: 252 [DAP] [bind] tm28_DEBUG_secret[8..15]=09 ec e9 ab d9 e0 ef 93         	                                                                	
+202       	41143-1     	--          	Time: 252 [DAP] [bind] tm28_DEBUG_secret[16..23]=5b 11 4b 7d f0 5a 75 83        	                                                                	
+203       	41144-1     	--          	Time: 252 [DAP] [bind] tm28_DEBUG_secret[24..31]=fe 41 de 6e fe 76 78 c6        	                                                                	
+204       	41145-1     	--          	Time: 252 [DAP] [BIND] derive: ID[0..7]=99 c7 87 6d 6d ef 30 eb                 	                                                                	
+205       	41146-1     	--          	Time: 252 [DAP] [bind] tm26_binding_id=99c7876d6def30eb76f7bd083e4890c9         	                                                                	
+206       	41147-1     	--          	Time: 252 [DAP] [bind] tm26_file_written=D:\DAP\device.bind                     	                                                                	
+207       	41148-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:215] [MSG] <<< DAP_LoaderInit OK           	                                                                	
+208       	41219-1     	--          	Time: 252 [DAP] [DAP_FMM_Integration.c:157] [WRN] DAP_GetLoaderInited init OK (fix startup init!)	                                                                	
+209       	41289-1     	--          	Time: 252 [DAP] [DAP_FMM_Integration.c:177] [MSG] Calling DAP_ExecuteAP...      	                                                                	
+210       	41359-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:260] [MSG] >>> DAP_ExecuteAP ENTER, path=[D:\DAP\hello_bigseek.bin], ptr=0x82FCA13C	                                                                	
+211       	41430-1     	--          	Time: 252 [DAP] [DAP_OSAssociated_unisoc.c:156] [MSG] FileOpen: path=[D:\DAP\hello_bigseek.bin], len=24	                                                                	
+212       	41624-1     	--          	Time: 252 [DAP] [DAP_OSAssociated_unisoc.c:168] [MSG] FileOpen OK: handle=0x00240000	                                                                	
+213       	41725-1     	--          	Time: 252 [DAP] [DAP_OSAssociated_unisoc.c:229] [MSG] FileGetSize OK: size=580 bytes	                                                                	
+214       	41807-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:286] [MSG] File size: 580 bytes            	                                                                	
+215       	41896-1     	--          	Time: 252 [DAP] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=352, actual=352	                                                                	
+216       	41965-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:334] [MSG] Module SDK version: 1           	                                                                	
+217       	42045-1     	--          	Time: 252 [DAP] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=580, actual=580	                                                                	
+218       	42114-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:365] [MSG] Full file loaded: 580 bytes at 0x83F30748	                                                                	
+219       	42183-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:446] [MSG] version>=v1: -----------call GetBSSSpace	                                                                	
+220       	42252-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:450] [MSG] GetBSSSpace:    offset=0x000001D0,     addr=0x83F30918	                                                                	
+221       	42321-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:454] [MSG] GetBSSSpace returned BSS_size= 0 bytes	                                                                	
+222       	42421-1     	--          	Time: 252 [DAP] [DAP_OSAssociated_unisoc.c:201] [MSG] FileRead OK: requested=580, actual=580	                                                                	
+223       	42490-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:525] [MSG] BSS realloc OK: file=580 + bss=0 = 580, base=0x83F30748, encrypted=0	                                                                	
+224       	42564-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:555] [ERR] === [Kernel Direct] Inside Loader ===	                                                                	
+225       	42633-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:556] [ERR] Kernel Direct: LoadAddr=0x83F30748	                                                                	
+226       	42702-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:557] [ERR] Kernel Direct: OSAPI=0x88DC5D71 	                                                                	
+227       	42771-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:558] [ERR] Kernel Direct: Register=0x88DC5D03	                                                                	
+228       	42840-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:559] [ERR] Kernel Direct: DelAPI=0x88DC5E47	                                                                	
+229       	42909-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:575] [MSG] Reloc: OSAPI=0x88DC5D71, Reg=0x88DC5D03, Del=0x88DC5E47, LoadAddr=0x83F30748	                                                                	
+230       	42978-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:593] [MSG] Entry offset=0x00000184, base=0x83F30748, absolute=0x83F308CC	                                                                	
+231       	43047-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:595] [MSG] Header: TagCheckSum=0x0000026D, VersionMark=0x55AA0001, LoadAddr=0x83F30748	                                                                	
+232       	43116-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:598] [MSG] Header: MTKExeTag=[MTK_Exe], GetBSSSpace=0x000001D0, Free=0x00000000	                                                                	
+233       	43185-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:604] [MSG] >>> JUMPING to entry_func NOW <<<	                                                                	
+234       	43254-1     	--          	Time: 252 [DAP] [DAP_Loader_unisoc.c:610] [ERR] >>> BEFORE Exec: Loader running standard entry	                                                                	
+235       	43323-1     	--          	Time: 252 LOGSAVE: CHIPDRV SCI_PAssert                                          	                                                                	

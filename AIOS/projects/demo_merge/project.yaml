@@ -1,0 +1,9 @@
+project: demo_merge
+display_name: "Merge demo and secure version"
+description: "合并现有安全版本和演示版本，用于对外输出安全版本或对内输出工程版本。备注：voice assistant应用目前有部分bug，暂不修改。"
+created_at: "2026-03-26"
+lead: KaiwenZheng
+modules: []
+build_target: ""
+platform: Unisoc Mocor
+tm_counter: 3

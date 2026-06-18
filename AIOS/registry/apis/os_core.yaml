@@ -1,0 +1,444 @@
+# OS Core API Registry (per-module split)
+# Source: OS接口使用指南V1.1.pdf
+# TM-36 Phase 1a — Unisoc OSA APIs NOT yet in DAP
+
+apis:
+
+  # ---- Event ----
+  - api: SCI_CreateEvent
+    module: os_core
+    capability: event
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: unknown
+    source: unisoc_os
+    input: "char *name"
+    output: SCI_EVENT_GROUP_PTR
+    description: "创建事件标记组"
+
+  - api: SCI_SetEvent
+    module: os_core
+    capability: event
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: unknown
+    source: unisoc_os
+    input: "SCI_EVENT_GROUP_PTR ptr, uint32 flags, uint32 option"
+    output: uint32
+    description: "设置事件标记（option: SCI_OR / SCI_AND）"
+
+  - api: SCI_GetEvent
+    module: os_core
+    capability: event
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: unknown
+    source: unisoc_os
+    input: "SCI_EVENT_GROUP_PTR ptr, uint32 flags, uint32 option, uint32 *actual, uint32 wait"
+    output: uint32
+    description: "获取事件标记（可阻塞等待）"
+
+  - api: SCI_DeleteEvent
+    module: os_core
+    capability: event
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: unknown
+    source: unisoc_os
+    input: "SCI_EVENT_GROUP_PTR ptr"
+    output: uint32
+    description: "删除事件标记组"
+
+  # ---- IRQ ----
+  - api: SCI_DisableIRQ
+    module: os_core
+    capability: irq
+    level: L1
+    layer: OS_INTERNAL
+    stability: stable
+    source: unisoc_os
+    input: void
+    output: uint32
+    description: "关闭 IRQ 中断，返回中断状态"
+
+  - api: SCI_RestoreIRQ
+    module: os_core
+    capability: irq
+    level: L1
+    layer: OS_INTERNAL
+    stability: stable
+    source: unisoc_os
+    input: "uint32 status"
+    output: void
+    description: "恢复 IRQ 中断"
+
+  # ---- Memory (extended, not in DAP) ----
+  - api: SCI_ALLOC_CONST
+    module: os_core
+    capability: memory_system
+    level: L1
+    layer: ADAPTER_ONLY
+    stability: stable
+    source: unisoc_os
+    input: "uint32 size"
+    output: "void *"
+    description: "从 Const Pool 分配内存"
+
+  - api: SCI_ALLOC_BASE
+    module: os_core
+    capability: memory_system
+    level: L1
+    layer: ADAPTER_ONLY
+    stability: stable
+    source: unisoc_os
+    input: "uint32 size"
+    output: "void *"
+    description: "从 Base Pool 分配内存"
+
+  - api: SCI_MEM16CPY
+    module: os_core
+    capability: memory_system
+    level: L1
+    layer: ADAPTER_ONLY
+    stability: stable
+    source: unisoc_os
+    input: "uint16 *dst, uint16 *src, uint32 count"
+    output: void
+    description: "16位宽内存拷贝（Unicode 字符串用）"
+
+  - api: SCI_MEM16SET
+    module: os_core
+    capability: memory_system
+    level: L1
+    layer: ADAPTER_ONLY
+    stability: stable
+    source: unisoc_os
+    input: "uint16 *dst, uint16 val, uint32 count"
+    output: void
+    description: "16位宽内存填充"
+
+  # ---- MemPool ----
+  - api: SCI_CreateMemPool
+    module: os_core
+    capability: memory_pool
+    level: L1
+    layer: ADAPTER_ONLY
+    stability: stable
+    source: unisoc_os
+    input: "char *name, void *start, uint32 size, uint32 min_alloc, uint32 level"
+    output: "void *"
+    description: "创建委托内存池"
+
+  - api: SCI_DeleteMemPool
+    module: os_core
+    capability: memory_pool
+    level: L1
+    layer: ADAPTER_ONLY
+    stability: stable
+    source: unisoc_os
+    input: "void *pool"
+    output: uint32
+    description: "删除内存池"
+
+  - api: SCI_MPALLOC
+    module: os_core
+    capability: memory_pool
+    level: L1
+    layer: ADAPTER_ONLY
+    stability: stable
+    source: unisoc_os
+    input: "void *pool, uint32 size"
+    output: "void *"
+    description: "从内存池分配"
+
+  - api: SCI_MPFREE
+    module: os_core
+    capability: memory_pool
+    level: L1
+    layer: ADAPTER_ONLY
+    stability: stable
+    source: unisoc_os
+    input: "void *pool, void *ptr"
+    output: void
+    description: "释放到内存池"
+
+  # ---- Message/Signal ----
+  - api: SCI_SendSignal
+    module: os_core
+    capability: message
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "xSignalHeaderRec *sig, SCI_THREAD_PTR thread"
+    output: uint32
+    description: "发送消息到指定线程"
+
+  - api: SCI_SendSignalFront
+    module: os_core
+    capability: message
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "xSignalHeaderRec *sig, SCI_THREAD_PTR thread"
+    output: uint32
+    description: "发送消息到队头（高优先级）"
+
+  - api: SCI_GetSignal
+    module: os_core
+    capability: message
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "SCI_THREAD_PTR thread"
+    output: "xSignalHeaderRec *"
+    description: "接收消息（阻塞）"
+
+  - api: SCI_PeekSignal
+    module: os_core
+    capability: message
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "SCI_THREAD_PTR thread"
+    output: "xSignalHeaderRec *"
+    description: "查看消息（不从队列取出）"
+
+  # ---- Thread (key APIs) ----
+  - api: SCI_CreateThread
+    module: os_core
+    capability: thread
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "char *name, char *queue_name, THREAD_FUN entry, uint32 argc, void *argv, uint32 stack_size, uint32 queue_num, uint32 priority, uint32 preempt, uint32 auto_start"
+    output: SCI_THREAD_PTR
+    description: "创建线程（标准）"
+
+  - api: SCI_CreateAppThread
+    module: os_core
+    capability: thread
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "char *name, char *queue_name, THREAD_FUN entry, uint32 argc, void *argv, uint32 stack_size, uint32 queue_num, uint32 priority, uint32 preempt, uint32 auto_start"
+    output: SCI_THREAD_PTR
+    description: "创建 APP 线程（使用 APP Pool 内存）"
+
+  - api: SCI_DeleteThread
+    module: os_core
+    capability: thread
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: SCI_THREAD_PTR
+    output: uint32
+    description: "删除线程"
+
+  - api: SCI_IdentifyThread
+    module: os_core
+    capability: thread
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: void
+    output: SCI_THREAD_PTR
+    description: "获取当前线程 ID"
+
+  - api: SCI_IsThreadExist
+    module: os_core
+    capability: thread
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: SCI_THREAD_PTR
+    output: BOOLEAN
+    description: "检查线程是否存在"
+
+  # ---- Timer (extended) ----
+  - api: SCI_CreatePeriodTimer
+    module: os_core
+    capability: timer
+    level: L1
+    layer: APP_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "char *name, uint32 ms, SCI_TIMER_PTR *timer, TIMER_FUN callback, uint32 param, uint32 auto_start"
+    output: SCI_TIMER_PTR
+    description: "创建周期定时器"
+
+  - api: SCI_ChangeTimer
+    module: os_core
+    capability: timer
+    level: L1
+    layer: APP_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "SCI_TIMER_PTR timer, TIMER_FUN callback, uint32 ms"
+    output: uint32
+    description: "修改定时器回调和周期"
+
+  - api: SCI_ActiveTimer
+    module: os_core
+    capability: timer
+    level: L1
+    layer: APP_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: SCI_TIMER_PTR
+    output: uint32
+    description: "启动定时器"
+
+  - api: SCI_DeactiveTimer
+    module: os_core
+    capability: timer
+    level: L1
+    layer: APP_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: SCI_TIMER_PTR
+    output: uint32
+    description: "停止定时器"
+
+  - api: SCI_GetTimerInfo
+    module: os_core
+    capability: timer
+    level: L1
+    layer: APP_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "SCI_TIMER_PTR timer, uint32 *remaining, uint32 *reschedule, SCI_TIMER_PTR *next"
+    output: uint32
+    description: "获取定时器信息（剩余时间等）"
+
+  # ---- Mutex ----
+  - api: SCI_CreateMutex
+    module: os_core
+    capability: mutex
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "char *name, uint32 inherit"
+    output: SCI_MUTEX_PTR
+    description: "创建互斥信号量"
+
+  - api: SCI_GetMutex
+    module: os_core
+    capability: mutex
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "SCI_MUTEX_PTR ptr, uint32 wait"
+    output: uint32
+    description: "获取互斥锁（可阻塞）"
+
+  - api: SCI_PutMutex
+    module: os_core
+    capability: mutex
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "SCI_MUTEX_PTR ptr"
+    output: uint32
+    description: "释放互斥锁"
+
+  - api: SCI_DeleteMutex
+    module: os_core
+    capability: mutex
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "SCI_MUTEX_PTR ptr"
+    output: uint32
+    description: "删除互斥信号量"
+
+  # ---- Semaphore ----
+  - api: SCI_CreateSemaphore
+    module: os_core
+    capability: semaphore
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "char *name, uint32 initial_count"
+    output: SCI_SEMAPHORE_PTR
+    description: "创建计数信号量"
+
+  - api: SCI_GetSemaphore
+    module: os_core
+    capability: semaphore
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "SCI_SEMAPHORE_PTR ptr, uint32 wait"
+    output: uint32
+    description: "P 操作（获取信号量）"
+
+  - api: SCI_PutSemaphore
+    module: os_core
+    capability: semaphore
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "SCI_SEMAPHORE_PTR ptr"
+    output: uint32
+    description: "V 操作（释放信号量）"
+
+  - api: SCI_DeleteSemaphore
+    module: os_core
+    capability: semaphore
+    level: L1
+    layer: SERVICE_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "SCI_SEMAPHORE_PTR ptr"
+    output: uint32
+    description: "删除信号量"
+
+  # ---- Trace (extended) ----
+  - api: SCI_TRACE_HIGH
+    module: os_core
+    capability: trace
+    level: L1
+    layer: APP_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "const char *format, ..."
+    output: void
+    description: "高级别日志输出"
+
+  - api: SCI_TRACE_MID
+    module: os_core
+    capability: trace
+    level: L1
+    layer: APP_CANDIDATE
+    stability: stable
+    source: unisoc_os
+    input: "const char *format, ..."
+    output: void
+    description: "中级别日志输出"
+
+  - api: SCI_TRACE_BUF
+    module: os_core
+    capability: trace
+    level: L1
+    layer: ADAPTER_ONLY
+    stability: stable
+    source: unisoc_os
+    input: "const char *name, uint8 *buf, uint16 len"
+    output: void
+    description: "缓冲区内容转储日志"

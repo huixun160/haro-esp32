@@ -1,0 +1,77 @@
+# AIOS Acceptance Tests
+# Purpose: Machine-readable per-module test definitions
+# Replaces ad-hoc verification checklists with structured test lists
+# Last updated: 2026-03-25
+
+modules:
+  abi_v1:
+    tests:
+      - name: abi_header_compiles
+        description: "abi_v1.h compiles without errors in both APP and DAP contexts"
+        method: build
+      - name: abi_id_uniqueness
+        description: "All ABI function IDs are unique"
+        method: static_analysis
+      - name: abi_backward_compat
+        description: "Existing ABI v1 apps still link and run"
+        method: device
+
+  dap_runtime:
+    tests:
+      - name: loader_init
+        description: "DAP loader initializes without crash"
+        method: device
+      - name: bin2_load_execute
+        description: "BIN2 file loads and entry point executes"
+        method: device
+      - name: abi_dispatch
+        description: "ABI function calls dispatch to correct service"
+        method: device
+
+  ui_service:
+    tests:
+      - name: create_screen
+        description: "Screen creation returns valid screen_id"
+        method: device
+      - name: render_label
+        description: "Label widget renders text on screen"
+        method: device
+      - name: key_event_handling
+        description: "Key events propagate to active screen"
+        method: device
+
+  storage_service:
+    tests:
+      - name: file_create_write_read
+        description: "Create, write, and read back a file"
+        method: device
+      - name: file_delete
+        description: "Delete a file and confirm removal"
+        method: device
+
+  network_service:
+    tests:
+      - name: placeholder
+        description: "Network service tests TBD (module in INTAKE)"
+        method: tbd
+
+  ui_adapter:
+    tests:
+      - name: guiref_bridge
+        description: "GUIREF calls succeed on Mocor platform"
+        method: device
+
+  storage_adapter:
+    tests:
+      - name: sfs_bridge
+        description: "SFS file operations succeed on Mocor platform"
+        method: device
+
+  app_runtime:
+    tests:
+      - name: app_lifecycle
+        description: "App start → run → suspend → resume → exit cycle completes"
+        method: device
+      - name: multi_service_access
+        description: "App can access UI + storage services in same session"
+        method: device
